@@ -1,0 +1,35 @@
+/* Home.css */
+
+/* Align carousel caption to the left half of the carousel */
+.carousel-caption-left {
+    font-family:'Inknut Antiqua';
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: -20%; /* Move to left side */
+    transform: translateY(-50%); /* Center vertically with transform */
+    text-align: left; /* Align text to the left */
+    max-width: 40%; /* Restrict caption width to left half of the carousel */
+  }
+  
+  /* Optional: style for the heading and paragraph text */
+  .carousel-caption-left h3 {
+    font-size: 3rem; /* Adjust the size of the title */
+    font-weight: bold;
+    color: #fff; /* Make the text white for better contrast */
+  }
+  
+  .carousel-caption-left p {
+    font-size: 1.25rem; /* Adjust the size of the paragraph text */
+    color: #fff; /* Make the text white for better contrast */
+  }
+  
+  /* Optional: style for the button */
+  .carousel-caption-left .btn {
+    margin-top: 15px;
+  }
+  .readmore{
+    background-color: #FF6100 !important ;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  
