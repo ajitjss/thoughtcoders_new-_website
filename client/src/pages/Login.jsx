@@ -7,14 +7,14 @@ import SEO from '../components/SEO';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login, error } = useAuth(); // Destructure login and error from useAuth
+  const { login, error } = useAuth(); 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const success = await login(email, password);
     if (success) {
-      navigate('/'); // Navigate to the home page if login is successful
+      navigate('/'); 
     }
   };
 

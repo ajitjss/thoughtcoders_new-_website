@@ -1,6 +1,6 @@
 import React from 'react';
 import { Carousel, Button } from 'react-bootstrap';
-import './CarouselComp.css'; // Import custom CSS
+import './CarouselComp.css'; 
 import SEO from './SEO';
 
 const CarouselComp = () => {

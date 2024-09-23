@@ -6,10 +6,10 @@ import DOMPurify from 'dompurify';
 import SEO from '../components/SEO';
 
 const BlogDetail = () => {
-  const { id } = useParams(); // Get the blog ID from the URL
+  const { id } = useParams();
   const [blog, setBlog] = useState(null);
-  const [loading, setLoading] = useState(true); // Loading state
-  const [error, setError] = useState(null); // Error state
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
 
   useEffect(() => {
     const fetchBlog = async () => {

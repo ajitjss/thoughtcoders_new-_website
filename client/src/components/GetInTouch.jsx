@@ -1,6 +1,5 @@
 import React from 'react';
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'; // Import icons
-// import './GetInTouch.css'; // Optional: for any custom styles
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'; 
 
 const GetInTouch = () => {
   return (
@@ -17,7 +16,7 @@ const GetInTouch = () => {
             <p><FaMapMarkerAlt /> Location: Bhimpura No.1 Ballia, Utter Pradesh,221716</p>
           </div>
 
-          {/* Map Integration (Placeholder) */}
+          {/* Map Integration */}
           <div className="map-container mt-4">
             <iframe
               title="map"

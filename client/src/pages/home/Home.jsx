@@ -5,22 +5,22 @@ import CountUpSection from '../../components/CountUpSection';
 import {Link} from 'react-router-dom'
 
 const Home = () => {
-  const [count, setCount] = useState(50);  // Starting the count from 10
+  const [count, setCount] = useState(50);  
 
   useEffect(() => {
-    const targetNumber = 90;  // The number to count up to
+    const targetNumber = 90; 
     const interval = setInterval(() => {
       setCount((prevCount) => {
         if (prevCount < targetNumber) {
           return prevCount + 1;
         } else {
-          clearInterval(interval);  // Stop the interval when target number is reached
+          clearInterval(interval); 
           return prevCount;
         }
       });
-    }, 5);  // Speed of the count up (30ms interval)
+    }, 5);  // Speed of the count up (5ms interval)
 
-    return () => clearInterval(interval);  // Cleanup the interval on unmount
+    return () => clearInterval(interval);
   }, []);
 
   return (

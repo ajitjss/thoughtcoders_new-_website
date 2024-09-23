@@ -6,7 +6,7 @@ import JoditEditor from 'jodit-react';
 import SEO from '../components/SEO';
 
 const EditBlog = () => {
-  const { id } = useParams(); // Get the blog ID from the route parameters
+  const { id } = useParams(); 
   const navigate = useNavigate();
   const editor = useRef(null);
   const [content, setContent] = useState('');
@@ -21,7 +21,7 @@ const EditBlog = () => {
       try {
         const response = await axios.get(`http://localhost:8080/api/blogs/${id}`, {
           headers: {
-            'Authorization': `Bearer ${token}` // Include the token in the request headers
+            'Authorization': `Bearer ${token}` 
           }
         });
         setTitle(response.data.title);
@@ -61,13 +61,13 @@ const EditBlog = () => {
         { title, content }, 
         {
           headers: {
-            'Authorization': `Bearer ${token}` // Include the token in the request headers
+            'Authorization': `Bearer ${token}` 
           }
         }
       ); // Update the blog
-      localStorage.removeItem('editTitle'); // Clear local storage after successful update
+      localStorage.removeItem('editTitle'); 
       localStorage.removeItem('editContent');
-      navigate('/', { state: { message: 'Blog updated successfully!' } }); // Redirect to home page with a success message
+      navigate('/', { state: { message: 'Blog updated successfully!' } }); 
     } catch (error) {
       console.error('Error updating blog:', error);
     }

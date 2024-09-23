@@ -5,9 +5,9 @@ import { useAuth } from '../context/AuthContext';
 
 const ProtectedRoute = () => {
     const navigate = useNavigate()
-  const { isAuthenticated } = useAuth(); // Get authentication status from context
+  const { isAuthenticated } = useAuth();
 
-  return isAuthenticated ? <Outlet /> : navigate('/login'); // Redirect to login if not authenticated
+  return isAuthenticated ? <Outlet /> : navigate('/login'); 
 };
 
 export default ProtectedRoute;

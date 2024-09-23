@@ -1,15 +1,15 @@
 // src/context/AuthContext.jsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import {jwtDecode} from 'jwt-decode'; // Correct import for jwt-decode
-import axios from 'axios'; // Import axios for making API requests
+import {jwtDecode} from 'jwt-decode'; 
+import axios from 'axios';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
-    const [loading, setLoading] = useState(true); // Loading state to handle loading while verifying token
-    const [error, setError] = useState(''); // Error state for handling authentication errors
+    const [loading, setLoading] = useState(true); 
+    const [error, setError] = useState('');
 
     // Function to handle login and save the token
     const setAuth = (token) => {
@@ -17,11 +17,11 @@ export const AuthProvider = ({ children }) => {
             const decodedToken = jwtDecode(token);
             setIsAuthenticated(true);
             setIsAdmin(decodedToken.isAdmin || false);
-            localStorage.setItem('authToken', token); // Save token to local storage
+            localStorage.setItem('authToken', token); 
         } else {
             setIsAuthenticated(false);
             setIsAdmin(false);
-            localStorage.removeItem('authToken'); // Remove token from local storage
+            localStorage.removeItem('authToken');
         }
     };
 
@@ -33,10 +33,10 @@ export const AuthProvider = ({ children }) => {
             const token = response.data.token;
             setAuth(token);
             setError('');
-            return true; // Registration successful
+            return true;
         } catch (error) {
             setError(error.response?.data?.message || 'An error occurred during registration.');
-            return false; // Registration failed
+            return false;
         } finally {
             setLoading(false);
         }
@@ -50,10 +50,10 @@ export const AuthProvider = ({ children }) => {
             const token = response.data.token;
             setAuth(token);
             setError('');
-            return true; // Login successful
+            return true; 
         } catch (error) {
             setError(error.response?.data?.message || 'An error occurred during login.');
-            return false; // Login failed
+            return false;
         } finally {
             setLoading(false);
         }
@@ -62,7 +62,7 @@ export const AuthProvider = ({ children }) => {
     // Function to handle user logout
     const logout = () => {
         setAuth(null);
-        window.location.href = '/'; // Redirect to home or login
+        window.location.href = '/'; 
     };
 
     // Effect to check if user is already logged in on initial load

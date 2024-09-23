@@ -23,14 +23,14 @@ const CreateBlog = ({ placeholder }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem('authToken'); // Get the token from localStorage
+    const token = localStorage.getItem('authToken'); 
     try {
       const response = await axios.post('http://localhost:8080/api/blogs', {
           title,
           content
       }, {
           headers: {
-              'Authorization': `Bearer ${token}` // Include the token in the header
+              'Authorization': `Bearer ${token}` 
           }
       });
       alert('Blog posted successfully!');

@@ -8,19 +8,12 @@ const SEO = ({ title, description, keywords, author }) => {
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
-
       {/* Here I have added Google AdSense script */}
-      {/* <script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4666288005576632"
-        crossorigin="anonymous"
-      ></script> */}
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4666288005576632"
-    crossorigin="anonymous"></script>
-
-
-    {/*Here I have added Google Analytics script */}
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=G-LH0RMVL6PD`}></script>
+        crossorigin="anonymous">
+      </script>
+      {/*Here I have added Google Analytics script */}
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=G-LH0RMVL6PD`}></script>
       <script>
         {`
           window.dataLayer = window.dataLayer || [];

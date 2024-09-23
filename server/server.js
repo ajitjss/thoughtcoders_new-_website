@@ -5,8 +5,8 @@ const multer = require('multer');
 const path = require('path');
 const dotenv = require('dotenv');
 const colors = require('colors');     
-const bcrypt = require('bcryptjs');  // For hashing passwords
-const jwt = require('jsonwebtoken'); // For JWT token generation
+const bcrypt = require('bcryptjs'); 
+const jwt = require('jsonwebtoken'); 
 const Razorpay = require('razorpay');
 
 // Configure environment variables

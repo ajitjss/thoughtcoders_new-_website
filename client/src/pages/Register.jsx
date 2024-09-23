@@ -8,14 +8,14 @@ const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { register, error } = useAuth(); // Destructure register and error from useAuth
+  const { register, error } = useAuth(); 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const success = await register(name, email, password);
     if (success) {
-      navigate('/login'); // Navigate to login page if registration is successful
+      navigate('/login'); 
     }
   };
 

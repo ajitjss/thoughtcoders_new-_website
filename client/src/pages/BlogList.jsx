@@ -8,12 +8,12 @@ import SEO from '../components/SEO';
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1); // State for current page
-  const blogsPerPage = 6; // Number of blogs to display per page
+  const [currentPage, setCurrentPage] = useState(1); 
+  const blogsPerPage = 6; 
   const location = useLocation();
   const alertMessage = location.state?.message;
-  const { isAuthenticated } = useAuth(); // Use auth context to check if the user is authenticated and get the token
-  const token = localStorage.getItem('authToken'); // Get the token from localStorage
+  const { isAuthenticated } = useAuth(); 
+  const token = localStorage.getItem('authToken'); 
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -35,10 +35,10 @@ const BlogList = () => {
       try {
         await axios.delete(`http://localhost:8080/api/blogs/${id}`, {
           headers: {
-            'Authorization': `Bearer ${token}` // Include the token in the request headers
+            'Authorization': `Bearer ${token}`
           }
         });
-        setBlogs(blogs.filter(blog => blog._id !== id)); // Remove the deleted blog from the state
+        setBlogs(blogs.filter(blog => blog._id !== id)); 
         alert('Blog deleted successfully!');
       } catch (error) {
         console.error('Error deleting blog:', error);
