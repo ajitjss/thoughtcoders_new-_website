@@ -5,6 +5,7 @@ import CountUpSection from '../../components/CountUpSection';
 import {Link} from 'react-router-dom'
 
 const Home = () => {
+  // eslint-disable-next-line no-unused-vars
   const [count, setCount] = useState(50);  
 
   useEffect(() => {
