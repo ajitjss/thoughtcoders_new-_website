@@ -5,6 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
 import { useAuth } from '../context/AuthContext';
 import SEO from '../components/SEO';
+import { config } from '../config';
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
@@ -18,7 +19,7 @@ const BlogList = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/blogs');
+        const response = await axios.get(`${config.BASE_URL}/api/blogs`);
         setBlogs(response.data);
       } catch (error) {
         console.error('Error fetching blogs:', error);
@@ -33,7 +34,7 @@ const BlogList = () => {
     const confirmDelete = window.confirm('Are you sure you want to delete this blog?');
     if (confirmDelete) {
       try {
-        await axios.delete(`http://localhost:8080/api/blogs/${id}`, {
+        await axios.delete(`${config.BASE_URL}/api/blogs/${id}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }

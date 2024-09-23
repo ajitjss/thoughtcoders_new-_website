@@ -4,6 +4,8 @@ import JoditEditor from 'jodit-react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import SEO from '../components/SEO';
+import { config as appConfig } from '../config'; 
+
 
 const CreateBlog = ({ placeholder }) => {
   const editor = useRef(null);
@@ -25,12 +27,12 @@ const CreateBlog = ({ placeholder }) => {
     e.preventDefault();
     const token = localStorage.getItem('authToken'); 
     try {
-      const response = await axios.post('http://localhost:8080/api/blogs', {
+      const response = await axios.post(`${appConfig.BASE_URL}/api/blogs`, {
           title,
           content
       }, {
           headers: {
-              'Authorization': `Bearer ${token}` 
+              'Authorization': `Bearer ${token}` // Include the token in the header
           }
       });
       alert('Blog posted successfully!');

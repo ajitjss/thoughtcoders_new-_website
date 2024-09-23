@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import JoditEditor from 'jodit-react';
 import SEO from '../components/SEO';
+import { config as appConfig } from '../config';
 
 const EditBlog = () => {
   const { id } = useParams(); 
@@ -19,7 +20,7 @@ const EditBlog = () => {
     // Fetch the blog details to edit
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/blogs/${id}`, {
+        const response = await axios.get(`${appConfig.BASE_URL}/api/blogs/${id}`, {
           headers: {
             'Authorization': `Bearer ${token}` 
           }
@@ -57,7 +58,7 @@ const EditBlog = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8080/api/blogs/${id}`, 
+      await axios.put(`${appConfig.BASE_URL}/api/blogs/${id}`, 
         { title, content }, 
         {
           headers: {

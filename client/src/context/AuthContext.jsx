@@ -1,15 +1,16 @@
 // src/context/AuthContext.jsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import {jwtDecode} from 'jwt-decode'; 
-import axios from 'axios';
+import {jwtDecode} from 'jwt-decode'; // Correct import for jwt-decode
+import axios from 'axios'; // Import axios for making API requests
+import { config } from '../config';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
-    const [loading, setLoading] = useState(true); 
-    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(true); // Loading state to handle loading while verifying token
+    const [error, setError] = useState(''); // Error state for handling authentication errors
 
     // Function to handle login and save the token
     const setAuth = (token) => {
@@ -17,11 +18,11 @@ export const AuthProvider = ({ children }) => {
             const decodedToken = jwtDecode(token);
             setIsAuthenticated(true);
             setIsAdmin(decodedToken.isAdmin || false);
-            localStorage.setItem('authToken', token); 
+            localStorage.setItem('authToken', token); // Save token to local storage
         } else {
             setIsAuthenticated(false);
             setIsAdmin(false);
-            localStorage.removeItem('authToken');
+            localStorage.removeItem('authToken'); // Remove token from local storage
         }
     };
 
@@ -29,14 +30,14 @@ export const AuthProvider = ({ children }) => {
     const register = async (name, email, password) => {
         try {
             setLoading(true);
-            const response = await axios.post('http://localhost:8080/api/auth/register', { name, email, password });
+            const response = await axios.post(`${config.BASE_URL}/api/auth/register`, { name, email, password });
             const token = response.data.token;
             setAuth(token);
             setError('');
-            return true;
+            return true; // Registration successful
         } catch (error) {
             setError(error.response?.data?.message || 'An error occurred during registration.');
-            return false;
+            return false; // Registration failed
         } finally {
             setLoading(false);
         }
@@ -46,14 +47,14 @@ export const AuthProvider = ({ children }) => {
     const login = async (email, password) => {
         try {
             setLoading(true);
-            const response = await axios.post('http://localhost:8080/api/auth/login', { email, password });
+            const response = await axios.post(`${config.BASE_URL}/api/auth/login`, { email, password });
             const token = response.data.token;
             setAuth(token);
             setError('');
-            return true; 
+            return true; // Login successful
         } catch (error) {
             setError(error.response?.data?.message || 'An error occurred during login.');
-            return false;
+            return false; // Login failed
         } finally {
             setLoading(false);
         }
@@ -62,7 +63,7 @@ export const AuthProvider = ({ children }) => {
     // Function to handle user logout
     const logout = () => {
         setAuth(null);
-        window.location.href = '/'; 
+        window.location.href = '/'; // Redirect to home or login
     };
 
     // Effect to check if user is already logged in on initial load

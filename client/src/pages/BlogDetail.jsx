@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import DOMPurify from 'dompurify';
 import SEO from '../components/SEO';
+import { config } from '../config';
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -14,7 +15,7 @@ const BlogDetail = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/blogs/${id}`);
+        const response = await axios.get(`${config.BASE_URL}/api/blogs/${id}`);
         setBlog(response.data);
       } catch (error) {
         console.error('Error fetching blog:', error);

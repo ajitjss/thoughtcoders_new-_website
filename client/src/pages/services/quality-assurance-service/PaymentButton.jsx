@@ -26,7 +26,7 @@ const PaymentButton = ({amountLabel,amount, currency, receipt, background, btnbg
 
     try {
       // Create order from backend
-      const orderResponse = await fetch('http://localhost:8080/create-order', {
+      const orderResponse = await fetch('${config.BASE_URL}/create-order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ const PaymentButton = ({amountLabel,amount, currency, receipt, background, btnbg
         order_id: orderData.id, // Order ID generated in the backend
         handler: async (response) => {
           // Verify payment in backend
-          const verifyResponse = await fetch('http://localhost:8080/verify-payment', {
+          const verifyResponse = await fetch('${config.BASE_URL}/verify-payment', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
