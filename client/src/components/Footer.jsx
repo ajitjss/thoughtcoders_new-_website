@@ -32,16 +32,16 @@ const Footer = () => {
           <div className="col-md-3 mb-3">
             <h5 className="text-uppercase">Follow Us</h5>
             <div>
-              <Link to="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white me-3">
+              <Link to="https://facebook.com/thoughtcoders" target="_blank" rel="noopener noreferrer" className="text-white me-3">
                 <FaFacebookF size={20} />
               </Link>
-              <Link to="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white me-3">
+              <Link to="https://twitter.com/thoughtcoders" target="_blank" rel="noopener noreferrer" className="text-white me-3">
               <FaXTwitter size={20} />
               </Link>
-              <Link to="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white me-3">
+              <Link to="https://www.instagram.com/thoughtcoders" target="_blank" rel="noopener noreferrer" className="text-white me-3">
                 <FaInstagram size={20} />
               </Link>
-              <Link to="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white">
+              <Link to="https://www.linkedin.com/company/thoughtcoders" target="_blank" rel="noopener noreferrer" className="text-white">
                 <FaLinkedinIn size={20} />
               </Link>
             </div>

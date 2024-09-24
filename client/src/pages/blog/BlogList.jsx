@@ -3,9 +3,9 @@ import axios from 'axios';
 import DOMPurify from 'dompurify';
 import { Link, useLocation } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
-import { useAuth } from '../context/AuthContext';
-import SEO from '../components/SEO';
-import { config } from '../config';
+import { useAuth } from '../../context/AuthContext';
+import SEO from '../../components/SEO';
+import { config } from '../../config';
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);

@@ -1,6 +1,6 @@
 import React from 'react'
-import SEO from '../components/SEO'
-import GetInTouch from '../components/GetInTouch'
+import GetInTouch from '../../components/GetInTouch'
+import SEO from '../../components/SEO'
 
 const ContactUs = () => {
   return (

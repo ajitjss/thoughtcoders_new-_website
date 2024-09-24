@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import DOMPurify from 'dompurify';
-import SEO from '../components/SEO';
-import { config } from '../config';
+import SEO from '../../components/SEO';
+import { config } from '../../config';
 
 const BlogDetail = () => {
   const { id } = useParams();

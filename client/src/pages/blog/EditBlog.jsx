@@ -3,8 +3,8 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import JoditEditor from 'jodit-react';
-import SEO from '../components/SEO';
-import { config as appConfig } from '../config';
+import SEO from '../../components/SEO';
+import { config as appConfig } from '../../config';
 
 const EditBlog = () => {
   const { id } = useParams(); 

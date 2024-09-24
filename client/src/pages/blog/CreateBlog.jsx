@@ -3,8 +3,8 @@ import React, { useState, useRef, useMemo } from 'react';
 import JoditEditor from 'jodit-react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import SEO from '../components/SEO';
-import { config as appConfig } from '../config'; 
+import SEO from '../../components/SEO';
+import { config as appConfig } from '../../config'; 
 
 
 const CreateBlog = ({ placeholder }) => {

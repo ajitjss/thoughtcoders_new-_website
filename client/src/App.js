@@ -2,16 +2,12 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
-import CreateBlog from './pages/CreateBlog';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import BlogList from './pages/BlogList';
-import BlogDetail from './pages/BlogDetail';
-import EditBlog from './pages/EditBlog';
+import Register from './pages/auth/Register';
+import Login from './pages/auth/Login';
 import { AuthProvider } from './context/AuthContext';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsConditions from './pages/TermsConditions';
-import ContactUs from './pages/ContactUs';
+import PrivacyPolicy from './pages/privacy-policy/PrivacyPolicy';
+import TermsConditions from './pages/terms-condition/TermsConditions';
+import ContactUs from './pages/contact/ContactUs';
 import ProtectedRoute from './components/ProtectedRoute';
 import { HelmetProvider } from 'react-helmet-async';
 import Home from './pages/home/Home';
@@ -20,6 +16,10 @@ import QualityAssuranceServeice from './pages/services/quality-assurance-service
 import TestAutomation from './pages/home/TestAutomation';
 import AccessibilityTesting from './pages/home/AccessibilityTesting';
 import OurTeam from './pages/about/OurTeam';
+import BlogList from './pages/blog/BlogList';
+import BlogDetail from './pages/blog/BlogDetail';
+import EditBlog from './pages/blog/EditBlog';
+import CreateBlog from './pages/blog/CreateBlog';
 
 const App = () => {
   return (
@@ -33,7 +33,7 @@ const App = () => {
             <Route path="blogs/:id" element={<BlogDetail />} />
             <Route path="register" element={<Register />} />
             <Route path="login" element={<Login />} />
-            <Route path="privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="terms-conditions" element={<TermsConditions />} />
             <Route path="contact-us" element={<ContactUs />} />
             {/* Case Studies Routes */}
@@ -41,6 +41,7 @@ const App = () => {
               <Route path="test-automation" element={<TestAutomation />} />
               <Route path="accessibility-testing" element={<AccessibilityTesting />} />
             </Route>
+            
             {/*About Routes */}
             <Route path='/our-team/' element={ <OurTeam /> } />
 

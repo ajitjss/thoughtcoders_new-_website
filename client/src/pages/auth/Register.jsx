@@ -1,37 +1,43 @@
-// src/components/Login.jsx
+// src/pages/Register.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import SEO from '../components/SEO';
+import { useAuth } from '../../context/AuthContext';
+import SEO from '../../components/SEO';
 
-const Login = () => {
+const Register = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login, error } = useAuth(); 
+  const { register, error } = useAuth(); 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const success = await login(email, password);
+    const success = await register(name, email, password);
     if (success) {
-      navigate('/'); 
+      navigate('/login'); 
     }
   };
 
   return (
-    <div className="container" style={{width:"800px"}}>
-    <SEO
-      title="Login - An Independent Software Testing Company-Thoughtcoders"
-      description="Login to access your account on My Blog App."
-      keywords="login, user login, access account"
-    />
-    <div className="row d-flex justify-content-center align-items-center" style={{ minHeight: '40vh' }}>
-        <div className="col-md-8">
-          <div className='text-center text-white rounded bg-secondary p-3 mt-3 mb-4'>
-            <h3>Login</h3>
-          </div>
+    <div className="container">
+      <SEO
+          title="Register - An Independent Software Testing Company-Thoughtcoders"
+          description="Create a new account on My Blog App to start blogging."
+          keywords="register, sign up, create account"
+      />
+      <h2>Register</h2>
       {error && <div className="alert alert-danger">{error}</div>}
       <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Name</label>
+          <input
+            type="text"
+            className="form-control"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
         <div className="form-group">
           <label>Email</label>
           <input
@@ -50,14 +56,10 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div className="d-grid mt-3">
-          <button type="submit" className="btn btn-secondary">Login</button>
-        </div>
+        <button type="submit" className="btn btn-primary">Register</button>
       </form>
-      </div>
-    </div>
     </div>
   );
 };
 
-export default Login;
+export default Register;
