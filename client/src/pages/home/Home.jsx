@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import CarouselComp from '../../components/CarouselComp';
-import GetInTouch from '../../components/GetInTouch';
-import CountUpSection from '../../components/CountUpSection';
 import {Link} from 'react-router-dom'
+import CarouselComp from '../../components/CarouselComp';
+import CountUpSection from '../../components/CountUpSection';
+import GetInTouch from '../../components/GetInTouch';
 
 const Home = () => {
   // eslint-disable-next-line no-unused-vars

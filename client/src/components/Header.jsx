@@ -1,20 +1,18 @@
-import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext'; 
 import NavDropdown from 'react-bootstrap/NavDropdown'; 
-import './Header.css'
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import AuthContext from '../context/AuthContext'; // Adjust the import path as necessary
 
-function Header() {
-    const { isAuthenticated, isAdmin } = useAuth();
+const Header = () => {
+    const { user, logout } = useContext(AuthContext); // Access user and logout from AuthContext
 
     const handleLogout = () => {
-        localStorage.removeItem('authToken');
-        window.location.href = '/';
+        logout(); // Call the logout method from AuthContext
+        window.location.href = '/login'; // Redirect to login
     };
-
     const linkStyle = {
         color: '#FF6100',
         fontWeight: 500
@@ -23,25 +21,21 @@ function Header() {
     return (
         <Navbar fixed='top' bg="light" variant="light" expand="lg" className="shadow-sm">
             <Container>
-                {/* Logo */}
-                <Navbar.Brand as={Link} to="/">
+            <Navbar.Brand as={Link} to="/">
                     <img 
                         src="https://thoughtcoders.com/wp-content/uploads/2013/06/cropped-THOUGHT-CODERS.png" 
                         style={{ width: '200px', height: '50px' }} 
                         alt="th-logo" 
                     />
                 </Navbar.Brand>
-
                 {/* Toggle for small screens */}
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                
-                {/* Collapsible content */}
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ms-auto">
+                <Nav className="ms-auto">
+                        {/* Menus */}
                         <Nav.Link style={linkStyle} as={Link} to="/">Home</Nav.Link>
-                        <Nav.Link style={linkStyle} as={Link} to="/blogs/">Blog List</Nav.Link>
+                        <Nav.Link style={linkStyle} as={Link} to="/blogs/">Blogs</Nav.Link>
                         <Nav.Link style={linkStyle} as={Link} to="/contact-us">Contact Us</Nav.Link>
-                        
                         {/* Dropdown for About */}
                         <NavDropdown 
                             className="custom-dropdown"
@@ -56,7 +50,7 @@ function Header() {
                             <NavDropdown.Item as={Link} to="/about/gdpr-commitments">GDPR Commitments</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/about/corporate-social-responsibility">Corporate Social Responsibility</NavDropdown.Item>
                         </NavDropdown>
-                        
+
                         {/* Dropdown for Services */}
                         <NavDropdown 
                             className="custom-dropdown"
@@ -83,18 +77,21 @@ function Header() {
                             <NavDropdown.Item as={Link} to="/training/consulting">Core Java Training</NavDropdown.Item>
                         </NavDropdown>
 
-                        {isAuthenticated && (
+                        {/* Conditionally render links based on user authentication status */}
+                        {!user && (
                             <>
-                                <Nav.Link style={linkStyle} as={Link} to="/create-blog">Create Blog</Nav.Link>
-                                {isAdmin && <Nav.Link style={linkStyle} as={Link} to="/admin-dashboard">Admin Dashboard</Nav.Link>}
-                                <Nav.Link style={linkStyle} onClick={handleLogout}>Logout</Nav.Link>
+                                <Nav.Link style={linkStyle} as={Link} to="/register">Register</Nav.Link>
+                                <Nav.Link style={linkStyle} as={Link} to="/login">Login</Nav.Link>
                             </>
                         )}
                         
-                        {!isAuthenticated && (
+                        {user && (
                             <>
-                                <Nav.Link style={linkStyle} as={Link} to="/login">Login</Nav.Link>
-                                <Nav.Link style={linkStyle} as={Link} to="/register">Register</Nav.Link>
+                                {/* Only show the "Create Blog" option if the user is an admin */}
+                                {user.isAdmin && (
+                                    <Nav.Link style={linkStyle} as={Link} to="/create-blog">Create Blog</Nav.Link>
+                                )}
+                                <Nav.Link style={linkStyle} onClick={handleLogout}>Logout</Nav.Link>
                             </>
                         )}
                     </Nav>
@@ -102,6 +99,6 @@ function Header() {
             </Container>
         </Navbar>
     );
-}
+};
 
 export default Header;

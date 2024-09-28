@@ -2,16 +2,11 @@
 import React from 'react';
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from 'react-router-dom';
-import SEO from '../../components/SEO';
 
 const AccessibilityTesting = () => {
   return (
     <div className='container'>
-      <SEO
-        title="An Independent Software Testing Company-Thoughtcoders"
-        description="Browse all blogs on My Blog App. Stay updated with the latest posts on tech, lifestyle, and more."
-        keywords="blogs, tech blogs, lifestyle blogs"
-      />
+      
       <div className='d-flex flex-column justify-content-center align-items-center'>
         <img 
           style={{width:'100%',height:'400px',borderRadius:'10px', marginTop:"20px"}} 

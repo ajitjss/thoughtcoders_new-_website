@@ -1,85 +1,83 @@
-// src/context/AuthContext.jsx
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import {jwtDecode} from 'jwt-decode'; // Correct import for jwt-decode
-import axios from 'axios'; // Import axios for making API requests
-import { config } from '../config';
+import { createContext, useState, useEffect } from 'react';
+import * as authService from '../services/authService';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { Toaster, toast } from 'react-hot-toast'; // Import Toaster and toast
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [isAdmin, setIsAdmin] = useState(false);
-    const [loading, setLoading] = useState(true); // Loading state to handle loading while verifying token
-    const [error, setError] = useState(''); // Error state for handling authentication errors
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
-    // Function to handle login and save the token
-    const setAuth = (token) => {
-        if (token) {
-            const decodedToken = jwtDecode(token);
-            setIsAuthenticated(true);
-            setIsAdmin(decodedToken.isAdmin || false);
-            localStorage.setItem('authToken', token); // Save token to local storage
-        } else {
-            setIsAuthenticated(false);
-            setIsAdmin(false);
-            localStorage.removeItem('authToken'); // Remove token from local storage
-        }
-    };
+    useEffect(() => {
+      const token = localStorage.getItem('token');
+      console.log('Token on load:', token); // Check token on initial load
+      if (token) {
+          axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+          authService.fetchUser()
+              .then(userData => {
+                  setUser(userData); // Set user data if token is valid
+                  setLoading(false);
+              })
+              .catch((error) => {
+                  console.error('Fetch user error:', error); // Log error
+                  setLoading(false);
+                  // Consider whether you want to remove the token here
+                  // localStorage.removeItem('token'); 
+                  // delete axios.defaults.headers.common['Authorization'];
+              });
+      } else {
+          setLoading(false); // Just set loading to false if no token
+      }
+  }, []);
+  
 
-    // Function to handle user registration
-    const register = async (name, email, password) => {
-        try {
-            setLoading(true);
-            const response = await axios.post(`${config.BASE_URL}/api/auth/register`, { name, email, password });
-            const token = response.data.token;
-            setAuth(token);
-            setError('');
-            return true; // Registration successful
-        } catch (error) {
-            setError(error.response?.data?.message || 'An error occurred during registration.');
-            return false; // Registration failed
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    // Function to handle user login
     const login = async (email, password) => {
         try {
-            setLoading(true);
-            const response = await axios.post(`${config.BASE_URL}/api/auth/login`, { email, password });
-            const token = response.data.token;
-            setAuth(token);
-            setError('');
-            return true; // Login successful
+            const { token, name, email: userEmail, isAdmin, message } = await authService.login(email, password);
+            localStorage.setItem('token', token); // Store token in localStorage
+            console.log('Token saved to localStorage:', localStorage.getItem('token'))
+            setUser({ name, email: userEmail, isAdmin });
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+            toast.success(message || 'Logged in successfully!');
+            navigate('/');
+            // Redirect based on user role
+            // if (isAdmin) {
+            //     navigate('/admin-dashboard');
+            // } else {
+            //     navigate('/');
+            // }
         } catch (error) {
-            setError(error.response?.data?.message || 'An error occurred during login.');
-            return false; // Login failed
-        } finally {
-            setLoading(false);
+            toast.error(error.response?.data?.message || 'Failed to login. Please check your credentials.');
         }
     };
 
-    // Function to handle user logout
+    const register = async (name, email, password, confirmPassword) => {
+        try {
+            const response = await authService.register(name, email, password, confirmPassword);
+            toast.success(response.message || 'Registration successful!');
+            navigate('/login');
+        } catch (error) {
+            toast.error(error.response?.data?.message || 'Registration failed. Please try again.');
+        }
+    };
+
     const logout = () => {
-        setAuth(null);
-        window.location.href = '/'; // Redirect to home or login
+        localStorage.removeItem('token');
+        delete axios.defaults.headers.common['Authorization'];
+        setUser(null);
+        navigate('/login');
+        toast.success('Logged out successfully.');
     };
-
-    // Effect to check if user is already logged in on initial load
-    useEffect(() => {
-        const token = localStorage.getItem('authToken');
-        if (token) {
-            setAuth(token);
-        }
-        setLoading(false);
-    }, []);
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated, isAdmin, register, login, logout, loading, error }}>
+        <AuthContext.Provider value={{ user, login, register, logout, loading }}>
             {children}
+            <Toaster position="top-center" reverseOrder={false} />
         </AuthContext.Provider>
     );
 };
 
-export const useAuth = () => useContext(AuthContext);
+export default AuthContext;

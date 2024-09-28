@@ -8,8 +8,6 @@ const dotenv = require('dotenv');     // Loads environment variables from a .env
 const colors = require('colors');     // Colors module for coloring console output
 const bcrypt = require('bcryptjs');   // For hashing passwords securely
 const jwt = require('jsonwebtoken');  // For creating and verifying JWT tokens
-const slugify = require('slugify'); // Import slugify
-const Razorpay = require('razorpay');
 
 // Load environment variables from .env file
 dotenv.config();
@@ -18,10 +16,7 @@ dotenv.config();
 const app = express();
 
 // Use CORS middleware to allow requests from different origins
-app.use(cors({
-    origin: ['http://localhost:3000', 'https://thoughtcoders-new-website.onrender.com'],
-    credentials: true, // If using cookies or authentication
-}));
+app.use(cors());
 
 // Middleware to parse incoming JSON requests with a size limit of 10MB
 app.use(express.json({ limit: '10mb' }));
@@ -33,7 +28,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 const connectDB = async () => {
     try {
         // Connect to MongoDB and log the connected host
-        const con = await mongoose.connect(process.env.MONGO_URI);
+        const con = await mongoose.connect('mongodb://127.0.0.1:27017/BlogTestContext');
         console.log(`Connected to MongoDB Database ${con.connection.host}`.bgMagenta.white);
     } catch (error) {
         // Log error if connection fails
@@ -73,21 +68,11 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 // Blog Schema for MongoDB with relationships to user (author)
-// Blog Schema for MongoDB with relationships to user (author)
 const blogSchema = new mongoose.Schema({
-    title: { type: String, required: true },  // Blog title
-    slug: { type: String, unique: true },      // Unique slug for the blog
-    content: { type: String, required: true }, // Blog content
+    title: String,                      // Blog title
+    content: String,                    // Blog content
     author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, // Reference to the user (author)
     createdAt: { type: Date, default: Date.now }  // Timestamp of blog creation
-});
-
-// Create a pre-save hook to generate slug before saving
-blogSchema.pre('save', function (next) {
-    if (!this.slug) {
-        this.slug = slugify(this.title, { lower: true, strict: true });
-    }
-    next();
 });
 
 // Create a model for the Blog schema
@@ -272,11 +257,11 @@ app.get('/api/all-blogs', async (req, res) => {
     }
 });
 
-// Public route to get a single blog by slug
-app.get('/api/single-blog/:slug', async (req, res) => {
+// Public route to get a single blog by ID
+app.get('/api/single-blog/:id', async (req, res) => {
     try {
-        const { slug } = req.params; // Get the blog slug from the route params
-        const blog = await Blog.findOne({ slug }).populate('author', 'name email'); // Find blog by slug and populate author
+        const { id } = req.params; // Get the blog ID from the route params
+        const blog = await Blog.findById(id).populate('author', 'name email'); // Find blog and populate author
 
         if (!blog) {
             return res.status(404).json({ message: 'Blog not found' });
@@ -289,18 +274,16 @@ app.get('/api/single-blog/:slug', async (req, res) => {
     }
 });
 
-
-
-// Protected route for updating a blog by slug (Admin access required)
-app.put('/api/blogs/:slug', authenticateToken, checkAdmin, async (req, res) => {
+// Protected route for updating a blog by ID (Admin access required)
+app.put('/api/blogs/:id', authenticateToken, checkAdmin, async (req, res) => {
     const { title, content } = req.body; // Get the new title and content from the request body
 
     try {
-        const { slug } = req.params; // Get the blog slug from the route params
-        const updatedBlog = await Blog.findOneAndUpdate(
-            { slug },
+        const { id } = req.params; // Get the blog ID from the route params
+        const updatedBlog = await Blog.findByIdAndUpdate(
+            id,
             {
-                $set: { title, content, slug: slugify(title, { lower: true, strict: true }) } // Update title, content and regenerate slug
+                $set: { title, content } // Update the title and content
             },
             { new: true, runValidators: true } // Return updated document and run validation checks
         );
@@ -316,13 +299,11 @@ app.put('/api/blogs/:slug', authenticateToken, checkAdmin, async (req, res) => {
     }
 });
 
-
 // Protected route for deleting a blog by ID (Admin access required)
-// Protected route for deleting a blog by slug (Admin access required)
-app.delete('/api/delete-blogs/:slug', authenticateToken, checkAdmin, async (req, res) => {
+app.delete('/api/delete-blogs/:id', authenticateToken, checkAdmin, async (req, res) => {
     try {
-        const { slug } = req.params; // Get the blog slug from the route params
-        const deletedBlog = await Blog.findOneAndDelete({ slug }); // Find and delete the blog
+        const { id } = req.params; // Get the blog ID from the route params
+        const deletedBlog = await Blog.findByIdAndDelete(id); // Find and delete the blog
 
         if (!deletedBlog) {
             return res.status(404).json({ message: 'Blog not found' });
@@ -334,36 +315,6 @@ app.delete('/api/delete-blogs/:slug', authenticateToken, checkAdmin, async (req,
         res.status(500).json({ message: 'Error deleting blog', error: error.message });
     }
 });
-
-
-
-{/*Razorpay implementation start */}
-
-// Razorpay Instance
-const razorpay = new Razorpay({
-    key_id: process.env.RAZORPAY_KEY_ID,
-    key_secret: process.env.RAZORPAY_KEY_SECRET,
-});
-
-// Create Order Route
-app.post('/create-order', async (req, res) => {
-    const { amount, currency, receipt } = req.body;
-    const options = {
-        amount: amount * 100, // amount in the smallest currency unit
-        currency,
-        receipt,
-    };
-
-    try {
-        const order = await razorpay.orders.create(options);
-        res.json(order);
-    } catch (error) {
-        res.status(500).json({ message: 'Error creating order', error });
-    }
-});
-
-{/*Razorpay implementation end */}
-
 
 // Serve static files from the 'uploads' directory (for image uploads)
 app.use('/uploads', express.static('uploads'));

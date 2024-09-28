@@ -9,12 +9,12 @@ import { config } from '../../config';
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1); 
-  const blogsPerPage = 6; 
+  const [currentPage, setCurrentPage] = useState(1);
+  const blogsPerPage = 6;
   const location = useLocation();
   const alertMessage = location.state?.message;
-  const { isAuthenticated } = useAuth(); 
-  const token = localStorage.getItem('authToken'); 
+  const { isAuthenticated } = useAuth();
+  const token = localStorage.getItem('authToken');
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -25,7 +25,6 @@ const BlogList = () => {
         console.error('Error fetching blogs:', error);
       }
     };
-
     fetchBlogs();
   }, []);
 
@@ -39,7 +38,7 @@ const BlogList = () => {
             'Authorization': `Bearer ${token}`
           }
         });
-        setBlogs(blogs.filter(blog => blog._id !== id)); 
+        setBlogs(blogs.filter(blog => blog._id !== id)); // Use id to filter
         alert('Blog deleted successfully!');
       } catch (error) {
         console.error('Error deleting blog:', error);
@@ -98,7 +97,6 @@ const BlogList = () => {
 
   return (
     <div className="container">
-    
       {alertMessage && (
         <div className="alert alert-success" role="alert">
           {alertMessage}
@@ -147,17 +145,17 @@ const BlogList = () => {
                     />
                     <div className="card-body">
                       <h5 className="card-title">
-                        <Link to={`/blogs/${blog._id}`}>{truncatedTitle}</Link>
+                        <Link to={`/blogs/${blog.slug}`}>{truncatedTitle}</Link>
                       </h5>
                       <p className="card-text">
                         {truncatedText}...
                       </p>
-                      <Link to={`/blogs/${blog._id}`} className="btn btn-primary me-2">Read More</Link>
+                      <Link to={`/blogs/${blog.slug}`} className="btn btn-primary me-2">Read More</Link>
                       {isAuthenticated && (
                         <>
                           <Link to={`/edit-blog/${blog._id}`} className="btn btn-secondary ms-2">Edit</Link>
                           <button 
-                            onClick={() => handleDelete(blog._id)} 
+                            onClick={() => handleDelete(blog.title)} 
                             className="btn btn-danger ms-2"
                           >
                             Delete
@@ -189,9 +187,11 @@ const BlogList = () => {
                     style={{ height: '100px', objectFit: 'cover' }}
                   />
                   <div className="card-body">
-                    <h5 className="card-title">{truncatedTitle}</h5>
+                    <h5 className="card-title">
+                      <Link to={`/blogs/${blog.slug}`}>{truncatedTitle}</Link> {/* Use slug here */}
+                    </h5>
                     <p className="card-text"><small className="text-muted">Posted on: {formattedDate}</small></p>
-                    <Link to={`/blogs/${blog._id}`} className="btn btn-primary">Read More</Link>
+                    <Link to={`/blogs/${blog.slug}`} className="btn btn-primary">Read More</Link>
                   </div>
                 </div>
               );

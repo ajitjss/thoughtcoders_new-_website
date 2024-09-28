@@ -13,7 +13,7 @@ const GetInTouch = () => {
           <div className="contact-info">
             <p><FaPhoneAlt /> Phone: +91-9555902032</p>
             <p><FaEnvelope /> Email: info@thoughtcoders.com</p>
-            <p><FaMapMarkerAlt /> Location: Bhimpura No.1 Ballia, Utter Pradesh,221716</p>
+            <p><FaMapMarkerAlt /> Location: Bhimpura No.1 Ballia, Uttar Pradesh,221716</p>
           </div>
 
           {/* Map Integration */}
