@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
     const login = async (email, password) => {
         try {
             const { token, name, email: userEmail, isAdmin, message } = await authService.login(email, password);
-            localStorage.setItem('token', token); // Store token in localStorage
+            localStorage.setItem('token', token); 
             console.log('Token saved to localStorage:', localStorage.getItem('token'))
             setUser({ name, email: userEmail, isAdmin });
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;

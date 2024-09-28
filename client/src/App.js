@@ -8,7 +8,7 @@ import Layout from './components/Layout';
 import AdminDashboard from './pages/AdminDashboard';
 import BlogList from './pages/BlogList';
 import BlogDetail from './pages/BlogDetail';
-import CreateBlog from './pages/CreateBlog'; // Import the CreateBlog component
+import CreateBlog from './pages/CreateBlog';
 import EditBlog from './pages/EditBlog';
 import { BlogProvider } from './context/BlogContext';
 import Home from './pages/home/Home';
@@ -24,62 +24,52 @@ import QualityAssuranceServeice from './pages/services/quality-assurance-service
 
 function App() {
     return (
-            
-            <HelmetProvider>
+        <HelmetProvider>
             <Router>
-            <AuthProvider>
-            <BlogProvider>
-                <Routes>
-                    <Route path="/" element={<Layout />}>
-                        <Route index element={<Home />} />
-                        <Route path="blogs" element={<BlogList />} />
-                        <Route path="blogs/:slug" element={<BlogDetail />} />
-                        <Route path="login" element={<Login />} />
-                        <Route path="register" element={<Register />} />
-                        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                        <Route path="terms-conditions" element={<TermsConditions />} />
-                        <Route path="contact-us" element={<ContactUs />} />
-                        {/* Case Studies Routes */}
-                        <Route path="case-studies">
-                            <Route path="test-automation" element={<TestAutomation />} />
-                            <Route path="accessibility-testing" element={<AccessibilityTesting />} />
-                        </Route>
-                        {/*About Routes */}
-                        <Route path='/our-team/' element={ <OurTeam /> } />
-                        {/*Services Routes */}
-                        <Route path='/api-automation-testing-services/' element={ <ApiAutomationTesting /> } />
-                        <Route path='/quality-assurance-services/' element={ <QualityAssuranceServeice /> } />
-                    </Route>
-                    <Route 
-                        path="/admin-dashboard/*" 
-                        element={
-                            <PrivateRoute roleRequired="isAdmin">
-                                <AdminDashboard />
-                            </PrivateRoute>
-                        } 
-                    />
-                    <Route 
-                        path="/create-blog" 
-                        element={
-                            <PrivateRoute roleRequired="isAdmin">
-                                <CreateBlog />  {/* Create blog restricted to admin */}
-                            </PrivateRoute>
-                        }
-                    />
-                    <Route 
-                        path="/edit-blog/:slug" 
-                        element={
-                            <PrivateRoute roleRequired="isAdmin">
-                                <EditBlog />  {/* Edit blog restricted to admin */}
-                            </PrivateRoute>
-                        }
-                    />
-                </Routes>
-                </BlogProvider>
-        </AuthProvider>
-        </Router>
-        </HelmetProvider>
-        
+                <AuthProvider>
+                    <BlogProvider>
+                        <Routes>
+                            <Route path="/" element={<Layout />}>
+                                <Route index element={<Home />} />
+                                <Route path="blogs" element={<BlogList />} />
+                                <Route path="blogs/:slug" element={<BlogDetail />} />
+                                <Route path="login" element={<Login />} />
+                                <Route path="register" element={<Register />} />
+                                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                                <Route path="terms-conditions" element={<TermsConditions />} />
+                                <Route path="contact-us" element={<ContactUs />} />
+                                {/* Case Studies Routes */}
+                                <Route path="case-studies">
+                                    <Route path="test-automation" element={<TestAutomation />} />
+                                    <Route path="accessibility-testing" element={<AccessibilityTesting />} />
+                                </Route>
+                                {/*About Routes */}
+                                <Route path='/our-team/' element={ <OurTeam /> } />
+                                {/*Services Routes */}
+                                <Route path='/api-automation-testing-services/' element={ <ApiAutomationTesting /> } />
+                                <Route path='/quality-assurance-services/' element={ <QualityAssuranceServeice /> } />
+                            </Route>
+                            <Route 
+                                path="/create-blog" 
+                                element={
+                                    <PrivateRoute roleRequired="isAdmin">
+                                        <CreateBlog /> 
+                                    </PrivateRoute>
+                                }
+                            />
+                            <Route 
+                                path="/edit-blog/:slug" 
+                                element={
+                                    <PrivateRoute roleRequired="isAdmin">
+                                        <EditBlog /> 
+                                    </PrivateRoute>
+                                }
+                            />
+                        </Routes>
+                    </BlogProvider>
+                </AuthProvider>
+            </Router>
+        </HelmetProvider> 
     );
 }
 

@@ -32,11 +32,11 @@ const QualityAssuranceServeice = () => {
                                     position: 'absolute',
                                     top: 0,
                                     left: 0,
-                                    width: '70px', // Adjust width as needed
-                                    height: '70px', // Adjust height as needed
+                                    width: '70px',
+                                    height: '70px', 
                                     objectFit: 'cover',
                                     borderBottomRightRadius:'20px',
-                                    borderTopLeftRadius: '5px', // Optional: Add some radius to match the card
+                                    borderTopLeftRadius: '5px',
                                 }}
                                 />
                                 <div

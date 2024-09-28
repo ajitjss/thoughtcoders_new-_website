@@ -2,12 +2,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import JoditEditor from 'jodit-react';
-import { fetchBlogBySlug } from '../services/blogService'; // Import service function
-import useBlog from '../hooks/useBlog'; // Import custom hook
+import { fetchBlogBySlug } from '../services/blogService'; 
+import useBlog from '../hooks/useBlog'; 
 
 const EditBlog = () => {
     const { slug } = useParams();
-    const { updateBlog } = useBlog(); // Use the custom hook
+    const { updateBlog } = useBlog(); 
     const editor = useRef(null);
     const [formData, setFormData] = useState({ title: '', content: '' });
     const [isLoading, setIsLoading] = useState(false);

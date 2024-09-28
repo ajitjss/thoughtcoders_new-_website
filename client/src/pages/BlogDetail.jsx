@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import DOMPurify from 'dompurify';
-import { fetchBlogBySlug } from '../services/blogService'; // Import service function
+import { fetchBlogBySlug } from '../services/blogService';
 import SEO from '../components/SEO';
 
 const BlogDetail = () => {
@@ -34,10 +34,10 @@ const BlogDetail = () => {
 
     // Helper function to limit words
     const limitWords = (text, wordLimit) => {
-        if (!text) return ''; // Fallback in case description is null/undefined
-        const words = text.split(' '); // Split the text into an array of words
-        if (words.length <= wordLimit) return text; // If it's already within the limit
-        return words.slice(0, 50).join(' ') + '...'; // Join the first 50 words and add '...'
+        if (!text) return ''; 
+        const words = text.split(' '); 
+        if (words.length <= wordLimit) return text; 
+        return words.slice(0, 50).join(' ') + '...';
     };
 
     return (

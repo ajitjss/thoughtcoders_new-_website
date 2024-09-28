@@ -1,10 +1,10 @@
 // src/pages/CreateBlog.js
 import React, { useState, useRef } from 'react';
 import JoditEditor from 'jodit-react';
-import useBlog from '../hooks/useBlog'; // Import the custom hook
+import useBlog from '../hooks/useBlog'; 
 
 const CreateBlog = () => {
-    const { createBlog, isLoading } = useBlog(); // Use the custom hook
+    const { createBlog, isLoading } = useBlog(); 
     const editor = useRef(null);
     const [formData, setFormData] = useState({ title: '', content: '' });
 

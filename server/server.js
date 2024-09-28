@@ -1,20 +1,18 @@
-// Import required modules
-const express = require('express');   // Express framework for building the API
-const mongoose = require('mongoose'); // MongoDB ORM to connect and manage MongoDB
-const cors = require('cors');         // Middleware for enabling Cross-Origin Resource Sharing
-const multer = require('multer');     // Middleware for handling multipart/form-data (file uploads)
-const path = require('path');         // Node.js utility for handling file and directory paths
-const dotenv = require('dotenv');     // Loads environment variables from a .env file
-const colors = require('colors');     // Colors module for coloring console output
-const bcrypt = require('bcryptjs');   // For hashing passwords securely
-const jwt = require('jsonwebtoken');  // For creating and verifying JWT tokens
-const slugify = require('slugify'); // Import slugify
+const express = require('express');   
+const mongoose = require('mongoose'); 
+const cors = require('cors');         
+const multer = require('multer');   
+const path = require('path');         
+const dotenv = require('dotenv');    
+const colors = require('colors');
+const bcrypt = require('bcryptjs');  
+const jwt = require('jsonwebtoken');  
+const slugify = require('slugify'); 
 const Razorpay = require('razorpay');
 
-// Load environment variables from .env file
+
 dotenv.config();
 
-// Initialize the Express application
 const app = express();
 
 // Use CORS middleware to allow requests from different origins
@@ -23,63 +21,47 @@ app.use(cors({
     credentials: true, // If using cookies or authentication
 }));
 
-// Middleware to parse incoming JSON requests with a size limit of 10MB
 app.use(express.json({ limit: '10mb' }));
-
-// Middleware to parse URL-encoded data with an extended limit of 10MB
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // MongoDB Connection Setup
 const connectDB = async () => {
     try {
-        // Connect to MongoDB and log the connected host
         const con = await mongoose.connect(process.env.MONGO_URI);
         console.log(`Connected to MongoDB Database ${con.connection.host}`.bgMagenta.white);
     } catch (error) {
-        // Log error if connection fails
         console.log(`Failed to connect MongoDB Database ${error}`.bgRed.white);
     }
 };
-// Call the function to connect to MongoDB
 connectDB();
-
-// Multer Configuration for Image Uploads
 const storage = multer.diskStorage({
-    // Define the folder where files should be saved
     destination: (req, file, cb) => {
         cb(null, 'uploads/');
     },
-    // Define the naming convention for uploaded files
     filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname)); // Use current timestamp and preserve file extension
+        cb(null, Date.now() + path.extname(file.originalname)); 
     }
 });
-
-// Multer middleware with file size limit of 10MB
 const upload = multer({
     storage,
     limits: { fileSize: 10 * 1024 * 1024 }
 });
-
-// User Schema for MongoDB with user attributes including hashed password and admin role
-const userSchema = new mongoose.Schema({
-    name: { type: String, required: true },         // User name (required)
-    email: { type: String, required: true, unique: true }, // Unique email (required)
-    password: { type: String, required: true },     // Hashed password (required)
-    isAdmin: { type: Boolean, default: false }      // Admin role, default is false
-}, { timestamps: true });                          // Add timestamps (createdAt, updatedAt)
-
 // Create a model for the User schema
+const userSchema = new mongoose.Schema({
+    name: { type: String, required: true },     
+    email: { type: String, required: true, unique: true }, 
+    password: { type: String, required: true },  
+    isAdmin: { type: Boolean, default: false }  
+}, { timestamps: true });                      
 const User = mongoose.model('User', userSchema);
 
-// Blog Schema for MongoDB with relationships to user (author)
-// Blog Schema for MongoDB with relationships to user (author)
+// Create a model for the blog schema
 const blogSchema = new mongoose.Schema({
-    title: { type: String, required: true },  // Blog title
-    slug: { type: String, unique: true },      // Unique slug for the blog
-    content: { type: String, required: true }, // Blog content
-    author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, // Reference to the user (author)
-    createdAt: { type: Date, default: Date.now }  // Timestamp of blog creation
+    title: { type: String, required: true }, 
+    slug: { type: String, unique: true }, 
+    content: { type: String, required: true },
+    author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    createdAt: { type: Date, default: Date.now }
 });
 
 // Create a pre-save hook to generate slug before saving
@@ -89,15 +71,14 @@ blogSchema.pre('save', function (next) {
     }
     next();
 });
-
-// Create a model for the Blog schema
 const Blog = mongoose.model('Blog', blogSchema);
+
 
 // Register API for creating new users
 app.post('/api/auth/register', async (req, res) => {
     const { name, email, password, confirmPassword } = req.body;
 
-    // Validate input data
+    // Validation
     if (!name || !email || !password || !confirmPassword) {
         return res.status(400).json({ message: 'All fields are required' });
     }
@@ -115,8 +96,8 @@ app.post('/api/auth/register', async (req, res) => {
         }
 
         // Hash the user's password before saving
-        const salt = await bcrypt.genSalt(10);  // Generate salt for hashing
-        const hashedPassword = await bcrypt.hash(password, salt);  // Hash password
+        const salt = await bcrypt.genSalt(10); 
+        const hashedPassword = await bcrypt.hash(password, salt);
 
         // Create a new user instance with the hashed password
         const userDetails = new User({ name, email, password: hashedPassword });
@@ -128,7 +109,6 @@ app.post('/api/auth/register', async (req, res) => {
             userDetails 
         });
     } catch (error) {
-        // Handle and log errors
         console.error('Error registering user:', error);
         res.status(500).json({ message: 'Error registering user', error: error.message });
     }
@@ -171,7 +151,6 @@ app.post('/api/auth/login', async (req, res) => {
             token
         });
     } catch (error) {
-        // Handle and log errors
         console.error('Error logging in user:', error);
         res.status(500).json({ message: 'Error logging in user', error: error.message });
     }
@@ -190,7 +169,7 @@ const authenticateToken = (req, res, next) => {
     if (token == null) return res.status(401).json({ message: 'No token, authorization denied' });
 
     try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET); // Verify JWT token
+        const decoded = jwt.verify(token, process.env.JWT_SECRET); 
         req.user = decoded.userId; // Store the decoded userId in request object
         next(); // Proceed to the next middleware
     } catch (error) {
@@ -275,14 +254,14 @@ app.get('/api/all-blogs', async (req, res) => {
 // Public route to get a single blog by slug
 app.get('/api/single-blog/:slug', async (req, res) => {
     try {
-        const { slug } = req.params; // Get the blog slug from the route params
-        const blog = await Blog.findOne({ slug }).populate('author', 'name email'); // Find blog by slug and populate author
+        const { slug } = req.params; 
+        const blog = await Blog.findOne({ slug }).populate('author', 'name email');
 
         if (!blog) {
             return res.status(404).json({ message: 'Blog not found' });
         }
 
-        res.status(200).json(blog); // Send the blog as response
+        res.status(200).json(blog);
     } catch (error) {
         console.error('Error fetching blog:', error);
         res.status(500).json({ message: 'Error fetching blog', error: error.message });
@@ -293,16 +272,16 @@ app.get('/api/single-blog/:slug', async (req, res) => {
 
 // Protected route for updating a blog by slug (Admin access required)
 app.put('/api/blogs/:slug', authenticateToken, checkAdmin, async (req, res) => {
-    const { title, content } = req.body; // Get the new title and content from the request body
+    const { title, content } = req.body;
 
     try {
-        const { slug } = req.params; // Get the blog slug from the route params
+        const { slug } = req.params;
         const updatedBlog = await Blog.findOneAndUpdate(
             { slug },
             {
-                $set: { title, content, slug: slugify(title, { lower: true, strict: true }) } // Update title, content and regenerate slug
+                $set: { title, content, slug: slugify(title, { lower: true, strict: true }) } 
             },
-            { new: true, runValidators: true } // Return updated document and run validation checks
+            { new: true, runValidators: true }
         );
 
         if (!updatedBlog) {
@@ -315,14 +294,11 @@ app.put('/api/blogs/:slug', authenticateToken, checkAdmin, async (req, res) => {
         res.status(500).json({ message: 'Error updating blog', error: error.message });
     }
 });
-
-
-// Protected route for deleting a blog by ID (Admin access required)
 // Protected route for deleting a blog by slug (Admin access required)
 app.delete('/api/delete-blogs/:slug', authenticateToken, checkAdmin, async (req, res) => {
     try {
-        const { slug } = req.params; // Get the blog slug from the route params
-        const deletedBlog = await Blog.findOneAndDelete({ slug }); // Find and delete the blog
+        const { slug } = req.params;
+        const deletedBlog = await Blog.findOneAndDelete({ slug });
 
         if (!deletedBlog) {
             return res.status(404).json({ message: 'Blog not found' });
