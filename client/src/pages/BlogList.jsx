@@ -35,9 +35,9 @@ const BlogList = () => {
   //   return textContent.split(' ').slice(0, wordLimit).join(' ');
   // };
 
-  // const limitTitleWords = (title, wordLimit) => {
-  //   return title.split(' ').slice(0, wordLimit).join(' ');
-  // };
+  const limitTitleWords = (title, wordLimit) => {
+    return title.split(' ').slice(0, wordLimit).join(' ');
+  };
 
   function extractPlainTextAndLimit(content, charLimit) {
     const plainText = content.replace(/<\/?[^>]+(>|$)/g, ""); // Strip HTML tags
@@ -100,7 +100,7 @@ const BlogList = () => {
                     height="600px"
                   />
                   <Carousel.Caption>
-                    <h3>{limitTitleChars(blog.title, 10)}</h3>
+                    <h3>{limitTitleWords(blog.title, 10)}</h3>
                   </Carousel.Caption>
                 </Carousel.Item>
               );
