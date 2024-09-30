@@ -8,6 +8,7 @@ const SEO = ({ title, description, keywords, author }) => {
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
+      <meta name="author" content={author} />
       {/* Here I have added Google AdSense script */}
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4666288005576632"
         crossorigin="anonymous">
@@ -26,9 +27,9 @@ const SEO = ({ title, description, keywords, author }) => {
 
 
 
-      <meta name="author" content={author} />
+      
       {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content="Thoughtcoders" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content="URL to a default image" />

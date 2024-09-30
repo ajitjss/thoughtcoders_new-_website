@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
       const token = localStorage.getItem('token');
-      console.log('Token on load:', token); // Check token on initial load
+      //console.log('Token on load:', token); // Check token on initial load
       if (token) {
           axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
           authService.fetchUser()
@@ -37,8 +37,8 @@ export const AuthProvider = ({ children }) => {
     const login = async (email, password) => {
         try {
             const { token, name, email: userEmail, isAdmin, message } = await authService.login(email, password);
-            localStorage.setItem('token', token); 
-            console.log('Token saved to localStorage:', localStorage.getItem('token'))
+            localStorage.setItem('token', token); // Store token in localStorage
+            //console.log('Token saved to localStorage:', localStorage.getItem('token'))
             setUser({ name, email: userEmail, isAdmin });
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             toast.success(message || 'Logged in successfully!');

@@ -1,3 +1,4 @@
+// src/pages/EditBlog.js
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import JoditEditor from 'jodit-react';
@@ -5,52 +6,35 @@ import { fetchBlogBySlug } from '../services/blogService'; // Import service fun
 import useBlog from '../hooks/useBlog'; // Import custom hook
 
 const EditBlog = () => {
-    const { slug } = useParams(); // Slug from URL
+    const { slug } = useParams();
     const { updateBlog } = useBlog(); // Use the custom hook
-    const editor = useRef(null); // Jodit editor reference
-    const [formData, setFormData] = useState({
-        title: '',
-        description: '',
-        keywords: '',
-        slug: '',
-        content: ''
-    }); // Updated state with additional fields
-
+    const editor = useRef(null);
+    const [formData, setFormData] = useState({ title: '', content: '' });
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
-    // Fetch the blog data based on the slug from the URL
     useEffect(() => {
         const fetchBlog = async () => {
             const data = await fetchBlogBySlug(slug);
-            setFormData({
-                title: data.title,
-                description: data.description,
-                keywords: data.keywords,
-                slug: data.slug,
-                content: data.content
-            });
+            setFormData({ title: data.title, content: data.content });
         };
 
         fetchBlog();
     }, [slug]);
 
-    // Handle changes in form inputs
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    // Handle content change for the rich text editor
     const handleContentChange = (newContent) => {
         setFormData({ ...formData, content: newContent });
     };
 
-    // Handle form submission for updating the blog
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
         try {
-            await updateBlog(slug, formData); // Update blog with new data
+            await updateBlog(slug, formData);
             alert('Blog updated successfully!');
             navigate(`/blogs`);
         } catch {
@@ -75,44 +59,6 @@ const EditBlog = () => {
                         required
                     />
                 </div>
-                
-                {/* New fields for description, keywords, and slug */}
-                
-                <div className="form-group">
-                    <label>Description</label>
-                    <textarea
-                        className="form-control"
-                        name="description"
-                        value={formData.description}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label>Keywords</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        name="keywords"
-                        value={formData.keywords}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label>Slug</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        name="slug"
-                        value={formData.slug}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-
                 <div className="form-group">
                     <label>Content</label>
                     <JoditEditor
@@ -121,7 +67,6 @@ const EditBlog = () => {
                         onChange={handleContentChange}
                     />
                 </div>
-
                 <button className="btn btn-primary mt-3" type="submit" disabled={isLoading}>
                     {isLoading ? 'Updating...' : 'Update Blog'}
                 </button>

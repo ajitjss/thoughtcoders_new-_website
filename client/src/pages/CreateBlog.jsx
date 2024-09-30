@@ -1,12 +1,14 @@
 // src/pages/CreateBlog.js
 import React, { useState, useRef } from 'react';
 import JoditEditor from 'jodit-react';
-import useBlog from '../hooks/useBlog'; 
+import useBlog from '../hooks/useBlog'; // Import the custom hook
 
 const CreateBlog = () => {
-    const { createBlog, isLoading } = useBlog(); 
+    const { createBlog, isLoading } = useBlog(); // Use the custom hook
     const editor = useRef(null);
-    const [formData, setFormData] = useState({ title: '', content: '' });
+    const [formData, setFormData] = useState({ 
+        title: '', description:'', keywords:'', slug:'', content: ''  
+    });
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,7 +22,8 @@ const CreateBlog = () => {
         e.preventDefault();
         try {
             await createBlog(formData);
-            setFormData({ title: '', content: '' });
+            setFormData({title: '', description:'', keywords:'', slug:'', content: ''});
+            console.log('Created Blog---->',formData)
             alert('Blog created successfully!');
         } catch {
             alert('Failed to create blog.');
@@ -38,6 +41,39 @@ const CreateBlog = () => {
                         className="form-control"
                         name="title"
                         value={formData.title}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Description</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        name="description"
+                        value={formData.description}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Keywords</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        name="keywords"
+                        value={formData.keywords}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Slug</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        name="slug"
+                        value={formData.slug}
                         onChange={handleChange}
                         required
                     />

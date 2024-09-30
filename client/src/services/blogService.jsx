@@ -1,8 +1,7 @@
 // src/services/blogService.jsx
 import axios from 'axios';
-import { config } from '../config';
 
-const API_URL = `${config.BASE_URL}/api`;
+const API_URL = `http://localhost:8080/api`;
 
 export const fetchAllBlogs = async () => {
     const response = await axios.get(`${API_URL}/all-blogs`);

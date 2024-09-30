@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
-import useBlog from '../hooks/useBlog'; 
-import useAuth from '../hooks/useAuth'; 
+import useBlog from '../hooks/useBlog'; // Use the custom hook
+import useAuth from '../hooks/useAuth'; // Use the custom hook
 import DOMPurify from 'dompurify';
 import SEO from '../components/SEO';
 
@@ -17,8 +17,9 @@ const BlogList = () => {
         fetchBlogs();
       // eslint-disable-next-line
     }, []);
+    
 
-
+    
     // Helper functions
   const extractFirstImageUrl = (htmlContent) => {
     const div = document.createElement('div');
@@ -111,12 +112,12 @@ const BlogList = () => {
                             <Link to={`/blogs/${blog.slug}`}>{truncatedTitle}</Link>
                           </h5>
                           <p className="card-text">{truncatedText}...</p>
-                          <Link to={`/blogs/${blog.slug}`} className="btn btn-primary me-2">Read More</Link>
+                          <Link to={`/blogs/${blog.slug}/`} className="btn btn-primary me-2">Read More</Link>
     
                           {/* Show Edit and Delete buttons only for Admins */}
                           {user?.isAdmin && (
                             <>
-                              <Link to={`/edit-blog/${blog.slug}`} className="btn btn-warning me-2">Edit</Link>
+                              <Link to={`/edit-blog/${blog.slug}/`} className="btn btn-warning me-2">Edit</Link>
                               <button onClick={() => handleDelete(blog.slug)} className="btn btn-danger">Delete</button>
                             </>
                           )}

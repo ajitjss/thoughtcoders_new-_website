@@ -10,7 +10,7 @@ const Register = () => {
         password: '',
         confirmPassword: ''
     });
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false); // State to manage loading
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,7 +18,7 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setIsLoading(true);
+        setIsLoading(true); // Set loading state to true when the button is clicked
         try {
             await register(formData.name, formData.email, formData.password, formData.confirmPassword);
             setFormData({
@@ -30,7 +30,7 @@ const Register = () => {
         } catch (error) {
             console.error('Registration error:', error);
         }finally {
-            setIsLoading(false);
+            setIsLoading(false); // Set loading state back to false after the process finishes
         }
     };
 
@@ -58,9 +58,11 @@ const Register = () => {
             </div>
             <div className='d-grid mt-3'>
             <button className='btn btn-secondary' type="submit" disabled={isLoading}>
-            {isLoading ? <Spinner animation="border" size="sm" /> : 'Register'} 
+            {isLoading ? <Spinner animation="border" size="sm" /> : 'Register'} {/* Show loading text when processing */}
             </button>
             </div>
+            
+            
         </form>
         </div>
         
