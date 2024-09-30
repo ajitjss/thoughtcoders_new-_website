@@ -17,10 +17,11 @@ dotenv.config();
 // Initialize the Express application
 const app = express();
 // CORS middleware
-app.use(cors({
-    origin: ['http://localhost:3000', 'https://thoughtcoders-new-website.onrender.com'],
-    credentials: true, 
-}));
+const corsOption = {
+    origin:["http://localhost:3000"],
+    credentials: true,
+}
+app.use(cors(corsOption));
 
 // Middleware to parse incoming JSON requests with a size limit of 10MB
 app.use(express.json({ limit: '10mb' }));
