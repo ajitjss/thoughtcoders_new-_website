@@ -28,16 +28,32 @@ const BlogList = () => {
     return img ? img.src : null;
   };
 
-  const extractPlainTextAndLimit = (htmlContent, wordLimit) => {
-    const div = document.createElement('div');
-    div.innerHTML = DOMPurify.sanitize(htmlContent);
-    const textContent = div.textContent || div.innerText || '';
-    return textContent.split(' ').slice(0, wordLimit).join(' ');
-  };
+  // const extractPlainTextAndLimit = (htmlContent, wordLimit) => {
+  //   const div = document.createElement('div');
+  //   div.innerHTML = DOMPurify.sanitize(htmlContent);
+  //   const textContent = div.textContent || div.innerText || '';
+  //   return textContent.split(' ').slice(0, wordLimit).join(' ');
+  // };
 
-  const limitTitleWords = (title, wordLimit) => {
-    return title.split(' ').slice(0, wordLimit).join(' ');
-  };
+  // const limitTitleWords = (title, wordLimit) => {
+  //   return title.split(' ').slice(0, wordLimit).join(' ');
+  // };
+
+  function extractPlainTextAndLimit(content, charLimit) {
+    const plainText = content.replace(/<\/?[^>]+(>|$)/g, ""); // Strip HTML tags
+    if (plainText.length > charLimit) {
+      return plainText.substring(0, charLimit) + '...';
+    }
+    return plainText;
+  }
+  
+
+  function limitTitleChars(title, charLimit) {
+    if (title.length > charLimit) {
+      return title.substring(0, charLimit) + '...';
+    }
+    return title;
+  }
 
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
@@ -84,7 +100,7 @@ const BlogList = () => {
                     height="600px"
                   />
                   <Carousel.Caption>
-                    <h3>{limitTitleWords(blog.title, 10)}</h3>
+                    <h3>{limitTitleChars(blog.title, 10)}</h3>
                   </Carousel.Caption>
                 </Carousel.Item>
               );
@@ -96,8 +112,8 @@ const BlogList = () => {
               <div className="row">
                 {currentBlogs.map((blog) => {
                   const imageUrl = extractFirstImageUrl(blog.content) || 'https://via.placeholder.com/150';
-                  const truncatedText = extractPlainTextAndLimit(blog.content, 10);
-                  const truncatedTitle = limitTitleWords(blog.title, 8);
+                  const truncatedText = extractPlainTextAndLimit(blog.content, 50);
+                  const truncatedTitle = limitTitleChars(blog.title, 30);
                   return (
                     <div key={blog.slug} className="col-md-6 mb-4">
                       <div className="card">
@@ -136,7 +152,7 @@ const BlogList = () => {
                 .slice(0, 5)
                 .map((blog) => {
                   const imageUrl = extractFirstImageUrl(blog.content) || 'https://via.placeholder.com/150';
-                  const truncatedTitle = limitTitleWords(blog.title, 10);
+                  const truncatedTitle = limitTitleChars(blog.title, 100);
                   const formattedDate = formatDate(blog.createdAt);
                   return (
                     <div key={blog.slug} className="card mb-3">
