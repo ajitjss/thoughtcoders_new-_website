@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import CarouselComp from '../../components/CarouselComp';
 import CountUpSection from '../../components/CountUpSection';
 import GetInTouch from '../../components/GetInTouch';
+import AutoPopupModal from '../../components/modal/AutoPopupModal';
 
 const Home = () => {
   // eslint-disable-next-line no-unused-vars
@@ -28,6 +29,7 @@ const Home = () => {
     <div>
       {/* Carousel*/}
       <CarouselComp />
+      <AutoPopupModal />
       <div className="container">
         {/* First Section-Recognized Software Testing Company */}
         <div>

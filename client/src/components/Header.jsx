@@ -10,8 +10,8 @@ const Header = () => {
     const { user, logout } = useContext(AuthContext); // Access user and logout from AuthContext
 
     const handleLogout = () => {
-        logout(); // Call the logout method from AuthContext
-        window.location.href = '/login'; // Redirect to login
+        logout(); 
+        window.location.href = '/';
     };
     const linkStyle = {
         color: '#FF6100',

@@ -39,22 +39,6 @@ const BlogList = () => {
     return title.split(' ').slice(0, wordLimit).join(' ');
   };
 
-  // function extractPlainTextAndLimit(content, charLimit) {
-  //   const plainText = content.replace(/<\/?[^>]+(>|$)/g, ""); // Strip HTML tags
-  //   if (plainText.length > charLimit) {
-  //     return plainText.substring(0, charLimit) + '...';
-  //   }
-  //   return plainText;
-  // }
-  
-
-  // function limitTitleChars(title, charLimit) {
-  //   if (title.length > charLimit) {
-  //     return title.substring(0, charLimit) + '...';
-  //   }
-  //   return title;
-  // }
-
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
     const date = new Date(dateString);
