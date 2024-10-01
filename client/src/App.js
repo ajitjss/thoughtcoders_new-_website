@@ -21,6 +21,7 @@ import TermsConditions from './pages/terms-condition/TermsConditions';
 import OurTeam from './pages/about/OurTeam';
 import ApiAutomationTesting from './pages/services/api-automation-testing/ApiAutomationTesting';
 import QualityAssuranceServeice from './pages/services/quality-assurance-service/QualityAssuranceServeice';
+import RUC from './pages/services/ruc/RUC';
 
 function App() {
     return (
@@ -49,15 +50,8 @@ function App() {
                         {/*Services Routes */}
                         <Route path='/api-automation-testing-services/' element={ <ApiAutomationTesting /> } />
                         <Route path='/quality-assurance-services/' element={ <QualityAssuranceServeice /> } />
+                        <Route path='/services/road-usages-charging/' element={ <RUC /> } />
                     </Route>
-                    <Route 
-                        path="/admin-dashboard/*" 
-                        element={
-                            <PrivateRoute roleRequired="isAdmin">
-                                <AdminDashboard />
-                            </PrivateRoute>
-                        } 
-                    />
                     <Route 
                         path="/create-blog" 
                         element={
