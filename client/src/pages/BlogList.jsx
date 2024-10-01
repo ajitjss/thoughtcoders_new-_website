@@ -128,13 +128,13 @@ const BlogList = () => {
                             <Link to={`/blogs/${blog.slug}`}>{truncatedTitle}</Link>
                           </h5>
                           <p className="card-text">{truncatedText}...</p>
-                          <Link to={`/blogs/${blog.slug}/`} className="btn btn-primary me-2">Read More</Link>
+                          <Link to={`/blogs/${blog.slug}/`} className="btn btn-outline-primary me-2">Read More</Link>
     
                           {/* Show Edit and Delete buttons only for Admins */}
                           {user?.isAdmin && (
                             <>
-                              <Link to={`/edit-blog/${blog.slug}/`} className="btn btn-warning me-2">Edit</Link>
-                              <button onClick={() => handleDelete(blog.slug)} className="btn btn-danger">Delete</button>
+                              <Link to={`/edit-blog/${blog.slug}/`} className="btn btn-outline-warning me-2">Edit</Link>
+                              <button onClick={() => handleDelete(blog.slug)} className="btn btn-outline-danger">Delete</button>
                             </>
                           )}
                         </div>

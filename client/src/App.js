@@ -5,10 +5,9 @@ import PrivateRoute from './components/PrivateRoute';
 import Login from './components/Login';
 import Register from './components/Register';
 import Layout from './components/Layout';
-import AdminDashboard from './pages/AdminDashboard';
 import BlogList from './pages/BlogList';
 import BlogDetail from './pages/BlogDetail';
-import CreateBlog from './pages/CreateBlog'; // Import the CreateBlog component
+import CreateBlog from './pages/CreateBlog';
 import EditBlog from './pages/EditBlog';
 import { BlogProvider } from './context/BlogContext';
 import Home from './pages/home/Home';
