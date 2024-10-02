@@ -33,7 +33,7 @@ function App() {
                     <Route path="/" element={<Layout />}>
                         <Route index element={<Home />} />
                         <Route path="blogs" element={<BlogList />} />
-                        <Route path="blogs/:slug" element={<BlogDetail />} />
+                        <Route path="/blogs/:slug/" element={<BlogDetail />} />
                         <Route path="login" element={<Login />} />
                         <Route path="register" element={<Register />} />
                         <Route path="/privacy-policy" element={<PrivacyPolicy />} />

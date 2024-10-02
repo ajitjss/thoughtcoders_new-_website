@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { config } from '../config';
 
-const API_URL = config.BASE_URL;
+const API_URL = `${config.BASE_URL}/api`;
 
 export const fetchAllBlogs = async () => {
     const response = await axios.get(`${API_URL}/all-blogs`);
@@ -26,6 +26,6 @@ export const deleteBlog = async (slug) => {
 };
 
 export const fetchBlogBySlug = async (slug) => {
-    const response = await axios.get(`${API_URL}/single-blog/${slug}`);
+    const response = await axios.get(`${API_URL}/single-blog/${slug}/`);
     return response.data;
 };
