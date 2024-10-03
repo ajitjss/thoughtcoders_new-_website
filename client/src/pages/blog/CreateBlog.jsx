@@ -80,7 +80,6 @@ const CreateBlog = ({ placeholder }) => {
             <div className='d-grid pt-2'>
               <button type="submit" className="btn btn-secondary mb-2">Post Blog</button>
             </div>
-            
           </form>
         </div>
       </div>

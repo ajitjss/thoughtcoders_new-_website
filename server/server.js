@@ -9,7 +9,7 @@ const colors = require('colors');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken'); 
 const slugify = require('slugify');
-const Razorpay = require('razorpay');
+const Razorpay = require('razorpay'); 
 
 // Load environment variables from .env file
 dotenv.config();
@@ -18,8 +18,9 @@ dotenv.config();
 const app = express();
 // CORS middleware
 const corsOption = {
-    origin:["http://localhost:3000"],
+    origin:["https://thoughtcoders.netlify.app/"], 
     credentials: true,
+    optionsSuccessStatus: 200
 }
 app.use(cors(corsOption));
 
@@ -28,7 +29,7 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // MongoDB Connection Setup
-const connectDB = async () => {
+const connectDB = async () => { 
     try {
         const con = await mongoose.connect(process.env.MONGO_URI);
         console.log(`Connected to MongoDB Database ${con.connection.host}`.bgMagenta.white);
