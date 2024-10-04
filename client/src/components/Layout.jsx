@@ -4,6 +4,7 @@ import Header from './Header';
 import { Outlet } from 'react-router-dom';
 import Footer from './Footer';
 import SEO from './SEO';
+import Contact from './Contact';
 
 const Layout = () => {
   return (
@@ -13,6 +14,7 @@ const Layout = () => {
       <main style={{ marginTop: '75px', minHeight:'60vh' }}>
         <Outlet />
       </main>
+      <Contact />
       <Footer />
     </>
   );

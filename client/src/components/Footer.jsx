@@ -8,13 +8,16 @@ const Footer = () => {
     <footer className="bg-dark py-4" style={{color:'#FF6100'}}>
       <div className="container">
         <div className="row mb-4">
-          <div className="col-md-3 mb-3">
+          <div className="col-md-4 mb-3">
             <img src="https://thoughtcoders.com/wp-content/uploads/2013/06/cropped-THOUGHT-CODERS.png" style={{width:'200px', height:'50px'}} alt="" />
             <p className="text-white">
-              We are a team of passionate tester providing quality content on various topics. Follow us for the latest updates and insights.
+              We specialize in delivering comprehensive software testing and quality assurance (QA) solutions.
+              Our expert team ensures your software is reliable, secure, and user-friendly through a range of 
+              services including- Manual Testing, Automated Testing, Performance Testing, Security Testing, and  
+              Mobile Testing.
             </p>
           </div>
-          <div className="col-md-3 mb-3">
+          <div className="col-md-2 mb-3">
             <h5 className="text-uppercase">Quick Links</h5>
             <ul className="list-unstyled">
               <li><Link to="/" className="text-white" style={{textDecoration:"none"}}>Home</Link></li>

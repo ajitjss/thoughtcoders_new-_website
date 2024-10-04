@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import CarouselComp from '../../components/CarouselComp';
 import CountUpSection from '../../components/CountUpSection';
 import GetInTouch from '../../components/GetInTouch';
+import Contact from '../../components/Contact';
 
 const Home = () => {
   // eslint-disable-next-line no-unused-vars
@@ -276,9 +277,6 @@ const Home = () => {
         <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginBottom:'100px'}}>
           <h1 style={{fontFamily:'georgia, sans-serif',marginTop:'40px',marginBottom:'40px'}}>Tools and Technologies</h1>
           <img src="/assets/homeimages/tools-and-tech.png" alt="" />
-        </div>
-        <div style={{marginBottom:"200px"}}>
-          <GetInTouch />
         </div>
       </div>
     </div>
