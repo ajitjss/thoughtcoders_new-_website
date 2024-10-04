@@ -1,8 +1,7 @@
 // src/pages/CreateBlog.js
 import React, { useState, useRef } from 'react';
 import JoditEditor from 'jodit-react';
-import useBlog from '../hooks/useBlog'; 
-import {Link} from 'react-router-dom'
+import useBlog from '../hooks/useBlog'; // Import the custom hook
 
 const CreateBlog = () => {
     const { createBlog, isLoading } = useBlog(); // Use the custom hook
@@ -90,7 +89,6 @@ const CreateBlog = () => {
                 <button className="btn btn-primary mt-3" type="submit" disabled={isLoading}>
                     {isLoading ? 'Creating...' : 'Create Blog'}
                 </button>
-                <Link to='/'><button className='btn btn-danger mt-3 ms-2'>Cancel</button></Link>
             </form>
         </div>
     );

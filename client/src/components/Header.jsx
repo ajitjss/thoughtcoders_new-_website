@@ -10,8 +10,8 @@ const Header = () => {
     const { user, logout } = useContext(AuthContext); // Access user and logout from AuthContext
 
     const handleLogout = () => {
-        logout(); 
-        window.location.href = '/';
+        logout(); // Call the logout method from AuthContext
+        window.location.href = '/login'; // Redirect to login
     };
     const linkStyle = {
         color: '#FF6100',
@@ -34,7 +34,7 @@ const Header = () => {
                 <Nav className="ms-auto">
                         {/* Menus */}
                         <Nav.Link style={linkStyle} as={Link} to="/">Home</Nav.Link>
-                        <Nav.Link style={linkStyle} as={Link} to="/blogs/">Blogs</Nav.Link>
+                        <Nav.Link style={linkStyle} as={Link} to="/blogs">Blogs</Nav.Link>
                         <Nav.Link style={linkStyle} as={Link} to="/contact-us">Contact Us</Nav.Link>
                         {/* Dropdown for About */}
                         <NavDropdown 
@@ -60,7 +60,6 @@ const Header = () => {
                             <NavDropdown.Item as={Link} to="/quality-assurance-services/">Quality Assurance Services</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/api-automation-testing-services/">API Automation Testing</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/services/cloud-services">Remote QA Team</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/services/road-usages-charging">Road Use Charges (RUC)</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/services/consulting">Test Automation</NavDropdown.Item>
                         </NavDropdown>
                         

@@ -1,5 +1,5 @@
 // Import required modules
-const express = require('express');  
+const express = require('express')
 const mongoose = require('mongoose');
 const cors = require('cors');        
 const multer = require('multer');  
@@ -9,7 +9,7 @@ const colors = require('colors');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken'); 
 const slugify = require('slugify');
-const Razorpay = require('razorpay'); 
+const Razorpay = require('razorpay');
 
 // Load environment variables from .env file
 dotenv.config();
@@ -17,21 +17,19 @@ dotenv.config();
 // Initialize the Express application
 const app = express();
 // CORS middleware
-const corsOption = {
-    origin:["https://thoughtcoders.netlify.app/"], 
-    credentials: true,
-    optionsSuccessStatus: 200
-}
-app.use(cors(corsOption));
+app.use(cors({
+    origin: ['http://localhost:3000', 'https://thoughtcoders-new-website.onrender.com'],
+    credentials: true, 
+}));
 
 // Middleware to parse incoming JSON requests with a size limit of 10MB
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // MongoDB Connection Setup
-const connectDB = async () => { 
+const connectDB = async () => {
     try {
-        const con = await mongoose.connect(process.env.MONGO_URI);
+        const con = await mongoose.connect(process.env.MONGO_URL);
         console.log(`Connected to MongoDB Database ${con.connection.host}`.bgMagenta.white);
     } catch (error) {
         console.log(`Failed to connect MongoDB Database ${error}`.bgRed.white);

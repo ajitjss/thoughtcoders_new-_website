@@ -96,8 +96,8 @@ const BlogList = () => {
               <div className="row">
                 {currentBlogs.map((blog) => {
                   const imageUrl = extractFirstImageUrl(blog.content) || 'https://via.placeholder.com/150';
-                  const truncatedText = extractPlainTextAndLimit(blog.content, 8);
-                  const truncatedTitle = limitTitleWords(blog.title, 5);
+                  const truncatedText = extractPlainTextAndLimit(blog.content, 10);
+                  const truncatedTitle = limitTitleWords(blog.title, 8);
                   return (
                     <div key={blog.slug} className="col-md-6 mb-4">
                       <div className="card">
@@ -112,13 +112,13 @@ const BlogList = () => {
                             <Link to={`/blogs/${blog.slug}`}>{truncatedTitle}</Link>
                           </h5>
                           <p className="card-text">{truncatedText}...</p>
-                          <Link to={`/blogs/${blog.slug}/`} className="btn btn-outline-primary me-2">Read More</Link>
+                          <Link to={`/blogs/${blog.slug}/`} className="btn btn-primary me-2">Read More</Link>
     
                           {/* Show Edit and Delete buttons only for Admins */}
                           {user?.isAdmin && (
                             <>
-                              <Link to={`/edit-blog/${blog.slug}/`} className="btn btn-outline-warning me-2">Edit</Link>
-                              <button onClick={() => handleDelete(blog.slug)} className="btn btn-outline-danger">Delete</button>
+                              <Link to={`/edit-blog/${blog.slug}/`} className="btn btn-warning me-2">Edit</Link>
+                              <button onClick={() => handleDelete(blog.slug)} className="btn btn-danger">Delete</button>
                             </>
                           )}
                         </div>
@@ -136,7 +136,7 @@ const BlogList = () => {
                 .slice(0, 5)
                 .map((blog) => {
                   const imageUrl = extractFirstImageUrl(blog.content) || 'https://via.placeholder.com/150';
-                  const truncatedTitle = limitTitleWords(blog.title, 8);
+                  const truncatedTitle = limitTitleWords(blog.title, 10);
                   const formattedDate = formatDate(blog.createdAt);
                   return (
                     <div key={blog.slug} className="card mb-3">
