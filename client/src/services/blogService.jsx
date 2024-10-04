@@ -1,5 +1,6 @@
 // src/services/blogService.jsx
 import axios from 'axios';
+import { config } from '../config';
 
 const API_URL = `${config.BASE_URL}/api`;
 
