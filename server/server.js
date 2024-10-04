@@ -18,7 +18,7 @@ dotenv.config();
 const app = express();
 // CORS middleware
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://thoughtcoders-new-website.onrender.com'],
+    origin: ['https://thoughtcoders.netlify.app', 'https://thoughtcoders-new-website.onrender.com'],
     credentials: true, 
 }));
 
