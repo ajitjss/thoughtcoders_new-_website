@@ -1,4 +1,3 @@
-// Import required modules
 const express = require('express')
 const mongoose = require('mongoose');
 const cors = require('cors');        
@@ -7,7 +6,7 @@ const path = require('path');
 const dotenv = require('dotenv'); 
 const colors = require('colors'); 
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken'); 
+const jwt = require('jsonwebtoken')
 const slugify = require('slugify');
 const Razorpay = require('razorpay');
 
