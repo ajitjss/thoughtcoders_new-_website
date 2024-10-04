@@ -1,6 +1,9 @@
 // src/context/BlogContext.js
 import React, { createContext, useState } from 'react';
 import axios from 'axios';
+import { config } from '../config';
+
+const API_URL = `${config.BASE_URL}/api`
 
 export const BlogContext = createContext();
 
@@ -10,7 +13,7 @@ export const BlogProvider = ({ children }) => {
 
     const fetchBlogs = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/all-blogs`);
+            const response = await axios.get(`${API_URL}/all-blogs`);
             setBlogs(response.data);
         } catch (error) {
             console.error('Error fetching blogs:', error);
@@ -20,7 +23,7 @@ export const BlogProvider = ({ children }) => {
     const createBlog = async (formData) => {
         setIsLoading(true);
         try {
-            await axios.post(`http://localhost:8080/api/create-blog`, formData, {
+            await axios.post(`${API_URL}/create-blog`, formData, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             });
             await fetchBlogs();
@@ -35,7 +38,7 @@ export const BlogProvider = ({ children }) => {
     const updateBlog = async (slug, updatedData) => {
         setIsLoading(true);
         try {
-            await axios.put(`http://localhost:8080/api/blogs/${slug}`, updatedData, {
+            await axios.put(`${API_URL}/blogs/${slug}`, updatedData, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             });
             await fetchBlogs();
@@ -49,7 +52,7 @@ export const BlogProvider = ({ children }) => {
     const deleteBlog = async (slug) => {
         setIsLoading(true);
         try {
-            await axios.delete(`http://localhost:8080/api/delete-blogs/${slug}`);
+            await axios.delete(`${API_URL}/delete-blogs/${slug}`);
             await fetchBlogs();
         } catch (error) {
             console.error('Error deleting blog:', error);
