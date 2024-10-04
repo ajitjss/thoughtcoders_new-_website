@@ -1,8 +1,10 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import { Toaster, toast } from 'react-hot-toast'; 
 
 const Contact = () => {
     const form = useRef();
+
     const sendEmail = (e) => {
         e.preventDefault();
     
@@ -12,14 +14,17 @@ const Contact = () => {
           })
           .then(
             () => {
-              console.log('SUCCESS!');
+                toast.success('Message sent successfully');
+                console.log('SUCCESS!');
             },
             (error) => {
+                toast.error(error.text || 'FAILED...');
               console.log('FAILED...', error.text);
             },
         );
         e.target.reset();
     };
+
 
     return (
         <div className='w-100' style={{ fontFamily: "georgia", display: 'flex', justifyContent: 'center', background: '#F36E2B' }}>
@@ -88,6 +93,7 @@ const Contact = () => {
                       style={{  background: "#fff", color:'#000',border: 'none', fontSize:'20px' }}>
                         Submit
                     </button>
+                    <Toaster position="top-center" reverseOrder={false} />
                 </div>
             </form>
         </div>

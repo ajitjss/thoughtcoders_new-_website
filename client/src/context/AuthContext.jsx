@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from 'react';
 import * as authService from '../services/authService';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { Toaster, toast } from 'react-hot-toast'; // Import Toaster and toast
+import { Toaster, toast } from 'react-hot-toast'; 
 
 const AuthContext = createContext();
 

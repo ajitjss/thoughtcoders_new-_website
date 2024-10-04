@@ -89,110 +89,71 @@ const BlogList = () => {
                 </Carousel.Item>
               );
             })}
-            </Carousel>
+          </Carousel>
           <h2>All Blogs</h2>
           <div className="row">
-            <div className="col-md-7">
+            <div className="col-md-8">
               <div className="row">
                 {currentBlogs.map((blog) => {
                   const imageUrl = extractFirstImageUrl(blog.content) || 'https://via.placeholder.com/150';
                   const truncatedText = extractPlainTextAndLimit(blog.content, 10);
                   const truncatedTitle = limitTitleWords(blog.title, 8);
                   return (
-                    <div key={blog.slug} className="mb-4">
-                        <div className="card h-100">
-                            <div className="row g-0">
-                            {/* Left Side: Image */}
-                            <div className="col-md-4">
-                                <img
-                                src={imageUrl}
-                                className="img-fluid rounded-start"
-                                alt={blog.title}
-                                style={{ height: '100%', objectFit: 'cover', padding:'10px' }}
-                                />
-                            </div>
-
-                            {/* Right Side: Title, Text, and Buttons */}
-                            <div className="col-md-8">
-                                <div className="card-body d-flex flex-column">
-                                {/* Title */}
-                                <h5 className="card-title">
-                                    <Link to={`/blogs/${blog.slug}`}>{truncatedTitle}</Link>
-                                </h5>
-
-                                {/* Paragraph */}
-                                <p className="card-text flex-grow-1">{truncatedText}...</p>
-
-                                {/* Buttons */}
-                                <div className="mt-auto">
-                                    <Link to={`/blogs/${blog.slug}/`} className="btn btn-primary me-2">Read More</Link>
-
-                                    {/* Show Edit and Delete buttons only for Admins */}
-                                    {user?.isAdmin && (
-                                    <>
-                                        <Link to={`/edit-blog/${blog.slug}/`} className="btn btn-warning me-2">Edit</Link>
-                                        <button onClick={() => handleDelete(blog.slug)} className="btn btn-danger">Delete</button>
-                                    </>
-                                    )}
-                                </div>
-                                </div>
-                            </div>
-                            </div>
+                    <div key={blog.slug} className="col-md-6 mb-4">
+                      <div className="card">
+                        <img
+                          src={imageUrl}
+                          className="card-img-top"
+                          alt={blog.title}
+                          style={{ height: '200px', objectFit: 'cover' }}
+                        />
+                        <div className="card-body">
+                          <h5 className="card-title">
+                            <Link to={`/blogs/${blog.slug}`}>{truncatedTitle}</Link>
+                          </h5>
+                          <p className="card-text">{truncatedText}...</p>
+                          <Link to={`/blogs/${blog.slug}/`} className="btn btn-primary me-2">Read More</Link>
+    
+                          {/* Show Edit and Delete buttons only for Admins */}
+                          {user?.isAdmin && (
+                            <>
+                              <Link to={`/edit-blog/${blog.slug}/`} className="btn btn-warning me-2">Edit</Link>
+                              <button onClick={() => handleDelete(blog.slug)} className="btn btn-danger">Delete</button>
+                            </>
+                          )}
                         </div>
+                      </div>
                     </div>
-
                   );
                 })}
               </div>
             </div>
     
-            <div className="col-md-5">
-                <h4>Recent Posted Blogs</h4>
-                {blogs
-                    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-                    .slice(0, 5)
-                    .map((blog) => {
-                    const imageUrl = extractFirstImageUrl(blog.content) || 'https://via.placeholder.com/150';
-                    const truncatedTitle = limitTitleWords(blog.title, 10);
-                    const formattedDate = formatDate(blog.createdAt);
-                    
-                    return (
-                        <div key={blog.slug} className="card mb-3">
-                            <div className="row g-0">
-                                {/* Left Side: Image */}
-                                <div className="col-md-4">
-                                    <img
-                                        src={imageUrl}
-                                        className="img-fluid rounded-start"
-                                        alt={blog.title}
-                                        style={{width:'100%', height: '100%', objectFit: 'cover', padding:'10px' }}
-                                    />
-                                </div>
-                                {/* Right Side: Title, Date, and Button */}
-                                <div className="col-md-8">
-                                    <div className="card-body d-flex flex-column">
-                                        {/* Title */}
-                                        <h5 className="card-title">
-                                            <Link to={`/blogs/${blog.slug}`}>{truncatedTitle}</Link>
-                                        </h5>
-
-                                        {/* Date */}
-                                        <p className="card-text flex-grow-1">
-                                            <small className="text-muted">Posted on: {formattedDate}</small>
-                                        </p>
-
-                                        {/* Button */}
-                                        <div className="mt-auto">
-                                            <Link to={`/blogs/${blog.slug}`} className="btn btn-primary">Read More</Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    );
-                    })}
+            <div className="col-md-4">
+              <h4>Recent Posted Blogs</h4>
+              {blogs
+                .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+                .slice(0, 5)
+                .map((blog) => {
+                  const imageUrl = extractFirstImageUrl(blog.content) || 'https://via.placeholder.com/150';
+                  const truncatedTitle = limitTitleWords(blog.title, 10);
+                  const formattedDate = formatDate(blog.createdAt);
+                  return (
+                    <div key={blog.slug} className="card mb-3">
+                      <img src={imageUrl} className="card-img-top" alt={blog.title} style={{ height: '100px', objectFit: 'cover' }} />
+                      <div className="card-body">
+                        <h5 className="card-title">
+                          <Link to={`/blogs/${blog.slug}`}>{truncatedTitle}</Link>
+                        </h5>
+                        <p className="card-text">
+                          <small className="text-muted">Posted on: {formattedDate}</small>
+                        </p>
+                        <Link to={`/blogs/${blog.slug}`} className="btn btn-primary">Read More</Link>
+                      </div>
+                    </div>
+                  );
+                })}
             </div>
-
           </div>
     
           {/* Pagination Controls */}
