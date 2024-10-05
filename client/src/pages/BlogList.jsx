@@ -119,7 +119,7 @@ const BlogList = () => {
       </div>
 
       {/* All Blogs Section */}
-      <h2 style={{fontFamily:"georgia", fontWeight:'600'}}>Blogs</h2>
+      <h2 style={{fontFamily:"georgia", fontWeight:'400'}}>Blogs</h2>
       <div className="row">
         <div className="col-md-8">
           <div className="row">
@@ -178,7 +178,7 @@ const BlogList = () => {
 
         {/* Recent Blogs Section */}
         <div className="col-md-4">
-          <h4 style={{fontFamily:"georgia", fontWeight:'600'}}>Recent Posted Blogs</h4>
+          <h3 style={{fontFamily:"georgia", fontWeight:'400'}}>Recent Blogs</h3>
           {blogs
             .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
             .slice(0, 6)
@@ -210,11 +210,11 @@ const BlogList = () => {
                     <div className="col-md-8">
                       <div className="card-body d-flex flex-column">
                         {/* Title */}
-                        <h5 className="card-title">
+                        <h6 className="card-title">
                           <Link style={{textDecoration:'none', color:'#000', fontFamily:'georgia', fontWeight:'600'}}  to={`/blogs/${blog.slug}`}>
                             {truncatedTitle}
                           </Link>
-                        </h5>
+                        </h6>
 
                         {/* Date */}
                         <p className="card-text flex-grow-1">
