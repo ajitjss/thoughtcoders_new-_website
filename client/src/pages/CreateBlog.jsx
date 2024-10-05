@@ -1,10 +1,11 @@
 // src/pages/CreateBlog.js
 import React, { useState, useRef } from 'react';
 import JoditEditor from 'jodit-react';
-import useBlog from '../hooks/useBlog'; // Import the custom hook
+import useBlog from '../hooks/useBlog'; 
+import { Toaster, toast } from 'react-hot-toast'; 
 
 const CreateBlog = () => {
-    const { createBlog, isLoading } = useBlog(); // Use the custom hook
+    const { createBlog, isLoading } = useBlog(); 
     const editor = useRef(null);
     const [formData, setFormData] = useState({ 
         title: '', description:'', keywords:'', slug:'', content: ''  
@@ -23,10 +24,9 @@ const CreateBlog = () => {
         try {
             await createBlog(formData);
             setFormData({title: '', description:'', keywords:'', slug:'', content: ''});
-            console.log('Created Blog---->',formData)
-            alert('Blog created successfully!');
+            toast.success('Blog created successfully!');
         } catch {
-            alert('Failed to create blog.');
+            toast.error('Failed to create blog.');
         }
     };
 
@@ -89,6 +89,7 @@ const CreateBlog = () => {
                 <button className="btn btn-primary mt-3" type="submit" disabled={isLoading}>
                     {isLoading ? 'Creating...' : 'Create Blog'}
                 </button>
+                <Toaster position="top-center" reverseOrder={false} />
             </form>
         </div>
     );

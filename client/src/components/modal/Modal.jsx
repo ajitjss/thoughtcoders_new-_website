@@ -1,6 +1,6 @@
 // Modal.js
 import React from 'react';
-import './Modal.css'; // Optional: Add styles for the modal
+import './Modal.css'; 
 
 const Modal = ({ show, handleClose, children }) => {
   if (!show) return null; // Do not render modal if 'show' is false

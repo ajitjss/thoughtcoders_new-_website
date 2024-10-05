@@ -4,14 +4,14 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown'; 
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import AuthContext from '../context/AuthContext'; // Adjust the import path as necessary
+import AuthContext from '../context/AuthContext';
 
 const Header = () => {
-    const { user, logout } = useContext(AuthContext); // Access user and logout from AuthContext
+    const { user, logout } = useContext(AuthContext); 
 
     const handleLogout = () => {
         logout(); // Call the logout method from AuthContext
-        window.location.href = '/login'; // Redirect to login
+        window.location.href = '/'; 
     };
     const linkStyle = {
         color: '#FF6100',

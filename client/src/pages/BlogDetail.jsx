@@ -39,7 +39,6 @@ const BlogDetail = () => {
         if (words.length <= wordLimit) return text; // If it's already within the limit
         return words.slice(0, 50).join(' ') + '...'; // Join the first 50 words and add '...'
     };
-    console.log('Blog',blog)
     return (
         <div className="container mt-5">
         <SEO

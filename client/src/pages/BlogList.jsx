@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
-import useBlog from "../hooks/useBlog"; // Use the custom hook
-import useAuth from "../hooks/useAuth"; // Use the custom hook
+import useBlog from "../hooks/useBlog";
+import useAuth from "../hooks/useAuth"; 
 import DOMPurify from "dompurify";
 import SEO from "../components/SEO";
 
@@ -10,7 +10,7 @@ const BlogList = () => {
   const { user } = useAuth();
   const { blogs, fetchBlogs, deleteBlog } = useBlog();
   const [currentPage, setCurrentPage] = useState(1);
-  const [searchQuery, setSearchQuery] = useState(""); // Add searchQuery state
+  const [searchQuery, setSearchQuery] = useState(""); 
   const blogsPerPage = 6;
 
   useEffect(() => {

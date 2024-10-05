@@ -25,9 +25,6 @@ const SEO = ({ title, description, keywords, author }) => {
         `}
       </script>
 
-
-
-      
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="Thoughtcoders" />
       <meta property="og:title" content={title} />

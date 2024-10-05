@@ -1,15 +1,16 @@
 // AutoPopupModal.js
+
 import React, { useState, useEffect } from 'react';
-import Modal from './Modal'; // Import the Modal component
+import Modal from './Modal';
 
 const AutoPopupModal = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    // Set a timeout to show the modal after 10 seconds
+    // Set a timeout to show the modal after defined seconds
     const timer = setTimeout(() => {
       setShowModal(true);
-    }, 3000); // 10000ms = 10 seconds
+    }, 3000); // second
 
     // Cleanup the timer if the component unmounts
     return () => clearTimeout(timer);

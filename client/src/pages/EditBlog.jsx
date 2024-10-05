@@ -1,25 +1,25 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import JoditEditor from 'jodit-react';
-import { fetchBlogBySlug } from '../services/blogService'; // Import service function
-import useBlog from '../hooks/useBlog'; // Import custom hook
+import { fetchBlogBySlug } from '../services/blogService'; 
+import useBlog from '../hooks/useBlog'; 
+import { Toaster, toast } from 'react-hot-toast'; 
 
 const EditBlog = () => {
-    const { slug } = useParams(); // Slug from URL
-    const { updateBlog } = useBlog(); // Use the custom hook
-    const editor = useRef(null); // Jodit editor reference
+    const { slug } = useParams(); 
+    const { updateBlog } = useBlog(); 
+    const editor = useRef(null); 
     const [formData, setFormData] = useState({
         title: '',
         description: '',
         keywords: '',
         slug: '',
         content: ''
-    }); // Updated state with additional fields
+    }); 
 
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
-    // Fetch the blog data based on the slug from the URL
     useEffect(() => {
         const fetchBlog = async () => {
             const data = await fetchBlogBySlug(slug);
@@ -50,11 +50,11 @@ const EditBlog = () => {
         e.preventDefault();
         setIsLoading(true);
         try {
-            await updateBlog(slug, formData); // Update blog with new data
-            alert('Blog updated successfully!');
+            await updateBlog(slug, formData); 
+            toast.success('Blog updated successfully!')
             navigate(`/blogs`);
         } catch {
-            alert('Failed to update blog.');
+            toast.error('Failed to update blog.')
         } finally {
             setIsLoading(false);
         }
@@ -125,6 +125,7 @@ const EditBlog = () => {
                 <button className="btn btn-primary mt-3" type="submit" disabled={isLoading}>
                     {isLoading ? 'Updating...' : 'Update Blog'}
                 </button>
+                <Toaster position='top-center' reverseOrder={false} />
             </form>
         </div>
     );

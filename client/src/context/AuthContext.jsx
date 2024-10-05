@@ -13,23 +13,19 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
       const token = localStorage.getItem('token');
-      //console.log('Token on load:', token); // Check token on initial load
       if (token) {
           axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
           authService.fetchUser()
               .then(userData => {
-                  setUser(userData); // Set user data if token is valid
+                  setUser(userData); 
                   setLoading(false);
               })
               .catch((error) => {
-                  console.error('Fetch user error:', error); // Log error
+                  console.error('Fetch user error:', error);
                   setLoading(false);
-                  // Consider whether you want to remove the token here
-                  // localStorage.removeItem('token'); 
-                  // delete axios.defaults.headers.common['Authorization'];
               });
       } else {
-          setLoading(false); // Just set loading to false if no token
+          setLoading(false); 
       }
   }, []);
   
@@ -37,18 +33,11 @@ export const AuthProvider = ({ children }) => {
     const login = async (email, password) => {
         try {
             const { token, name, email: userEmail, isAdmin, message } = await authService.login(email, password);
-            localStorage.setItem('token', token); // Store token in localStorage
-            //console.log('Token saved to localStorage:', localStorage.getItem('token'))
+            localStorage.setItem('token', token); 
             setUser({ name, email: userEmail, isAdmin });
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             toast.success(message || 'Logged in successfully!');
             navigate('/');
-            // Redirect based on user role
-            // if (isAdmin) {
-            //     navigate('/admin-dashboard');
-            // } else {
-            //     navigate('/');
-            // }
         } catch (error) {
             toast.error(error.response?.data?.message || 'Failed to login. Please check your credentials.');
         }
