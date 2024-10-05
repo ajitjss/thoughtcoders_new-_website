@@ -19,7 +19,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container" style={{width:"800px"}}>
+    <div className="container bg-primary" style={{width:"800px"}}>
     <SEO
       title="Login - An Independent Software Testing Company-Thoughtcoders"
       description="Login to access your account on My Blog App."
