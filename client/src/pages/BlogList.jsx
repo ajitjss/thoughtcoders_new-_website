@@ -103,9 +103,9 @@ const BlogList = () => {
       </Carousel>
 
       {/* Search Section */}
-      <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
-        <h3>Thoughtcoders Blog</h3>
-        <p>Our blog on Selenium automation testing, browser compatibility testing, web development, and updates</p>
+      <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'50px'}}>
+        <h3 style={{fontFamily:'georgia', fontWeight:'600'}}>Thoughtcoders Blog</h3>
+        <p style={{fontFamily:'georgia', fontWeight:'600'}}>Our blog on Selenium automation testing, browser compatibility testing, web development, and updates</p>
       
         <div className="mb-4 w-50">
           <input
@@ -119,16 +119,16 @@ const BlogList = () => {
       </div>
 
       {/* All Blogs Section */}
-      <h2>All Blogs</h2>
+      <h2 style={{fontFamily:"georgia", fontWeight:'600'}}>Blogs</h2>
       <div className="row">
-        <div className="col-md-7">
+        <div className="col-md-8">
           <div className="row">
             {currentBlogs
               .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) // Sort blogs by date in descending order
               .map((blog) => {
                 const imageUrl = extractFirstImageUrl(blog.content) || 'https://via.placeholder.com/150';
-                const truncatedText = extractPlainTextAndLimit(blog.content, 10);
-                const truncatedTitle = limitTitleWords(blog.title, 8);
+                const truncatedText = extractPlainTextAndLimit(blog.content, 20);
+                const truncatedTitle = limitTitleWords(blog.title, 25);
                 return (
                   <div key={blog.slug} className="mb-4">
                     <div className="card h-100">
@@ -148,15 +148,15 @@ const BlogList = () => {
                           <div className="card-body d-flex flex-column">
                             {/* Title */}
                             <h5 className="card-title">
-                              <Link to={`/blogs/${blog.slug}`}>{truncatedTitle}</Link>
+                              <Link style={{textDecoration:'none', color:'#000', fontFamily:'georgia', fontWeight:'600'}} to={`/blogs/${blog.slug}`}>{truncatedTitle}</Link>
                             </h5>
 
                             {/* Paragraph */}
-                            <p className="card-text flex-grow-1">{truncatedText}...</p>
+                            <p className="card-text flex-grow-1">{truncatedText}.</p>
 
                             {/* Buttons */}
                             <div className="mt-auto">
-                              <Link to={`/blogs/${blog.slug}/`} className="btn btn-primary me-2">Read More</Link>
+                              <Link to={`/blogs/${blog.slug}/`} className="btn btn-secondary me-2">Read More</Link>
 
                               {/* Show Edit and Delete buttons only for Admins */}
                               {user?.isAdmin && (
@@ -177,11 +177,11 @@ const BlogList = () => {
         </div>
 
         {/* Recent Blogs Section */}
-        <div className="col-md-5">
-          <h4>Recent Posted Blogs</h4>
+        <div className="col-md-4">
+          <h4 style={{fontFamily:"georgia", fontWeight:'600'}}>Recent Posted Blogs</h4>
           {blogs
             .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-            .slice(0, 5)
+            .slice(0, 6)
             .map((blog) => {
               const imageUrl =
                 extractFirstImageUrl(blog.content) ||
@@ -211,7 +211,7 @@ const BlogList = () => {
                       <div className="card-body d-flex flex-column">
                         {/* Title */}
                         <h5 className="card-title">
-                          <Link to={`/blogs/${blog.slug}`}>
+                          <Link style={{textDecoration:'none', color:'#000', fontFamily:'georgia', fontWeight:'600'}}  to={`/blogs/${blog.slug}`}>
                             {truncatedTitle}
                           </Link>
                         </h5>
@@ -227,7 +227,7 @@ const BlogList = () => {
                         <div className="mt-auto">
                           <Link
                             to={`/blogs/${blog.slug}`}
-                            className="btn btn-primary"
+                            className="btn btn-secondary"
                           >
                             Read More
                           </Link>
