@@ -82,25 +82,29 @@ const BlogList = () => {
       
       {/* Carousel Section */}
       <Carousel className="mb-4 mt-1">
-        {blogs.slice(0, 4).map((blog) => {
-          const imageUrl =
-            extractFirstImageUrl(blog.content) ||
-            "https://via.placeholder.com/800x400.png?text=No+Image+Available";
-          return (
-            <Carousel.Item key={blog._id}>
-              <img
-                className="d-block w-100"
-                src={imageUrl}
-                alt={blog.title}
-                height="600px"
-              />
-              <Carousel.Caption>
-                <h3>{limitTitleWords(blog.title, 10)}</h3>
-              </Carousel.Caption>
-            </Carousel.Item>
-          );
-        })}
+        {blogs
+          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) // Sort blogs by the latest date first
+          .slice(0, 4) // Get the latest 4 blogs
+          .map((blog) => {
+            const imageUrl =
+              extractFirstImageUrl(blog.content) ||
+              "https://via.placeholder.com/800x400.png?text=No+Image+Available";
+            return (
+              <Carousel.Item key={blog._id}>
+                <img
+                  className="d-block w-100"
+                  src={imageUrl}
+                  alt={blog.title}
+                  height="600px"
+                />
+                <Carousel.Caption>
+                  <h3>{limitTitleWords(blog.title, 10)}</h3>
+                </Carousel.Caption>
+              </Carousel.Item>
+            );
+          })}
       </Carousel>
+
 
       {/* Search Section */}
       <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'50px'}}>

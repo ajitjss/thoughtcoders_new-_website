@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import { Spinner } from 'react-bootstrap';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
     const { login } = useAuth();
     const [formData, setFormData] = useState({ email: '', password: '' });
     const [isLoading, setIsLoading] = useState(false); 
+    const [showPassword, setShowPassword] = useState(false); 
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -39,15 +41,21 @@ const Login = () => {
                             onChange={handleChange} 
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group position-relative">
                         <label>Password:</label>
                         <input 
                             className='form-control' 
-                            type="password" 
+                            type={showPassword ? "text" : "password"}
                             name="password" 
                             placeholder="Password" 
                             onChange={handleChange} 
                         />
+                        <span 
+                            className='position-absolute top-50 end-0 me-3'
+                            onClick={()=>setShowPassword(!showPassword)}
+                        >
+                            { showPassword ? <FaEyeSlash /> : <FaEye /> }
+                        </span>
                     </div>
                     <div className='d-grid mt-3'>
                     <button className='btn btn-secondary' type="submit" disabled={isLoading}>

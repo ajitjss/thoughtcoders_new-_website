@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import { Spinner } from 'react-bootstrap';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Register = () => {
     const { register } = useAuth();
@@ -11,6 +12,8 @@ const Register = () => {
         confirmPassword: ''
     });
     const [isLoading, setIsLoading] = useState(false); 
+    const [showPassword,setShowPassword] = useState(false)
+    const [showConfirmPassword,setShowConfirmPassword] = useState(false)
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -60,25 +63,37 @@ const Register = () => {
                     onChange={handleChange} 
                 />
             </div>
-            <div className='form-group'>
+            <div className='form-group position-relative'>
                 <label>Password:</label>
                 <input 
                     className='form-control' 
-                    type="password" 
+                    type={showPassword ? "text" : "password"}
                     name="password" 
                     placeholder="Enter Password" 
                     onChange={handleChange} 
                 />
+                <span 
+                    className='position-absolute top-50 end-0 me-3'
+                    onClick={()=>setShowPassword(!showPassword)}
+                >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
             </div>
-            <div className="form-group">
+            <div className="form-group position-relative">
                 <label>Confirm Password:</label>
                 <input 
                     className='form-control' 
-                    type="password" 
+                    type={showConfirmPassword ? "text" : "password"}
                     name="confirmPassword" 
                     placeholder="Enter Confirm Password" 
                     onChange={handleChange} 
                 />
+                <span 
+                    className='position-absolute top-50 end-0 me-3'
+                    onClick={()=>setShowConfirmPassword(!showConfirmPassword)}
+                >
+                    {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
             </div>
             <div className='d-grid mt-3'>
             <button className='btn btn-secondary' type="submit" disabled={isLoading}>
