@@ -25,7 +25,6 @@ import RUC from './pages/services/ruc/RUC';
 
 function App() {
     return (
-            
             <HelmetProvider>
             <Router>
             <AuthProvider>
