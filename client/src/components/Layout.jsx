@@ -4,7 +4,7 @@ import Header from './Header';
 import { Outlet } from 'react-router-dom';
 import Footer from './Footer';
 import SEO from './SEO';
-import Contact from './Contact';
+import Contact from './Contact1';
 
 const Layout = () => {
   return (

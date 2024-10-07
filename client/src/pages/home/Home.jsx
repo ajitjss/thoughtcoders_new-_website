@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import CarouselComp from '../../components/CarouselComp';
 import CountUpSection from '../../components/CountUpSection';
 import GetInTouch from '../../components/GetInTouch';
-import Contact from '../../components/Contact';
+import Contact from '../../components/Contact1';
 
 const Home = () => {
   // eslint-disable-next-line no-unused-vars

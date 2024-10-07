@@ -5,59 +5,34 @@ import { Toaster, toast } from 'react-hot-toast';
 const Contact = () => {
     const form = useRef();
 
-    const sendEmail = async (e) => {
+    const sendEmail = (e) => {
         e.preventDefault();
-
-        // Prepare form data
-        const formData = {
-            name: form.current.name.value,
-            email: form.current.email.value,
-            phone: form.current.phone.value,
-            message: form.current.message.value,
-        };
-
-        try {
-            // Send email via EmailJS
-            await emailjs.sendForm(
-                'service_98uncas', 
-                'template_009pnvn', 
-                form.current, 
-                { publicKey: 'hgc-VvNa7-GFMNRys' }
-            );
-            toast.success('Message sent successfully');
-            
-            // Store data in the database via API request
-            const response = await fetch('http://localhost:8080/api/submitForm', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            const result = await response.json();
-
-            if (response.ok) {
-                toast.success('Form data saved successfully');
-            } else {
-                toast.error(result.error || 'Failed to save form data');
-            }
-        } catch (error) {
-            toast.error('Error: ' + error.message);
-            console.log('Error:', error);
-        }
-
-        // Reset the form
+    
+        emailjs
+          .sendForm("service_98uncas", "template_009pnvn", form.current, {
+            publicKey: "hgc-VvNa7-GFMNRys",
+          })
+          .then(
+            () => {
+                toast.success('Message sent successfully');
+                console.log('SUCCESS!');
+            },
+            (error) => {
+                toast.error(error.text || 'FAILED...');
+              console.log('FAILED...', error.text);
+            },
+        );
         e.target.reset();
     };
+
 
     return (
         <div className='w-100' style={{ fontFamily: "georgia", display: 'flex', justifyContent: 'center', background: '#F36E2B' }}>
             <form className="mt-4" ref={form} onSubmit={sendEmail} style={{ width: '80%' }}>
-                <h2 style={{display:'flex', justifyContent:'center', fontWeight:'600', color:'white'}}>Contact Us</h2>
+              <h2 style={{display:'flex', justifyContent:'center', fontWeight:'600', color:'white'}}>Contact Us</h2>
                 <div className="row mb-2">
                     <div className="form-group col-md-6">
-                        <label htmlFor="name">Full Name<span style={{color:'red'}}>*</span></label>
+                    <label htmlFor="name">Full Name<span style={{color:'red'}}>*</span></label>
                         <input
                             type="text"
                             className="form-control"
@@ -70,7 +45,7 @@ const Contact = () => {
                     </div>
 
                     <div className="form-group col-md-6">
-                        <label htmlFor="email">Email<span style={{color:'red'}}>*</span></label>
+                    <label htmlFor="name">Email<span style={{color:'red'}}>*</span></label>
                         <input
                             type="email"
                             className="form-control"
@@ -85,7 +60,7 @@ const Contact = () => {
 
                 <div className="row">
                     <div className="form-group col-md-6">
-                        <label htmlFor="phone">Phone<span style={{color:'red'}}>*</span></label>
+                    <label htmlFor="name">Phone<span style={{color:'red'}}>*</span></label>
                         <input
                             type="tel"
                             className="form-control"
@@ -98,7 +73,7 @@ const Contact = () => {
                     </div>
 
                     <div className="form-group col-md-6">
-                        <label htmlFor="message">Message<span style={{color:'red'}}>*</span></label>
+                    <label htmlFor="name">Message<span style={{color:'red'}}>*</span></label>
                         <textarea
                             className="form-control"
                             name='message'

@@ -22,6 +22,7 @@ import OurTeam from './pages/about/OurTeam';
 import ApiAutomationTesting from './pages/services/api-automation-testing/ApiAutomationTesting';
 import QualityAssuranceServeice from './pages/services/quality-assurance-service/QualityAssuranceServeice';
 import RUC from './pages/services/ruc/RUC';
+import AboutUs from './pages/about/aboutUs/AboutUs';
 
 function App() {
     return (
@@ -44,6 +45,7 @@ function App() {
                             <Route path="accessibility-testing" element={<AccessibilityTesting />} />
                         </Route>
                         {/*About Routes */}
+                        <Route path='/about-us/' element={ <AboutUs /> } />
                         <Route path='/our-team/' element={ <OurTeam /> } />
                         {/*Services Routes */}
                         <Route path='/api-automation-testing-services/' element={ <ApiAutomationTesting /> } />

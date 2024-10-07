@@ -86,6 +86,30 @@ blogSchema.pre('save', function (next) {
 // Create a model for the Blog schema
 const Blog = mongoose.model('Blog', blogSchema);
 
+
+
+
+// Contact Schema
+const contactSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    phone: String,
+    message: String,
+});
+const Contact = mongoose.model('Contact', contactSchema);
+
+
+app.post('/api/submitForm', async (req, res) => {
+    const { name, email, phone, message } = req.body;
+    const newContact = new Contact({ name, email, phone, message });
+    try {
+        await newContact.save();
+        res.status(200).json({ message: 'Form data saved successfully' });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to save data' });
+    }
+});
+
 // Register API for creating new users
 app.post('/api/auth/register', async (req, res) => {
     const { name, email, password, confirmPassword } = req.body;

@@ -1,0 +1,71 @@
+/* Full-width container with background image */
+.top-heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    width: 750px;
+}
+
+.about-us-container-fluid {
+    background-color: #DFEEEE;
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0; 
+}
+.about-image1 {
+    width: 500px;
+    height: 383px;
+}
+.about-image2 {
+    width: 500px;
+    height: 90px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; 
+}
+.about-heading{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+}
+
+.profile-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.profile-image{
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+}
+.profile-main-heading{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+    margin-bottom: 70px;
+    
+}
+.profile-sub-heading{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+
+}
+.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
