@@ -1,3 +1,38 @@
+/* Header.css */
 .custom-dropdown .dropdown-toggle::after {
     color: #FF6100 !important; 
+}
+
+/* Adjust dropdowns for small screens */
+@media (max-width: 767px) {
+    .custom-dropdown .dropdown-menu {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .navbar-nav .nav-link {
+        margin: 10px 0;
+    }
+
+    /* Adjust logo for smaller screens */
+    .navbar-brand img {
+        width: 150px;
+        height: 40px;
+    }
+}
+
+/* For medium screens */
+@media (max-width: 991px) {
+    .navbar-brand img {
+        width: 180px;
+        height: 45px;
+    }
+}
+
+/* For large screens */
+@media (min-width: 992px) {
+    .navbar-brand img {
+        width: 200px;
+        height: 50px;
+    }
 }

@@ -34,8 +34,7 @@ function App() {
                         <Route index element={<Home />} />
                         <Route path="blogs" element={<BlogList />} />
                         <Route path="blogs/:slug" element={<BlogDetail />} />
-                        <Route path="login" element={<Login />} />
-                        <Route path="register" element={<Register />} />
+                        
                         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                         <Route path="terms-conditions" element={<TermsConditions />} />
                         <Route path="contact-us" element={<ContactUs />} />
@@ -51,6 +50,8 @@ function App() {
                         <Route path='/quality-assurance-services/' element={ <QualityAssuranceServeice /> } />
                         <Route path='/services/road-usages-charging/' element={ <RUC /> } />
                     </Route>
+                    <Route path="login" element={<Login />} />
+                    <Route path="register" element={<Register />} />
                     <Route 
                         path="/admin-dashboard/*" 
                         element={

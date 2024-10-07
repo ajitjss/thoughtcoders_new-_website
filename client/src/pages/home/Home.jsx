@@ -31,8 +31,9 @@ const Home = () => {
       <CarouselComp />
       <div className="container">
         {/* First Section-Recognized Software Testing Company */}
+        {/* First Section - Recognized Software Testing Company */}
         <div>
-          <div className='mt-5' style={{ fontFamily: 'georgia,sans-serif' }}>
+          <div className='mt-5 text-center' style={{ fontFamily: 'georgia, sans-serif' }}>
             <h2 className='font-bold'>Recognized Software Testing Company</h2>
             <h4 className='mb-5'>An Independent Software Testing Company delivering excellence to end users.</h4>
             <h2>Key Points</h2>
@@ -42,71 +43,52 @@ const Home = () => {
               targetNumber={90}
               imageSrc="/assets/homeimages/keypoints1.png"
               text="Working on Automation First Approach and successfully automated 90% Software Testing Process, Deployment, and reduced release cycle by 50%."
-              borderRadius={{
-                borderBottomRightRadius: '15px', 
-              }}
+              borderRadius={{ borderBottomRightRadius: '15px' }}
               countInitialState={23}
             />
             <CountUpSection
               targetNumber={211}
               imageSrc="/assets/homeimages/keypoints2.png"
               text="Delivered more than 200+ Projects to our customers with excellent Quality and zero bug leakage to Production by our rigorous Software Testing Process."
-              borderRadius={{
-                borderTopLeftRadius: '15px',
-                borderBottomRightRadius: '15px', 
-              }}
+              borderRadius={{ borderTopLeftRadius: '15px', borderBottomRightRadius: '15px' }}
               countInitialState={144}
             />
           </div>
+
           <div className="row mt-5">
             <CountUpSection
               targetNumber={1357}
               imageSrc="/assets/homeimages/keypoints3.png"
               text="Offering Internships and Summer Internships to young professional Graduates. Helping them to contribute in Digital Transformation and join Software Industries."
-              borderRadius={{
-                borderTopLeftRadius: '15px',
-                borderBottomRightRadius: '15px',
-              }}
+              borderRadius={{ borderTopLeftRadius: '15px', borderBottomRightRadius: '15px' }}
               countInitialState={1290}
             />
             <CountUpSection
               targetNumber={67}
               imageSrc="/assets/homeimages/keypoints4.png"
               text="Delivering excellent Software Testing Services for Enterprises, mid size businesses and startups."
-              borderRadius={{
-                borderBottomRightRadius: '15px',
-              }}
+              borderRadius={{ borderBottomRightRadius: '15px' }}
               countInitialState={0}
             />
           </div>
         </div>
         {/* Second Section-Bulb */}
-        <div style={{background:'#f3eeeb', padding:'5px', marginTop:'100px'}}>
-          <div className="mt-5 row align-items-center">
-            <div className="col-md-5">
-              <div className='d-flex justify-content-start align-items-center'>
-                <img src="/assets/homeimages/bulb.png" alt="" style={{marginTop:'-55px', marginRight:'30px', background:"#f3eeeb"}} />
-                <h6>
-                  “There is no alternative to digital transformation. Visionary companies will carve out
-                  new strategic options for themselves those that don’t adapt, will fail.”<br /> <span>----Jeff Bezos, Amazon</span>
+        <div style={{ background: '#f3eeeb', padding: '5px', marginTop: '100px' }}>
+          <div className="row align-items-center mt-5">
+            <div className="col-md-5 text-center text-md-start">
+              <div className='d-flex justify-content-center justify-content-md-start align-items-center'>
+                <img src="/assets/homeimages/bulb.png" alt="" style={{ marginTop: '-55px', marginRight: '30px', background: "#f3eeeb", width: '80%' }} />
+                <h6 className="ms-2">
+                  “There is no alternative to digital transformation. Visionary companies will carve out new strategic options for themselves those that don’t adapt, will fail.”
+                  <br /><span>----Jeff Bezos, Amazon</span>
                 </h6>
               </div>
             </div>
             <div className="col-md-2 d-flex justify-content-center">
-              <div style={{
-                borderLeft: '1px solid #000', 
-                height: '150px', 
-                margin: '1 auto'
-                }}> 
-              </div>
+              <div style={{ borderLeft: '1px solid #000', height: '150px' }}></div>
             </div>
-            <div className="col-md-5">
-              <p>
-                Passionate to help great businesses in Digital Transformation, Quality Assurance, Test Automation, 
-                Regression Testing, Offshore QA Team Solutions, End to End Software Testing and Performance Testing 
-                Services. Our enthusiastic, diligent, and smart team is committed to delivering innovative and efficient
-                solutions for our Clients.
-              </p>
+            <div className="col-md-5 text-center text-md-start">
+              <p>Passionate to help great businesses in Digital Transformation, Quality Assurance, Test Automation, Regression Testing, Offshore QA Team Solutions, End to End Software Testing, and Performance Testing Services.</p>
             </div>
           </div>
         </div>

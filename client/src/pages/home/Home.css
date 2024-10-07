@@ -1,45 +1,105 @@
-/* Home.css */
 .carousel-caption-left {
-    font-family:'Inknut Antiqua';
-    position: absolute;
-    top: 50%; 
-    left: -20%; 
-    transform: translateY(-50%); 
-    text-align: left; 
-    max-width: 40%; 
+  font-family: 'Inknut Antiqua';
+  position: absolute;
+  top: 50%;
+  left: -20%;
+  transform: translateY(-50%);
+  text-align: left;
+  max-width: 40%;
+}
+
+.carousel-caption-left h3 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.carousel-caption-left p {
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.carousel-caption-left .btn {
+  margin-top: 15px;
+}
+
+.readmore {
+  background-color: #FF6100 !important;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.read-more-btn {
+  background: #FF6608;
+  color: #fff;
+  font-weight: bold;
+}
+
+.read-more-btn:hover {
+  background: #FF4500;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .carousel-caption-left {
+      left: 0;
+      max-width: 90%;
+      text-align: center;
   }
-  
+
   .carousel-caption-left h3 {
-    font-size: 3rem; 
-    font-weight: bold;
-    color: #fff; 
+      font-size: 2rem;
   }
-  
+
   .carousel-caption-left p {
-    font-size: 1.25rem;
-    color: #fff; 
+      font-size: 1rem;
   }
-  
-  
+
+  /* Ensure images are responsive */
+  img {
+      max-width: 100%;
+      height: auto;
+  }
+
+  /* Ensure columns stack vertically on smaller screens */
+  .col-md-5, .col-md-6 {
+      flex: 0 0 100%;
+      max-width: 100%;
+  }
+
+  /* Reduce margin for better spacing on smaller screens */
+  .mt-5 {
+      margin-top: 2rem !important;
+  }
+
+  .mb-5 {
+      margin-bottom: 2rem !important;
+  }
+
+  /* Button adjustments */
+  .btn-outline-warning, .btn-outline-primary {
+      width: 100%;
+      font-size: 1rem;
+  }
+
+  /* Adjust testimonial images */
+  .testimonial-img {
+      width: 50px;
+      height: 50px;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-caption-left h3 {
+      font-size: 1.5rem;
+  }
+
+  .carousel-caption-left p {
+      font-size: 0.9rem;
+  }
+
   .carousel-caption-left .btn {
-    margin-top: 15px;
+      font-size: 0.8rem;
+      padding: 5px 10px;
   }
-  .readmore{
-    background-color: #FF6100 !important ;
-    font-size: 20px;
-    font-weight: 400;
-  }
-  
-
-
-  .read-more-btn {
-    background: #FF6608;
-    color: #fff;
-    font-weight: bold;
-  }
-  
-  .read-more-btn:hover {
-    background: #FF4500; 
-  }
-
-  
+}
