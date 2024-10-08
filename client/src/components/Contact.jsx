@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import { Toaster, toast } from 'react-hot-toast'; 
+import { Toaster, toast } from 'react-hot-toast';
+import axios from 'axios'; // Import Axios
+import { config } from '../config';
 
 const Contact = () => {
     const form = useRef();
@@ -24,23 +26,14 @@ const Contact = () => {
                 form.current, 
                 { publicKey: 'hgc-VvNa7-GFMNRys' }
             );
-            toast.success('Message sent successfully');
+            // Store data in the database via Axios POST request
+            const response = await axios.post(`${config.BASE_URL}/api/submitForm`, formData);
+            console.log('response', response)
             
-            // Store data in the database via API request
-            const response = await fetch('http://localhost:8080/api/submitForm', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            const result = await response.json();
-
-            if (response.ok) {
+            if (response.status === 200) {
                 toast.success('Form data saved successfully');
             } else {
-                toast.error(result.error || 'Failed to save form data');
+                toast.error('Failed to save form data');
             }
         } catch (error) {
             toast.error('Error: ' + error.message);
