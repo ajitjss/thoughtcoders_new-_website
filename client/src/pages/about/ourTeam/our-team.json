@@ -1,0 +1,75 @@
+[
+    {
+      "name": "Ajit Yadav",
+      "position": "CEO",
+      "image": "https://via.placeholder.com/150",
+      "linkedin": "#",
+      "twitter": "#",
+      "github": "#"
+    },
+    {
+      "name": "Arbind Yadav",
+      "position": "Full Stack Developer",
+      "image": "https://via.placeholder.com/150",
+      "linkedin": "#",
+      "twitter": "#",
+      "github": "#"
+    },
+    {
+      "name": "Devanand Verma",
+      "position": "Full Stack Developer",
+      "image": "/assets/our-team/dev.png",
+      "linkedin": "#",
+      "twitter": "#",
+      "github": "#"
+    },
+    {
+      "name": "Dinesh Kumar",
+      "position": "QA Engineer",
+      "image": "https://via.placeholder.com/150",
+      "linkedin": "#",
+      "twitter": "#",
+      "github": "#"
+    },
+    {
+      "name": "Shubham Kumar",
+      "position": "QA Engineer",
+      "image": "https://via.placeholder.com/150",
+      "linkedin": "#",
+      "twitter": "#",
+      "github": "#"
+    },
+    {
+      "name": "Gautam Joshi",
+      "position": "QA Engineer",
+      "image": "https://via.placeholder.com/150",
+      "linkedin": "#",
+      "twitter": "#",
+      "github": "#"
+    },
+    {
+      "name": "Vivek Yadav",
+      "position": "QA Engineer",
+      "image": "https://via.placeholder.com/150",
+      "linkedin": "#",
+      "twitter": "#",
+      "github": "#"
+    },
+    {
+      "name": "Ratan Kumar",
+      "position": "QA Engineer",
+      "image": "https://via.placeholder.com/150",
+      "linkedin": "#",
+      "twitter": "#",
+      "github": "#"
+    },
+    {
+      "name": "Arun Yadav",
+      "position": "QA Engineer",
+      "image": "https://via.placeholder.com/150",
+      "linkedin": "#",
+      "twitter": "#",
+      "github": "#"
+    }
+  ]
+  

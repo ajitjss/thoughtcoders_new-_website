@@ -130,7 +130,7 @@ const AboutUs = () => {
             </h5>
           </div>
           <div className='profile'>
-            <img className='profile-image' src="https://moz.com/images/about/avatars/rand-headshot-300x300.jpg?w=160&h=160&auto=compress%2Cformat&fit=crop&dm=1532459430&s=99b4c94d8050359697052e00c7eba222" alt="" />
+            <img className='about-profile-image' src="https://moz.com/images/about/avatars/rand-headshot-300x300.jpg?w=160&h=160&auto=compress%2Cformat&fit=crop&dm=1532459430&s=99b4c94d8050359697052e00c7eba222" alt="" />
             <strong>Rand Fishkin</strong>
             <p>Founder at Moz</p>
 

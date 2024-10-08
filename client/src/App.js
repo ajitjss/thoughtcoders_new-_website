@@ -18,11 +18,11 @@ import AccessibilityTesting from './pages/home/AccessibilityTesting';
 import ContactUs from './pages/contact/ContactUs';
 import PrivacyPolicy from './pages/privacy-policy/PrivacyPolicy';
 import TermsConditions from './pages/terms-condition/TermsConditions';
-import OurTeam from './pages/about/OurTeam';
 import ApiAutomationTesting from './pages/services/api-automation-testing/ApiAutomationTesting';
 import QualityAssuranceServeice from './pages/services/quality-assurance-service/QualityAssuranceServeice';
 import RUC from './pages/services/ruc/RUC';
 import AboutUs from './pages/about/aboutUs/AboutUs';
+import OurTeam from './pages/about/ourTeam/OurTeam';
 
 function App() {
     return (
