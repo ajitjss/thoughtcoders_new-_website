@@ -2,7 +2,7 @@
     {
       "name": "Ajit Yadav",
       "position": "CEO",
-      "image": "https://via.placeholder.com/150",
+      "image": "/assets/our-team/ajit.jpg",
       "linkedin": "#",
       "twitter": "#",
       "github": "#"
@@ -10,7 +10,7 @@
     {
       "name": "Arbind Yadav",
       "position": "Full Stack Developer",
-      "image": "https://via.placeholder.com/150",
+      "image": "/assets/our-team/arbind.png",
       "linkedin": "#",
       "twitter": "#",
       "github": "#"
@@ -26,7 +26,7 @@
     {
       "name": "Dinesh Kumar",
       "position": "QA Engineer",
-      "image": "https://via.placeholder.com/150",
+      "image": "/assets/our-team/dinesh.jpeg",
       "linkedin": "#",
       "twitter": "#",
       "github": "#"
@@ -34,7 +34,7 @@
     {
       "name": "Shubham Kumar",
       "position": "QA Engineer",
-      "image": "https://via.placeholder.com/150",
+      "image": "/assets/our-team/shubham.jpg",
       "linkedin": "#",
       "twitter": "#",
       "github": "#"
@@ -42,7 +42,7 @@
     {
       "name": "Gautam Joshi",
       "position": "QA Engineer",
-      "image": "https://via.placeholder.com/150",
+      "image": "/assets/our-team/gautam.png",
       "linkedin": "#",
       "twitter": "#",
       "github": "#"
@@ -50,7 +50,7 @@
     {
       "name": "Vivek Yadav",
       "position": "QA Engineer",
-      "image": "https://via.placeholder.com/150",
+      "image": "/assets/our-team/vivek.jpeg",
       "linkedin": "#",
       "twitter": "#",
       "github": "#"
@@ -58,7 +58,7 @@
     {
       "name": "Ratan Kumar",
       "position": "QA Engineer",
-      "image": "https://via.placeholder.com/150",
+      "image": "/assets/our-team/ratan.jpg",
       "linkedin": "#",
       "twitter": "#",
       "github": "#"

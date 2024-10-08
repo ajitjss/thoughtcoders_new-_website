@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom'
 import CarouselComp from '../../components/CarouselComp';
 import CountUpSection from '../../components/CountUpSection';
-// import GetInTouch from '../../components/GetInTouch';
+
 
 const Home = () => {
   // eslint-disable-next-line no-unused-vars

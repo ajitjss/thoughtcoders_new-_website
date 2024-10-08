@@ -1,58 +1,22 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { Toaster, toast } from 'react-hot-toast';
-import axios from 'axios'; 
+import axios from 'axios'; // Import Axios
 import { config } from '../config';
 
 const Contact = () => {
     const form = useRef();
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        message: ''
-    });
-    const timeoutRef = useRef(null);
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-
-        // Update form data state
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-
-        // Reset the timeout whenever the user types
-        if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current);
-        }
-
-        // Set a new timeout to save after a delay (e.g., 5 seconds)
-        timeoutRef.current = setTimeout(() => {
-            handleAutoSave();
-        }, 5000);
-    };
-
-    const handleAutoSave = async () => {
-        try {
-            // Store data in the database via Axios POST request
-            const response = await axios.post(`${config.BASE_URL}/api/submitForm`, formData);
-            console.log('Auto-save response', response);
-            
-            if (response.status === 200) {
-                toast.success('Form data auto-saved successfully');
-            } else {
-                toast.error('Failed to auto-save form data');
-            }
-        } catch (error) {
-            toast.error('Error during auto-save: ' + error.message);
-            console.log('Error during auto-save:', error);
-        }
-    };
 
     const sendEmail = async (e) => {
         e.preventDefault();
+
+        // Prepare form data
+        const formData = {
+            name: form.current.name.value,
+            email: form.current.email.value,
+            phone: form.current.phone.value,
+            message: form.current.message.value,
+        };
 
         try {
             // Send email via EmailJS
@@ -62,28 +26,23 @@ const Contact = () => {
                 form.current, 
                 { publicKey: 'hgc-VvNa7-GFMNRys' }
             );
-
-            // Optionally auto-save again after sending the email
-            await handleAutoSave();
-
+            // Store data in the database via Axios POST request
+            const response = await axios.post(`${config.BASE_URL}/api/submitForm`, formData);
+            console.log('response', response)
+            
+            if (response.status === 200) {
+                toast.success('Form data saved successfully');
+            } else {
+                toast.error('Failed to save form data');
+            }
         } catch (error) {
-            toast.error('Error sending email: ' + error.message);
+            toast.error('Error: ' + error.message);
             console.log('Error:', error);
         }
 
         // Reset the form
         e.target.reset();
-        setFormData({ name: '', email: '', phone: '', message: '' }); // Reset local state
     };
-
-    // Clean up the timeout on component unmount
-    useEffect(() => {
-        return () => {
-            if (timeoutRef.current) {
-                clearTimeout(timeoutRef.current);
-            }
-        };
-    }, []);
 
     return (
         <div className='w-100' style={{ fontFamily: "georgia", display: 'flex', justifyContent: 'center', background: '#F36E2B' }}>
@@ -100,7 +59,6 @@ const Contact = () => {
                             placeholder="Enter your full name"
                             style={{ width: '100%', padding: '10px' }}
                             required
-                            onChange={handleChange}
                         />
                     </div>
 
@@ -114,7 +72,6 @@ const Contact = () => {
                             placeholder="Enter your email"
                             style={{ width: '100%', padding: '10px' }}
                             required
-                            onChange={handleChange} 
                         />
                     </div>
                 </div>
@@ -130,7 +87,6 @@ const Contact = () => {
                             placeholder="Enter your phone number"
                             style={{ width: '100%', padding: '10px' }}
                             required
-                            onChange={handleChange}
                         />
                     </div>
 
@@ -144,7 +100,6 @@ const Contact = () => {
                             placeholder="Enter your message/query"
                             style={{ width: '100%', padding: '10px' }}
                             required
-                            onChange={handleChange} 
                         />
                     </div>
                 </div>
