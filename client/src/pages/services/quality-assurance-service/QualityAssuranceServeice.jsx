@@ -5,57 +5,55 @@ import { Link } from 'react-router-dom';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 
 const QualityAssuranceServeice = () => {
-
-
-        const OurPricingText=(text,color)=>{
-            return(
-                <div className="row">
-                    <div className="col-md-1">
-                        <GiCheckMark style={{color:color}}/>
-                    </div>
-                    <div className="col-md-11">
-                        <span className="card-text">{text}</span>
-                    </div>
+    const OurPricingText=(text,color)=>{
+        return(
+            <div className="row">
+                <div className="col-md-1">
+                    <GiCheckMark style={{color:color}}/>
                 </div>
-            )
+                <div className="col-md-11">
+                    <span className="card-text">{text}</span>
+                </div>
+            </div>
+        )
     }
 
     const QualityAssuranceCards=(imgUrl,count,text)=>{
         return(
             <div className="col-md-3">
-                        <div className="card" style={{ position: 'relative', overflow: 'hidden' }}>
-                            <div className="card-body" style={{ position: 'relative', padding: '30px' }}>
-                                <img
-                                src={imgUrl}
-                                alt=""
-                                style={{
-                                    position: 'absolute',
-                                    top: 0,
-                                    left: 0,
-                                    width: '70px', // Adjust width as needed
-                                    height: '70px', // Adjust height as needed
-                                    objectFit: 'cover',
-                                    borderBottomRightRadius:'20px',
-                                    borderTopLeftRadius: '5px', // Optional: Add some radius to match the card
-                                }}
-                                />
-                                <div
-                                style={{
-                                    marginTop: '30px',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    height: '100%',
-                                    textAlign: 'center',
-                                }}
-                                >
-                                <h2 style={{fontFamily:"georgia", fontWeight:'600'}}>{count}</h2>
-                                <p>{text}</p>
-                                </div>
-                            </div>
+                <div className="card" style={{ position: 'relative', overflow: 'hidden' }}>
+                    <div className="card-body" style={{ position: 'relative', padding: '30px' }}>
+                        <img
+                        src={imgUrl}
+                        alt=""
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '70px', 
+                            height: '70px',
+                            objectFit: 'cover',
+                            borderBottomRightRadius:'20px',
+                            borderTopLeftRadius: '5px',
+                        }}
+                        />
+                        <div
+                        style={{
+                            marginTop: '30px',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            height: '100%',
+                            textAlign: 'center',
+                        }}
+                        >
+                        <h2 style={{fontFamily:"georgia", fontWeight:'600'}}>{count}</h2>
+                        <p>{text}</p>
                         </div>
                     </div>
+                </div>
+            </div>
         )
     }
   return (

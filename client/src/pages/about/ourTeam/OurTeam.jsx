@@ -13,14 +13,14 @@ const OurTeam = () => {
 
   return (
     <div className="container mb-5">
-      <h1 className="title">Our Amazing Team</h1>
-      <div className="grid">
+      <h1 className="our-team-title">Our Amazing Team</h1>
+      <div className="our-team-grid">
         {teamMembers.map((member, index) => (
-          <div className="card" key={index}>
-            <div className="image-container">
-              <img src={member.image} alt={member.name} className="profile-image" />
+          <div className="our-team-card" key={index}>
+            <div className="our-team-image-container">
+              <img src={member.image} alt={member.name} className="our-team-profile-image" />
             </div>
-            <div className="content">
+            <div className="our-team-content">
               <h3>{member.name}</h3>
               <p>{member.position}</p>
               {/* <div className="social-icons">
