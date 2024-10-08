@@ -72,12 +72,12 @@ const Header = () => {
                             title={<span style={linkStyle}>Training</span>} 
                             id="training-dropdown"
                         >
-                            <NavDropdown.Item as={Link} to="/training/web-development">Katalon Studio Training</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/training/mobile-app">Manual Testing Training</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/training/cloud-training">Selenium with Java Training</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/training/katalon-studio-training/">Katalon Studio Training</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/training/manual-testing-training/">Manual Testing Training</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/training/selenium-training/">Selenium with Java Training</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/training/core-java-training/">Core Java Training</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/training/consulting">Consulting</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/training/consulting">API Testing</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/training/consulting">Core Java Training</NavDropdown.Item>
                         </NavDropdown>
 
                         {/* Additional Pages */}

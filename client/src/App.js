@@ -23,6 +23,10 @@ import QualityAssuranceServeice from './pages/services/quality-assurance-service
 import RUC from './pages/services/ruc/RUC';
 import AboutUs from './pages/about/aboutUs/AboutUs';
 import OurTeam from './pages/about/ourTeam/OurTeam';
+import Katalon from './pages/training/katalon/Katalon'
+import Manual from './pages/training/manual/Manual';
+import Selenium from './pages/training/selenium/Selenium';
+import Java from './pages/training/java/Java';
 
 function App() {
     return (
@@ -51,6 +55,11 @@ function App() {
                         <Route path='/api-automation-testing-services/' element={ <ApiAutomationTesting /> } />
                         <Route path='/quality-assurance-services/' element={ <QualityAssuranceServeice /> } />
                         <Route path='/services/road-usages-charging/' element={ <RUC /> } />
+                        {/*Training Routes */}
+                        <Route path='/training/katalon-studio-training/' element={ <Katalon /> } />
+                        <Route path='/training/manual-testing-training/' element={ <Manual /> } />
+                        <Route path='/training/selenium-training/' element={ <Selenium /> } />
+                        <Route path='/training/core-java-training/' element={ <Java /> } />
                     </Route>
                     <Route path="login" element={<Login />} />
                     <Route path="register" element={<Register />} />
