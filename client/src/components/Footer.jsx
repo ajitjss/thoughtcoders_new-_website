@@ -22,6 +22,7 @@ const Footer = () => {
             <ul className="list-unstyled">
               <li><Link to="/" className="text-white" style={{textDecoration:"none"}}>Home</Link></li>
               <li><Link to="/contact-us" className="text-white" style={{textDecoration:"none"}}>Contact Us</Link></li>
+              <li><Link to="/about-us" className="text-white" style={{textDecoration:"none"}}>About Us</Link></li>
               <li><Link to="/privacy-policy" className="text-white" style={{textDecoration:"none"}}>Privacy Policy</Link></li>
               <li><Link to="/terms-conditions" className="text-white" style={{textDecoration:"none"}}>Terms & Conditions</Link></li>
             </ul>
@@ -51,7 +52,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="text-center pt-3 border-top border-secondary">
-          <p style={{color:'#FF6100'}}>&copy;2024 thoughtcoders. All rights reserved.</p>
+          <p style={{color:'#FF6100'}}>Copyright &copy; 2024 Thoughtcoders. All rights reserved.</p>
         </div>
       </div>
     </footer>

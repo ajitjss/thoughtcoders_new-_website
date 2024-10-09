@@ -1,68 +1,38 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+// src/pages/CreateBlog.js
+import React, { useState, useRef } from 'react';
 import JoditEditor from 'jodit-react';
-import { fetchBlogBySlug } from '../services/blogService'; 
-import useBlog from '../hooks/useBlog'; 
+import useBlog from '../../../hooks/useBlog'; 
 import { Toaster, toast } from 'react-hot-toast'; 
 
-const EditBlog = () => {
-    const { slug } = useParams(); 
-    const { updateBlog } = useBlog(); 
-    const editor = useRef(null); 
-    const [formData, setFormData] = useState({
-        title: '',
-        description: '',
-        keywords: '',
-        slug: '',
-        content: ''
-    }); 
+const CreateBlog = () => {
+    const { createBlog, isLoading } = useBlog(); 
+    const editor = useRef(null);
+    const [formData, setFormData] = useState({ 
+        title: '', description:'', keywords:'', slug:'', content: ''  
+    });
 
-    const [isLoading, setIsLoading] = useState(false);
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        const fetchBlog = async () => {
-            const data = await fetchBlogBySlug(slug);
-            setFormData({
-                title: data.title,
-                description: data.description,
-                keywords: data.keywords,
-                slug: data.slug,
-                content: data.content
-            });
-        };
-
-        fetchBlog();
-    }, [slug]);
-
-    // Handle changes in form inputs
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    // Handle content change for the rich text editor
     const handleContentChange = (newContent) => {
         setFormData({ ...formData, content: newContent });
     };
 
-    // Handle form submission for updating the blog
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setIsLoading(true);
         try {
-            await updateBlog(slug, formData); 
-            toast.success('Blog updated successfully!')
-            navigate(`/blogs`);
+            await createBlog(formData);
+            setFormData({title: '', description:'', keywords:'', slug:'', content: ''});
+            toast.success('Blog created successfully!');
         } catch {
-            toast.error('Failed to update blog.')
-        } finally {
-            setIsLoading(false);
+            toast.error('Failed to create blog.');
         }
     };
 
     return (
         <div className="container mt-5">
-            <h1>Edit Blog</h1>
+            <h1>Create Blog</h1>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Title</label>
@@ -75,12 +45,10 @@ const EditBlog = () => {
                         required
                     />
                 </div>
-                
-                {/* New fields for description, keywords, and slug */}
-                
                 <div className="form-group">
                     <label>Description</label>
-                    <textarea
+                    <input
+                        type="text"
                         className="form-control"
                         name="description"
                         value={formData.description}
@@ -88,7 +56,6 @@ const EditBlog = () => {
                         required
                     />
                 </div>
-
                 <div className="form-group">
                     <label>Keywords</label>
                     <input
@@ -100,7 +67,6 @@ const EditBlog = () => {
                         required
                     />
                 </div>
-
                 <div className="form-group">
                     <label>Slug</label>
                     <input
@@ -112,7 +78,6 @@ const EditBlog = () => {
                         required
                     />
                 </div>
-
                 <div className="form-group">
                     <label>Content</label>
                     <JoditEditor
@@ -121,14 +86,13 @@ const EditBlog = () => {
                         onChange={handleContentChange}
                     />
                 </div>
-
                 <button className="btn btn-primary mt-3" type="submit" disabled={isLoading}>
-                    {isLoading ? 'Updating...' : 'Update Blog'}
+                    {isLoading ? 'Creating...' : 'Create Blog'}
                 </button>
-                <Toaster position='top-center' reverseOrder={false} />
+                <Toaster position="top-center" reverseOrder={false} />
             </form>
         </div>
     );
 };
 
-export default EditBlog;
+export default CreateBlog;

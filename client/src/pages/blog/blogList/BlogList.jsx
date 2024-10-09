@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
-import useBlog from "../hooks/useBlog";
-import useAuth from "../hooks/useAuth"; 
+import useBlog from "../../../hooks/useBlog";
+import useAuth from "../../../hooks/useAuth"; 
 import DOMPurify from "dompurify";
-import SEO from "../components/SEO";
+import SEO from "../../../components/SEO";
 import Spinner from 'react-bootstrap/Spinner';
 
 const BlogList = () => {

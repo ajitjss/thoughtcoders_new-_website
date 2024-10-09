@@ -5,11 +5,7 @@ import PrivateRoute from './components/PrivateRoute';
 import Login from './components/Login';
 import Register from './components/Register';
 import Layout from './components/Layout';
-import AdminDashboard from './pages/AdminDashboard';
-import BlogList from './pages/BlogList';
-import BlogDetail from './pages/BlogDetail';
-import CreateBlog from './pages/CreateBlog'; 
-import EditBlog from './pages/EditBlog';
+
 import { BlogProvider } from './context/BlogContext';
 import Home from './pages/home/Home';
 import { HelmetProvider } from 'react-helmet-async';
@@ -27,6 +23,10 @@ import Katalon from './pages/training/katalon/Katalon'
 import Manual from './pages/training/manual/Manual';
 import Selenium from './pages/training/selenium/Selenium';
 import Java from './pages/training/java/Java';
+import BlogList from './pages/blog/blogList/BlogList';
+import BlogDetail from './pages/blog/blogDetail/BlogDetail';
+import CreateBlog from './pages/blog/createBlog/CreateBlog';
+import EditBlog from './pages/blog/editBlog/EditBlog';
 
 function App() {
     return (
@@ -63,14 +63,6 @@ function App() {
                     </Route>
                     <Route path="login" element={<Login />} />
                     <Route path="register" element={<Register />} />
-                    <Route 
-                        path="/admin-dashboard/*" 
-                        element={
-                            <PrivateRoute roleRequired="isAdmin">
-                                <AdminDashboard />
-                            </PrivateRoute>
-                        } 
-                    />
                     <Route 
                         path="/create-blog" 
                         element={

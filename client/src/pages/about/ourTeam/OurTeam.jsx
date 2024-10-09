@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
 import './OurTeam.css';
 import teamData from './our-team.json'; 
 
@@ -23,11 +22,6 @@ const OurTeam = () => {
             <div className="our-team-content">
               <h3>{member.name}</h3>
               <p>{member.position}</p>
-              {/* <div className="social-icons">
-                <Link to={member.linkedin} className="social-link"><FaLinkedin /></Link>
-                <Link to={member.twitter} className="social-link"><FaTwitter /></Link>
-                <Link to={member.github} className="social-link"><FaGithub /></Link>
-              </div> */}
             </div>
           </div>
         ))}

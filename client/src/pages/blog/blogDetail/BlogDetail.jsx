@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import DOMPurify from 'dompurify';
-import { fetchBlogBySlug } from '../services/blogService'; // Import service function
-import SEO from '../components/SEO';
+import { fetchBlogBySlug } from '../../../services/blogService'; // Import service function
+import SEO from '../../../components/SEO';
 
 const BlogDetail = () => {
     const { slug } = useParams();
