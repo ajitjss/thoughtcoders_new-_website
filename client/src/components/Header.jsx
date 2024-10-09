@@ -15,7 +15,7 @@ const Header = () => {
         window.location.href = '/'; 
     };
     const linkStyle = {
-        color: '#FF6100',
+        color:'rgb(128, 48, 0)',
         fontWeight: 500
     };
 

@@ -35,19 +35,20 @@ const Footer = () => {
           </div>
           <div className="col-md-3 mb-3">
             <h5 className="text-uppercase">Follow Us</h5>
-            <div>
-              <Link to="https://facebook.com/thoughtcoders" target="_blank" rel="noopener noreferrer" className="text-white me-3">
-                <FaFacebookF size={20} />
-              </Link>
-              <Link to="https://twitter.com/thoughtcoders" target="_blank" rel="noopener noreferrer" className="text-white me-3">
-              <FaXTwitter size={20} />
-              </Link>
-              <Link to="https://www.instagram.com/thoughtcoders" target="_blank" rel="noopener noreferrer" className="text-white me-3">
-                <FaInstagram size={20} />
-              </Link>
-              <Link to="https://www.linkedin.com/company/thoughtcoders" target="_blank" rel="noopener noreferrer" className="text-white">
-                <FaLinkedinIn size={20} />
-              </Link>
+          <div>
+          <Link to="https://facebook.com/thoughtcoders" target="_blank" rel="noopener noreferrer" className="text-white me-3" aria-label="Follow us on Facebook">
+            <FaFacebookF size={20} />
+          </Link>
+          <Link to="https://twitter.com/thoughtcoders" target="_blank" rel="noopener noreferrer" className="text-white me-3" aria-label="Follow us on Twitter">
+            <FaXTwitter size={20} />
+          </Link>
+          <Link to="https://www.instagram.com/thoughtcoders" target="_blank" rel="noopener noreferrer" className="text-white me-3" aria-label="Follow us on Instagram">
+            <FaInstagram size={20} />
+          </Link>
+          <Link to="https://www.linkedin.com/company/thoughtcoders" target="_blank" rel="noopener noreferrer" className="text-white" aria-label="Follow us on LinkedIn">
+            <FaLinkedinIn size={20} />
+          </Link>
+
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 /* Header.css */
 .custom-dropdown .dropdown-toggle::after {
-    color: #FF6100 !important; 
+    color: rgb(128, 48, 0) !important; 
 }
 
 /* Adjust dropdowns for small screens */
