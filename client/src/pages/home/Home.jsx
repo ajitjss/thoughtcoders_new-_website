@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom'
 import CarouselComp from '../../components/CarouselComp';
 import CountUpSection from '../../components/CountUpSection';
-
+import './Home.css'
 
 const Home = () => {
   // eslint-disable-next-line no-unused-vars
@@ -113,7 +113,9 @@ const Home = () => {
               </p>
             </div>
               <Link to='/case-studies/test-automation/'>
-              <button className='btn btn-outline-warning' style={{width:'100%'}}>Read More</button>
+              <button className='btn btn-outline-warning' style={{width:'100%'}}>
+              Learn more about our services
+              </button>
               </Link>
           </div>
           <div className="col-md-6">
@@ -125,7 +127,9 @@ const Home = () => {
               </p>
             </div>
             <Link to='/case-studies/accessibility-testing/'>
-                <button className='btn btn-outline-warning' style={{width:'100%'}}>Read More</button>
+                <button className='btn btn-outline-warning' style={{width:'100%'}}>
+                  Explore our Test Automation case studies
+                </button>
             </Link>
           </div>
           <div style={{marginTop:"50px", display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center'}}>

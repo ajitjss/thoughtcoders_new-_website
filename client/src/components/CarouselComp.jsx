@@ -23,7 +23,7 @@ const CarouselComp = () => {
           <Carousel.Caption className="carousel-caption-left">
                 <h3>Innovate, Develop, Build <br /> and Redesign World Class Applications</h3>
                 <p>Our expert developers build best Applocations for <br /> Web,Mobile (Andriod,IOS and Windows) and desktop Applications.</p>
-            <Button className='readmore px-4 py-2' href="/read-more-1">Read More</Button>
+            <Button className='readmore px-4 py-2' href="/read-more-1">Learn more about our services</Button>
           </Carousel.Caption>
         </Carousel.Item>
 
@@ -37,7 +37,7 @@ const CarouselComp = () => {
           <Carousel.Caption className="carousel-caption-left">
                 <h3>Delivering the Excellence by Smart Automation</h3>
                 <p>Committed to deliver high quality applications, <br />best user experience and client satisfaction.</p>
-                <Button className='readmore px-4 py-2' href="/read-more-1">Read More</Button>
+                <Button className='readmore px-4 py-2' href="/read-more-1">Discover more details about our company</Button>
           </Carousel.Caption>
         </Carousel.Item>
 
@@ -51,7 +51,7 @@ const CarouselComp = () => {
           <Carousel.Caption className="carousel-caption-left">
                 <h3>Learn Continually, There's always "One more thing to Learn"- Steve Jobs</h3>
                 <p>Provide best Training on Computer Science Technologies, Automation,Quality Assurance, Programming languages.</p>
-                <Button className='readmore px-4 py-2' href="/read-more-1">Read More</Button>
+                <Button className='readmore px-4 py-2' href="/read-more-1">Find out more about our product offerings</Button>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
