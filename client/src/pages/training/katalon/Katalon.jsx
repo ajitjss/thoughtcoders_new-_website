@@ -5,7 +5,7 @@ import Accordion from 'react-bootstrap/Accordion';
 const Katalon = () => {
   return (
     <>
-      <div className="bg-container-fluid">
+      <div className="bg-container-fluid mt-5">
         <div className="container py-5">
           <div className="row align-items-center">
             <div className="col-md-7">
@@ -74,7 +74,7 @@ const Katalon = () => {
             <li>On Job support provided if required</li>
           </ul>
           <a
-            href="/assets/download/katalon-syllabus/katalon-studio-training-syllabus.pdf"
+            href="/assets/download/katalon-studio-training-syllabus.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-warning mt-3"
