@@ -7,7 +7,6 @@ import Register from './components/Register';
 import Layout from './components/Layout';
 
 import { BlogProvider } from './context/BlogContext';
-import Home from './pages/home/Home';
 import { HelmetProvider } from 'react-helmet-async';
 import TestAutomation from './pages/home/TestAutomation';
 import AccessibilityTesting from './pages/home/AccessibilityTesting';
@@ -27,6 +26,7 @@ import BlogList from './pages/blog/blogList/BlogList';
 import BlogDetail from './pages/blog/blogDetail/BlogDetail';
 import CreateBlog from './pages/blog/createBlog/CreateBlog';
 import EditBlog from './pages/blog/editBlog/EditBlog';
+import Home from './pages/home/Home';
 
 function App() {
     return (

@@ -1,34 +1,58 @@
-/* Home.css */
+.carousel-item {
+    height: 70vh; /* You can adjust this based on your design */
+    position: relative; /* Ensures proper positioning of captions */
+}
 
+.carousel-item img {
+    object-fit: cover; /* Makes the image cover the entire area */
+    width: 100%;
+    height: 100%;
+}
 
 .carousel-caption-left {
-    font-family:'Inknut Antiqua';
+    font-family: 'Inknut Antiqua', serif;
     position: absolute;
     top: 50%; 
-    left: -20%; 
+    left: 5%; /* Adjusted for better responsiveness */
     transform: translateY(-50%); 
     text-align: left; 
     max-width: 40%; 
-  }
-  
-  
-  .carousel-caption-left h3 {
-    font-size: 3rem; 
+}
+
+.carousel-caption-left h3 {
+    font-size: 2.5rem; /* Adjusted for better responsiveness */
     font-weight: bold;
     color: #fff;
-  }
-  
-  .carousel-caption-left p {
-    font-size: 1.25rem;
-    color: #fff; 
-  }
+}
 
-  .carousel-caption-left .btn {
+.carousel-caption-left p {
+    font-size: 1.125rem; /* Adjusted for better responsiveness */
+    color: #fff; 
+}
+
+.carousel-caption-left .btn {
     margin-top: 15px;
-  }
-  .readmore{
-    background-color: #FF6100 !important ;
-    font-size: 20px;
+}
+
+.readmore {
+    background-color: #FF6100 !important;
+    font-size: 1.25rem; /* Adjusted for better readability */
     font-weight: 400;
-  }
-  
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .carousel-caption-left {
+        max-width: 90%; /* Full width on small screens */
+        left: 0; /* Centered */
+        text-align: center; /* Center text on small screens */
+    }
+
+    .carousel-caption-left h3 {
+        font-size: 1.75rem; /* Smaller font size on mobile */
+    }
+
+    .carousel-caption-left p {
+        font-size: 1rem; /* Smaller font size on mobile */
+    }
+}
