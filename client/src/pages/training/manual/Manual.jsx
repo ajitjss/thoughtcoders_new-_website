@@ -3,7 +3,7 @@ import './Manual.css';
 
 const Manual = () => {
   return (
-    <main className='container'>
+    <main className='container py-5'>
       <section className="row">
         <article className="col-md-7 manual-content">
           <h1 className='kt-heading'>Manual Testing</h1>
@@ -26,7 +26,7 @@ const Manual = () => {
         </figure>
       </section>
       
-      <section className="py-5">
+      <section className="py-3">
         <div className="container">
           <h2 className="kt-heading">Manual Testing Training</h2>
           <p className="kt-text">
@@ -59,12 +59,12 @@ const Manual = () => {
             rel="noopener noreferrer"
             className="btn btn-warning mt-3"
           >
-            Download Katalon Studio Training Syllabus
+            Download Manual Testing Training Syllabus
           </a>
         </div>
       </section>
 
-      <section className="container mt-5 mb-5">
+      <section className="container mt-1 mb-5">
         <h4 className="kt-heading">Features of Manual Testing Training Programs</h4>
         <p>
           ThoughtCoders training programs are designed from beginner to advanced levels, very intuitive 

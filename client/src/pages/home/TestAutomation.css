@@ -1,0 +1,48 @@
+/* Ensure images are fully responsive */
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  /* Headings and text styling */
+  .main-heading {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 900;
+    margin-top: 20px;
+    font-size: 2.5rem;
+  }
+  
+  .sub-heading {
+    font-family: 'Georgia, sans-serif';
+    font-weight: 900;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+  }
+  
+  /* Button styling */
+  button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+  
+  /* Add responsiveness for smaller screens */
+  @media (max-width: 768px) {
+    .responsive-img {
+      height: auto;
+    }
+  
+    .main-heading {
+      font-size: 2rem;
+    }
+  
+    .sub-heading {
+      font-size: 1.2rem;
+    }
+  
+    button {
+      font-size: 0.9rem;
+    }
+  }
+  

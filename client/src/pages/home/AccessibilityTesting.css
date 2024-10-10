@@ -1,0 +1,55 @@
+/* AccessibilityTesting.css */
+
+
+
+/* Ensure body font family is applied */
+body {
+    font-family: 'Georgia', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Responsive images */
+.responsive-img {
+    width: 100%;
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Heading styles */
+.main-heading {
+    font-weight: 900;
+    margin-top: 20px;
+}
+
+.sub-heading {
+    font-weight: 900;
+    margin-top: 20px;
+}
+
+/* Solution heading */
+.solution-heading {
+    font-weight: 900;
+}
+
+/* Button styling */
+button {
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .main-heading {
+        font-size: 2rem; /* Adjust size for smaller screens */
+    }
+
+    .sub-heading {
+        font-size: 1.5rem; /* Adjust size for smaller screens */
+    }
+
+    button {
+        font-size: 0.9rem; /* Smaller button size for mobile */
+    }
+}

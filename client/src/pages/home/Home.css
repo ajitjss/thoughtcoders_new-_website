@@ -7,6 +7,12 @@
   text-align: left;
   max-width: 40%;
 }
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 20px;
+}
 
 .carousel-caption-left h3 {
   font-size: 3rem;

@@ -3,7 +3,7 @@ import './Selenium.css';
 
 const Selenium = () => {
   return (
-    <main className='container' style={{marginTop:'50px'}}>
+    <main className='container py-5'>
       <section className="row">
         <article className="col-md-7 manual-content">
           <h1 className='kt-heading'>Selenium with Core Java</h1>
@@ -66,7 +66,7 @@ const Selenium = () => {
         </div>
       </section>
 
-      <section className="container mt-5 mb-5">
+      <section className="container mt-1 mb-5">
         <h4 className="kt-heading">Features of Manual Testing Training Programs</h4>
         <p>
           ThoughtCoders training programs are designed from beginning level to advance level, very intuitive and 

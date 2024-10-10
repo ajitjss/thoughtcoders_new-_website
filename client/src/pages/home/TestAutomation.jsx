@@ -1,83 +1,95 @@
-// src/pages/TestAutomation.jsx
 import React from 'react';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Link } from 'react-router-dom';
+import './TestAutomation.css';
 
 const TestAutomation = () => {
   return (
     <div className='container'>
-      <div className='d-flex flex-column justify-content-center align-items-center'>
+      {/* Header Section */}
+      <header className='d-flex flex-column justify-content-center align-items-center'>
         <img 
-          style={{width:'80%',height:'500px',borderRadius:'10px', marginTop:"20px"}} 
+          className="responsive-img" 
           src="/assets/homeimages/test-automation.png" 
-          alt="" 
+          alt="Test Automation Overview" 
+          loading="lazy" 
         />
-        <h2 style={{fontFamily:'georgia,sans-serif',fontWeight:900, marginTop:'20px'}}>Test Automation</h2>
-      </div>
-      <div className="row mt-5">
+        <h1 className="main-heading" style={{fontFamily:'georgia'}}>Test Automation</h1>
+      </header>
+
+      {/* Overview Section */}
+      <section className="row mt-5">
         <div className="col-md-3">
-          <h4 style={{fontFamily:'georgia,sans-serif',fontWeight:900}}>Overview</h4>
+          <h2 className="sub-heading">Overview</h2>
         </div>
         <div className="col-md-9">
-          <h4 style={{fontFamily:'georgia,sans-serif',fontWeight:900}}>Let’s automate web, mobile App and API testing process</h4>
+          <h3 className="sub-heading">Let’s automate web, mobile App, and API testing process</h3>
           <p>
             We know you love to perform regression testing and smoke testing after each new build as it
-            ensures your application runs perfectly on Production. But we also know that it’s very costly
-            solution for you.  To make it cost-effective, ThoughCoders team is started automation testing services. 
-            Our high techie team automates your application and perform your regression with automation.
-            Our Automation packs are highly scalable and customizable over vast range of browsers, environments,
-            and test data.ThoughtCoders team have highly experienced professionals who have vast range of projects
-            experience. They automate your application using open source APIs Selenium, Rest Assured, Testing,
-            J Unit, Silk4J, Cucumber, Appium, TOSCA, RPA, Katalon Studio, JDBC, open CSV, and many more.
+            ensures your application runs perfectly in production. However, this is often costly. To make it 
+            cost-effective, the ThoughtCoders team offers automation testing services.
+            Our high-tech team automates your application and performs your regression testing with automation.
+            Our automation packs are scalable and customizable across a wide range of browsers, environments,
+            and test data. ThoughtCoders has experienced professionals who have worked on a wide range of projects.
+            They automate your application using open source APIs like Selenium, Rest Assured, JUnit, Cucumber, 
+            Appium, and more.
           </p>
         </div>
-      </div>
-      <div className="row mt-5">
+      </section>
+
+      {/* Challenge Section */}
+      <section className="row mt-5">
         <div className="col-md-3">
-          <h4 style={{fontFamily:'georgia,sans-serif',fontWeight:900}}>Challenge</h4>
+          <h2 className="sub-heading">Challenge</h2>
         </div>
         <div className="col-md-9">
-          <h4 style={{fontFamily:'georgia,sans-serif',fontWeight:900}}>How we automate</h4>
+          <h3 className="sub-heading">How We Automate</h3>
           <ul>
-            <li>Requirement, feasibility and ROI Analysis</li>
-            <li>POC and Selection of Tool and client Approval</li>
-            <li>Sprint Planning and task allocation</li>
-            <li>Client Demo and Feedback incorporation</li>
-            <li>Client Delivery</li>
+            <li>Requirement, feasibility, and ROI analysis</li>
+            <li>POC, selection of tools, and client approval</li>
+            <li>Sprint planning and task allocation</li>
+            <li>Client demos and feedback incorporation</li>
+            <li>Final client delivery</li>
           </ul>
         </div>
-      </div>
-      <div className="row mt-5">
+      </section>
+
+      {/* Results Section */}
+      <section className="row mt-5">
         <div className="col-md-3">
-          <h4 style={{fontFamily:'georgia,sans-serif',fontWeight:900}}>Results</h4>
+          <h2 className="sub-heading">Results</h2>
         </div>
         <div className="col-md-9">
-          <h4 style={{fontFamily:'georgia,sans-serif',fontWeight:900}}>Why you choose ThoughtCoders</h4>
+          <h3 className="sub-heading">Why Choose ThoughtCoders</h3>
           <p>
-            There are many reasons to choose us but here are few:
+            Here are some reasons to choose us:
           </p>
           <ul>
             <li>Robust and scalable framework development</li>
-            <li>Best Design concept implement as per client requirement</li>
-            <li>Additional feature integrated in Framework (Database and Server log validation by Automation)</li>
-            <li>Best Reporting implementation</li>
-            <li>Continuous Integration Implemented</li>
-            <li>Training to client and guide provided for framework</li>
+            <li>Best design concepts implemented as per client requirements</li>
+            <li>Additional features integrated in the framework (Database and server log validation by automation)</li>
+            <li>Best reporting implementation</li>
+            <li>Continuous integration implemented</li>
+            <li>Training and guidance provided for the framework</li>
             <li>Timely delivery</li>
-            <li>Excellence Delivery with value added pack</li>
+            <li>Excellent delivery with added value</li>
           </ul>
           <p>
-            We are looking for opportunity to deliver best automation framework. For more information/demo feel free 
-            to contact us on <Link>+919555902032</Link> or write us on <Link to='mailto:info@thoughtcoders.com' target="_blank">info@thoughtcoders.com</Link>
+            For more information or a demo, feel free to contact us at 
+            <a href="tel:+919555902032" aria-label="Call us at +919555902032">+919555902032</a> or email us at 
+            <a href="mailto:info@thoughtcoders.com" target="_blank" rel="noopener noreferrer">info@thoughtcoders.com</a>.
           </p>
         </div>
-      </div>
+      </section>
 
-      <div style={{marginBottom:'70px', marginTop:"50px"}}>
+      {/* Back Button */}
+      <footer style={{marginBottom:'70px', marginTop:"50px"}}>
         <Link to='/'>
-          <button className='btn btn-outline-warning text-black'><IoMdArrowRoundBack /> Go Home</button>
+          <button className='btn btn-outline-warning text-black'>
+            <IoMdArrowRoundBack aria-hidden="true" /> Go Home
+          </button>
         </Link>
-      </div>
+      </footer>
     </div>
   );
 };
