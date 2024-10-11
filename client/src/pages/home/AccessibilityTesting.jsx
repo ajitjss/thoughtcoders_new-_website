@@ -10,7 +10,7 @@ const AccessibilityTesting = () => {
       <header className='d-flex flex-column justify-content-center align-items-center'>
         <img 
           className='responsive-img'
-          src="/assets/homeimages/accessibility-testing.png" 
+          src="/assets/homeimages/accessibility-testing.webp" 
           alt="Accessibility Testing Overview" 
         />
         <h2 className='main-heading'>Accessibility Testing Case Study</h2>

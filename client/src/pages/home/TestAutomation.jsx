@@ -9,6 +9,7 @@ const TestAutomation = () => {
       {/* Header Section */}
       <header className='d-flex flex-column justify-content-center align-items-center'>
         <img 
+        style={{width:'800px'}}
           className="responsive-img" 
           src="/assets/homeimages/test-automation.png" 
           alt="Test Automation Overview" 

@@ -29,7 +29,6 @@ const Home = () => {
       {/* Carousel*/}
       <CarouselComp />
       <div className="container">
-        {/* First Section-Recognized Software Testing Company */}
         {/* First Section - Recognized Software Testing Company */}
         <div>
           <div className='mt-5 text-center' style={{ fontFamily: 'georgia, sans-serif' }}>
@@ -40,14 +39,14 @@ const Home = () => {
           <div className="row">
             <CountUpSection
               targetNumber={90}
-              imageSrc="/assets/homeimages/keypoints1.png"
+              imageSrc="/assets/homeimages/keypoints1.webp"
               text="Working on Automation First Approach and successfully automated 90% Software Testing Process, Deployment, and reduced release cycle by 50%."
               borderRadius={{ borderBottomRightRadius: '15px' }}
               countInitialState={23}
             />
             <CountUpSection
               targetNumber={211}
-              imageSrc="/assets/homeimages/keypoints2.png"
+              imageSrc="/assets/homeimages/keypoints2.webp"
               text="Delivered more than 200+ Projects to our customers with excellent Quality and zero bug leakage to Production by our rigorous Software Testing Process."
               borderRadius={{ borderTopLeftRadius: '15px', borderBottomRightRadius: '15px' }}
               countInitialState={144}
@@ -57,14 +56,14 @@ const Home = () => {
           <div className="row mt-5">
             <CountUpSection
               targetNumber={1357}
-              imageSrc="/assets/homeimages/keypoints3.png"
+              imageSrc="/assets/homeimages/keypoints3.webp"
               text="Offering Internships and Summer Internships to young professional Graduates. Helping them to contribute in Digital Transformation and join Software Industries."
               borderRadius={{ borderTopLeftRadius: '15px', borderBottomRightRadius: '15px' }}
               countInitialState={1290}
             />
             <CountUpSection
               targetNumber={67}
-              imageSrc="/assets/homeimages/keypoints4.png"
+              imageSrc="/assets/homeimages/keypoints4.webp"
               text="Delivering excellent Software Testing Services for Enterprises, mid size businesses and startups."
               borderRadius={{ borderBottomRightRadius: '15px' }}
               countInitialState={0}
@@ -76,7 +75,7 @@ const Home = () => {
           <div className="row align-items-center mt-5">
             <div className="col-md-5 text-center text-md-start">
               <div className='d-flex justify-content-center justify-content-md-start align-items-center'>
-                <img src="/assets/homeimages/bulb.png" alt="" style={{ marginTop: '-55px', marginRight: '30px', background: "#f3eeeb", width: '80%' }} />
+                <img src="/assets/homeimages/bulb.webp" alt="bulb" style={{ marginTop: '-55px', marginRight: '30px', background: "#f3eeeb", width: '80%' }} />
                 <h6 className="ms-2">
                   “There is no alternative to digital transformation. Visionary companies will carve out new strategic options for themselves those that don’t adapt, will fail.”
                   <br /><span>----Jeff Bezos, Amazon</span>
@@ -93,7 +92,7 @@ const Home = () => {
         </div>
         {/*Third Section-Case Studies on Software Testing */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginTop:'100px' }}>
-          <img src="assets/homeimages/bag.png" alt="" style={{ marginBottom: '20px' }} />
+          <img src="assets/homeimages/bag.webp" alt="bag" style={{ marginBottom: '20px' }} />
           <h2 style={{ marginBottom: '15px', fontFamily: 'georgia,sans-serif' }}>Case Studies on Software Testing, Automation and Performance Testing</h2>
           <p style={{ maxWidth: '850px' }}>
             As we know every Software Application is completely different from other applications
@@ -106,7 +105,7 @@ const Home = () => {
         <div className="row">
           <div className="col-md-6">
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginTop:'100px' }}>
-              <img src="/assets/homeimages/case-studies-1.png" alt="" style={{borderRadius:"5px"}} />
+              <img src="/assets/homeimages/case-studies-1.webp" alt="case-studies-1" style={{borderRadius:"5px"}} />
               <h4 style={{ marginTop:"15px", marginBottom: '15px', fontFamily: 'georgia,sans-serif' }}>Test Automation</h4>
               <p>
                 Reducing Release Cycle by 50% and increasing test coverage upto 100 % with Robust Test Automation.
@@ -120,7 +119,7 @@ const Home = () => {
           </div>
           <div className="col-md-6">
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginTop:'100px' }}>
-              <img src="/assets/homeimages/case-studies-2.png" alt="" style={{width:'573px',height:'325px', borderRadius:'5px'}} />
+              <img src="/assets/homeimages/case-studies-2.webp" alt="case-studies-2" style={{width:'573px',height:'325px', borderRadius:'5px'}} />
               <h4 style={{ marginTop:"15px", marginBottom: '15px', fontFamily: 'georgia,sans-serif' }}>Accessibility Testing</h4>
               <p style={{marginBottom:'35px'}}>
                 Enabling blessed people to access Digital Applications by our Accessibility Experts..
@@ -142,19 +141,19 @@ const Home = () => {
             <h1>Our Partners</h1>
           </div>
           <div className="d-flex flex-wrap justify-content-center mt-4">
-            <img className="img-fluid m-2" style={{ width: '200px', height: '60px' }} src="/assets/homeimages/image3.png" alt="Partner 1" />
-            <img className="img-fluid m-2" style={{ width: '200px', height: '60px' }} src="/assets/homeimages/image1.png" alt="Partner 2" />
-            <img className="img-fluid m-2" style={{ width: '200px', height: '60px' }} src="/assets/homeimages/image2.png" alt="Partner 3" />
-            <img className="img-fluid m-2" style={{ width: '200px', height: '60px' }} src="/assets/homeimages/image4.png" alt="Partner 4" />
-            <img className="img-fluid m-2" style={{ width: '200px', height: '60px' }} src="/assets/homeimages/image5.png" alt="Partner 5" />
-            <img className="img-fluid m-2" style={{ width: '200px', height: '60px' }} src="/assets/homeimages/image6.png" alt="Partner 6" />
+            <img className="img-fluid m-2" style={{ width: '200px', height: '60px' }} src="/assets/homeimages/image3.webp" alt="partner_1"/>
+            <img className="img-fluid m-2" style={{ width: '200px', height: '60px' }} src="/assets/homeimages/image1.webp" alt="partner_2"/>
+            <img className="img-fluid m-2" style={{ width: '200px', height: '60px' }} src="/assets/homeimages/image2.webp" alt="partner_3"/>
+            <img className="img-fluid m-2" style={{ width: '200px', height: '60px' }} src="/assets/homeimages/image4.webp" alt="partner_4" />
+            <img className="img-fluid m-2" style={{ width: '200px', height: '60px' }} src="/assets/homeimages/image5.webp" alt="partner_5" />
+            <img className="img-fluid m-2" style={{ width: '200px', height: '60px' }} src="/assets/homeimages/image6.webp" alt="partner_6" />
           </div>
         </div>
         {/* Sixth Section-Free consultation */}
         <div style={{marginBottom:'100px'}}>
           <div
             style={{   
-              backgroundImage: "url('/assets/homeimages/free-consultation-1.png')",
+              backgroundImage: "url('/assets/homeimages/free-consultation-1.webp')",
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
@@ -163,7 +162,7 @@ const Home = () => {
               borderRadius:'10px'
             }}
           >
-            <img src="/assets/homeimages/steps.png" alt="" style={{width:'100%', marginLeft:"20px"}}/>
+            <img src="/assets/homeimages/steps.webp" alt="steps" style={{width:'100%', marginLeft:"20px"}}/>
             <div className="row">
               <div className="col-md-3">
                 <h3 style={{ fontFamily: 'georgia,sans-serif' }}>Requirement Analysis and Scoping</h3>
@@ -191,7 +190,7 @@ const Home = () => {
             </div>
           </div>
           <div style={{ position: 'relative', width: '100%', height: '400px' }}>
-            <img src="assets/homeimages/free-consultation-2.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius:'10px' }} />
+            <img src="assets/homeimages/free-consultation-2.webp" alt="free-consultation-2" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius:'10px' }} />
             <div
               style={{
                 position: 'absolute',
@@ -213,15 +212,15 @@ const Home = () => {
         {/* Seventh Section-Testimonials*/}
         <div style={{marginBottom:'100px'}}>
           <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
-            <img src="/assets/homeimages/testimonial-quotes.png" alt="" />
+            <img src="/assets/homeimages/testimonial-quotes.webp" alt="testimonial-quotes" />
             <h2 style={{ fontFamily: 'georgia,sans-serif' }}>Testimonials</h2>
             <p>To ensure customer satisfaction and business success, you must check testimonials for our Quality Assurance and Testing Automation Services.</p>
           </div>
           <div className="row" style={{marginTop:"50px"}}>
             <div className="col-md-6 d-flex">
               <img 
-                src="/assets/homeimages/smarttech-founder.png"
-                alt="" 
+                src="/assets/homeimages/smarttech-founder.webp"
+                alt="smarttech-founder" 
                 style={{
                   height: '80px', 
                   width: '80px', 
@@ -237,8 +236,8 @@ const Home = () => {
             </div>
             <div className="col-md-6 d-flex">
               <img 
-                src="/assets/homeimages/tantrabyte-founder.png"
-                alt="" 
+                src="/assets/homeimages/tantrabyte-founder.webp"
+                alt="tantrabyte-founder" 
                 style={{
                   height: '80px', 
                   width: '80px', 
@@ -261,7 +260,7 @@ const Home = () => {
         </div>
         <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginBottom:'100px'}}>
           <h1 style={{fontFamily:'georgia, sans-serif',marginTop:'40px',marginBottom:'40px'}}>Tools and Technologies</h1>
-          <img src="/assets/homeimages/tools-and-tech.png" alt="" />
+          <img src="/assets/homeimages/tools-and-tech.webp" alt="tools-and-tech" />
         </div>
       </div>
     </div>
