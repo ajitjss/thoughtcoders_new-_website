@@ -64,6 +64,7 @@ const Header = () => {
                             <NavDropdown.Item as={Link} to="/services/cloud-services">Remote QA Team</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/services/road-usages-charging">Road Use Charges (RUC)</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/services/consulting">Test Automation</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/services/json-to-json-comparator">JSON Comparator</NavDropdown.Item>
                         </NavDropdown>
                         
                         {/* Training Dropdown */}

@@ -27,6 +27,7 @@ import BlogDetail from './pages/blog/blogDetail/BlogDetail';
 import CreateBlog from './pages/blog/createBlog/CreateBlog';
 import EditBlog from './pages/blog/editBlog/EditBlog';
 import Home from './pages/home/Home';
+import JsonToJson from './components/json-to json-comparator/JsonComparator';
 
 function App() {
     return (
@@ -55,6 +56,8 @@ function App() {
                         <Route path='/api-automation-testing-services/' element={ <ApiAutomationTesting /> } />
                         <Route path='/quality-assurance-services/' element={ <QualityAssuranceServeice /> } />
                         <Route path='/services/road-usages-charging/' element={ <RUC /> } />
+                        <Route path='/services/json-to-json-comparator/' element={ <JsonToJson /> } />
+
                         {/*Training Routes */}
                         <Route path='/training/katalon-studio-training/' element={ <Katalon /> } />
                         <Route path='/training/manual-testing-training/' element={ <Manual /> } />
