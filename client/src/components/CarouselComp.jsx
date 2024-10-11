@@ -17,7 +17,7 @@ const CarouselComp = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/assets/carousels/carousel1.png"
+            src="/assets/carousels/carousel1.webp"
             alt="Developing world-class applications"
             loading="lazy" // Improve performance
           />
@@ -26,7 +26,6 @@ const CarouselComp = () => {
             <p>Our expert developers build the best applications for Web, Mobile (Android, iOS, and Windows), and desktop.</p>
             <Button 
               className='readmore px-4 py-2' 
-              href="/read-more-1" 
               aria-label="Learn more about our services">
               Learn more about our services
             </Button>
@@ -37,7 +36,7 @@ const CarouselComp = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/assets/carousels/carousel2.png"
+            src="/assets/carousels/carousel2.webp"
             alt="Excellence in Smart Automation"
             loading="lazy"
           />
@@ -46,7 +45,6 @@ const CarouselComp = () => {
             <p>Committed to delivering high-quality applications, the best user experience, and client satisfaction.</p>
             <Button 
               className='readmore px-4 py-2' 
-              href="/read-more-1" 
               aria-label="Discover more about our company">
               Discover more details about our company
             </Button>
@@ -57,7 +55,7 @@ const CarouselComp = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/assets/carousels/carousel3.png"
+            src="/assets/carousels/carousel3.webp"
             alt="Continuous Learning in Technology"
             loading="lazy"
           />
@@ -65,8 +63,7 @@ const CarouselComp = () => {
             <h3>Learn Continually, There's Always "One More Thing to Learn"</h3>
             <p>Providing the best training on Computer Science Technologies, Automation, Quality Assurance, and Programming Languages.</p>
             <Button 
-              className='readmore px-4 py-2' 
-              href="/read-more-1" 
+              className='readmore px-4 py-2'
               aria-label="Find out more about our product offerings">
               Find out more about our product offerings
             </Button>

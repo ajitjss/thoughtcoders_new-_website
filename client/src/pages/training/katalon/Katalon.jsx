@@ -39,7 +39,7 @@ const Katalon = () => {
           <div className="col-md-6">
             <img
               className="img-fluid katalon-image"
-              src="/assets/training/low-code-katalon.png"
+              src="/assets/training/low-code-katalon.webp"
               alt="Low Code Automation Tool Training"
             />
           </div>

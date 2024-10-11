@@ -83,7 +83,7 @@ const RUC = () => {
         <h4 className='d-flex justify-content-center' style={{fontFamily:'georgia', marginTop:'20px',marginBottom:'30px', fontWeight:'600'}}>
           ThoughtCoders Top Considerations for Road Usages Charges Application Testing
         </h4>
-        <img style={{width:'100%'}} src="/assets/ruc/consideration.png" alt="consideration" />
+        <img style={{width:'100%'}} src="/assets/ruc/consideration.webp" alt="consideration" />
       </div>
       <div style={{marginBottom:'30px'}}>
         <p>

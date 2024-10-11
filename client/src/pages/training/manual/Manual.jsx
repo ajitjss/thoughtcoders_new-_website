@@ -22,7 +22,7 @@ const Manual = () => {
           </div>
         </article>
         <figure className="col-md-5">
-          <img src="https://dz2cdn1.dzone.com/storage/temp/15924809-1592474520233.png" alt="Manual Testing Diagram" loading="lazy" />
+          <img src="https://dz2cdn1.dzone.com/storage/temp/15924809-1592474520233.webp" alt="Manual Testing Diagram" loading="lazy" />
         </figure>
       </section>
       
@@ -90,7 +90,7 @@ const Manual = () => {
       </section>
 
       <section className='container mb-5'>
-        <img style={{ width: '100%', height: 'auto' }} src="/assets/training/benefits-manual-testing.png" alt="Manual Testing Benefits" loading="lazy" />
+        <img style={{ width: '100%', height: 'auto' }} src="/assets/training/benefits-manual-testing.webp" alt="Manual Testing Benefits" loading="lazy" />
         <p>
           <strong>To know more or join, Contact Us at +91-9555902032 or write to us at info@thoughtcoders.com</strong>
         </p>
