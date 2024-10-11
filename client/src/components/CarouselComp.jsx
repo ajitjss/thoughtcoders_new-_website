@@ -20,7 +20,6 @@ const CarouselComp = () => {
           srcset="/assets/carousels/carousel1-small.webp 600w, /assets/carousels/carousel1.webp 1200w" 
           sizes="(max-width: 600px) 100vw, 50vw" 
           alt="Developing world-class applications"
-          loading="lazy"
         />
 
           <Carousel.Caption className="carousel-caption-left">
@@ -41,7 +40,6 @@ const CarouselComp = () => {
           srcset="/assets/carousels/carousel2-small.webp 600w, /assets/carousels/carousel2.webp 1200w" 
           sizes="(max-width: 600px) 100vw, 50vw" 
           alt="Developing world-class applications"
-          loading="lazy"
         />
           <Carousel.Caption className="carousel-caption-left">
             <h3>Delivering Excellence Through Smart Automation</h3>
@@ -61,7 +59,6 @@ const CarouselComp = () => {
           srcset="/assets/carousels/carousel3-small.webp 600w, /assets/carousels/carousel3.webp 1200w" 
           sizes="(max-width: 600px) 100vw, 50vw" 
           alt="Developing world-class applications"
-          loading="lazy"
         />
           <Carousel.Caption className="carousel-caption-left">
             <h3>Learn Continually, There's Always "One More Thing to Learn"</h3>
