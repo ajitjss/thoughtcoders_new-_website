@@ -15,12 +15,14 @@ const CarouselComp = () => {
       <Carousel>
         {/* First Slide */}
         <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="/assets/carousels/carousel1.webp"
-            alt="Developing world-class applications"
-            loading="lazy" // Improve performance
-          />
+        <img class="d-block w-100" 
+          src="/assets/carousels/carousel1-small.webp" 
+          srcset="/assets/carousels/carousel1-small.webp 600w, /assets/carousels/carousel1.webp 1200w" 
+          sizes="(max-width: 600px) 100vw, 50vw" 
+          alt="Developing world-class applications"
+          loading="lazy"
+        />
+
           <Carousel.Caption className="carousel-caption-left">
             <h3>Innovate, Develop, Build <br /> and Redesign World-Class Applications</h3>
             <p>Our expert developers build the best applications for Web, Mobile (Android, iOS, and Windows), and desktop.</p>
@@ -34,12 +36,13 @@ const CarouselComp = () => {
 
         {/* Second Slide */}
         <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="/assets/carousels/carousel2.webp"
-            alt="Excellence in Smart Automation"
-            loading="lazy"
-          />
+        <img class="d-block w-100" 
+          src="/assets/carousels/carousel2-small.webp" 
+          srcset="/assets/carousels/carousel2-small.webp 600w, /assets/carousels/carousel2.webp 1200w" 
+          sizes="(max-width: 600px) 100vw, 50vw" 
+          alt="Developing world-class applications"
+          loading="lazy"
+        />
           <Carousel.Caption className="carousel-caption-left">
             <h3>Delivering Excellence Through Smart Automation</h3>
             <p>Committed to delivering high-quality applications, the best user experience, and client satisfaction.</p>
@@ -53,12 +56,13 @@ const CarouselComp = () => {
 
         {/* Third Slide */}
         <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="/assets/carousels/carousel3.webp"
-            alt="Continuous Learning in Technology"
-            loading="lazy"
-          />
+        <img class="d-block w-100" 
+          src="/assets/carousels/carousel3-small.webp" 
+          srcset="/assets/carousels/carousel3-small.webp 600w, /assets/carousels/carousel3.webp 1200w" 
+          sizes="(max-width: 600px) 100vw, 50vw" 
+          alt="Developing world-class applications"
+          loading="lazy"
+        />
           <Carousel.Caption className="carousel-caption-left">
             <h3>Learn Continually, There's Always "One More Thing to Learn"</h3>
             <p>Providing the best training on Computer Science Technologies, Automation, Quality Assurance, and Programming Languages.</p>
