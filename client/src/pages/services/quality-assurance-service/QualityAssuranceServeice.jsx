@@ -62,7 +62,7 @@ const QualityAssuranceServeice = () => {
         <div className='mb-5d-flex flex-column justify-content-center align-items-center'>
             <img 
                 style={{width:'100%',height:'500px',borderRadius:'10px', marginTop:"20px"}} 
-                src="/assets/homeimages/quality-assurance-1.png" 
+                src="/assets/homeimages/quality-assurance-1.webp" 
                 alt="" 
             />
         </div>
@@ -81,7 +81,7 @@ const QualityAssuranceServeice = () => {
             <div className="col-md-6">
                 <img 
                 style={{width:'100%',height:'500px',borderRadius:'10px'}}
-                src="/assets/homeimages/quality-assurance-2.png"  alt="" />
+                src="/assets/homeimages/quality-assurance-2.webp"  alt="" />
             </div>
         </div>
         {/*Cards Section*/}
@@ -89,16 +89,16 @@ const QualityAssuranceServeice = () => {
             <div style={{ margin: 0, padding: 0 }}>
                 <img
                     style={{ width: '100%', height: '100%', borderTopRightRadius: '10px', borderTopLeftRadius:'10px', display: 'block' }}
-                    src="/assets/homeimages/quality-assurance-3.png"
+                    src="/assets/homeimages/quality-assurance-3.webp"
                     alt=""
                 />
             </div>
             <div style={{ margin: 0, padding: 0, width: '100%', height: '300px', background: '#2C2F50',borderTopLeftRadius:'3px'  }}>
                 <div className="row p-5">
-                    {QualityAssuranceCards('/assets/homeimages/qlty-card-1.png','132+','Delivered excellent Quality Assurance Services ......')}
-                    {QualityAssuranceCards('/assets/homeimages/qlty-card-2.png','12%','Automated more than 75% QA Process ....')}
-                    {QualityAssuranceCards('/assets/homeimages/qlty-card-3.png','150+','Delivered 150+ Projects to various clients')}
-                    {QualityAssuranceCards('/assets/homeimages/qlty-card-4.png','345+','As markets evolve and emerge, they...')}
+                    {QualityAssuranceCards('/assets/homeimages/qlty-card-1.webp','132+','Delivered excellent Quality Assurance Services ......')}
+                    {QualityAssuranceCards('/assets/homeimages/qlty-card-2.webp','12%','Automated more than 75% QA Process ....')}
+                    {QualityAssuranceCards('/assets/homeimages/qlty-card-3.webp','150+','Delivered 150+ Projects to various clients')}
+                    {QualityAssuranceCards('/assets/homeimages/qlty-card-4.webp','345+','As markets evolve and emerge, they...')}
                 </div>
 
             </div>
@@ -118,7 +118,7 @@ const QualityAssuranceServeice = () => {
         <div className="row" style={{marginBottom:'70px'}}>
             <div className="col-md-4 d-flex">
                 <img 
-                    src="/assets/homeimages/cup.png"
+                    src="/assets/homeimages/cup.webp"
                     alt="" 
                     height="50px"
                 />
@@ -132,7 +132,7 @@ const QualityAssuranceServeice = () => {
             </div>
             <div className="col-md-4 d-flex">
                 <img 
-                    src="/assets/homeimages/cup-2.png"
+                    src="/assets/homeimages/cup-2.webp"
                     alt="" 
                     height="50px"
                 />
@@ -148,7 +148,7 @@ const QualityAssuranceServeice = () => {
             </div>
             <div className="col-md-4 d-flex">
                 <img 
-                    src="/assets/homeimages/cup-3.png"
+                    src="/assets/homeimages/cup-3.webp"
                     alt="" 
                     height="50px"
                 />
@@ -165,7 +165,7 @@ const QualityAssuranceServeice = () => {
 
         {/* Dollor Section */}
         <div className='d-flex flex-column justify-content-center align-items-center'>
-            <img src="/assets/homeimages/dollor.png" alt="" style={{marginBottom:'10px'}}/>
+            <img src="/assets/homeimages/dollor.webp" alt="" style={{marginBottom:'10px'}}/>
             <h4 style={{fontFamily:'georgia,sans-serif'}}>Our Pricing</h4>
             <p>
                 We have designed the best pricing plans for Startups, mid-size businesses, and enterprises. 

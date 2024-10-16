@@ -96,7 +96,7 @@ const Katalon = () => {
           <div className="col-md-6 text-center">
             <img
               className="img-fluid katalon-image"
-              src="/assets/training/katalon-certificate-sample.jpeg"
+              src="/assets/training/katalon-certificate-sample.webp"
               alt="Sample Certificate"
             />
           </div>

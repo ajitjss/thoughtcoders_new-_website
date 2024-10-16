@@ -28,6 +28,7 @@ import CreateBlog from './pages/blog/createBlog/CreateBlog';
 import EditBlog from './pages/blog/editBlog/EditBlog';
 import Home from './pages/home/Home';
 import JsonToJson from './components/json-to json-comparator/JsonComparator';
+import News from './pages/news/News';
 
 function App() {
     return (
@@ -63,6 +64,8 @@ function App() {
                         <Route path='/training/manual-testing-training/' element={ <Manual /> } />
                         <Route path='/training/selenium-training/' element={ <Selenium /> } />
                         <Route path='/training/core-java-training/' element={ <Java /> } />
+                        {/* News */}
+                        <Route path='/news' element={ <News /> } />
                     </Route>
                     <Route path="login" element={<Login />} />
                     <Route path="register" element={<Register />} />

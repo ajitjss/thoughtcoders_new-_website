@@ -48,7 +48,7 @@ const BlogDetail = () => {
           author={blog.author.name}
         />
             
-            <h1>{blog.title}</h1>
+            <h1 style={{fontFamily:'georgia', fontWeight:'600'}}>{blog.title}</h1>
             <div className="blog-content mt-4">
                 <div
                     dangerouslySetInnerHTML={{

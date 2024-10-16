@@ -83,6 +83,7 @@ const Header = () => {
 
                         {/* Additional Pages */}
                         <Nav.Link style={linkStyle} as={Link} to="/blogs">Blogs</Nav.Link>
+                        <Nav.Link style={linkStyle} as={Link} to="/news">News</Nav.Link>
                         <Nav.Link style={linkStyle} as={Link} to="/contact-us">Contact Us</Nav.Link>
                         
                         {/* Conditionally render based on user authentication */}
