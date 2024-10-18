@@ -1,21 +1,27 @@
+import React, { useState, useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown'; 
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
 import AuthContext from '../context/AuthContext';
-import './Header.css'
+import './Header.css';
 
 const Header = () => {
     const { user, logout } = useContext(AuthContext); 
+
+    // State to track which dropdown is open
+    const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
+    const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+    const [trainingDropdownOpen, setTrainingDropdownOpen] = useState(false);
 
     const handleLogout = () => {
         logout(); 
         window.location.href = '/'; 
     };
+
     const linkStyle = {
-        color:'rgb(128, 48, 0)',
+        color: 'rgb(128, 48, 0)',
         fontWeight: 500
     };
 
@@ -43,6 +49,9 @@ const Header = () => {
                             className="custom-dropdown"
                             title={<span style={linkStyle}>About</span>} 
                             id="about-dropdown"
+                            show={aboutDropdownOpen}  // Controlled by state
+                            onMouseEnter={() => setAboutDropdownOpen(true)} 
+                            onMouseLeave={() => setAboutDropdownOpen(false)}
                         >
                             <NavDropdown.Item as={Link} to="/about-us/">About Us</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/our-team/">Our Team</NavDropdown.Item>
@@ -58,6 +67,9 @@ const Header = () => {
                             className="custom-dropdown"
                             title={<span style={linkStyle}>Services</span>} 
                             id="service-dropdown"
+                            show={servicesDropdownOpen}  // Controlled by state
+                            onMouseEnter={() => setServicesDropdownOpen(true)} 
+                            onMouseLeave={() => setServicesDropdownOpen(false)}
                         >
                             <NavDropdown.Item as={Link} to="/quality-assurance-services/">Quality Assurance Services</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/api-automation-testing-services/">API Automation Testing</NavDropdown.Item>
@@ -72,6 +84,9 @@ const Header = () => {
                             className="custom-dropdown"
                             title={<span style={linkStyle}>Training</span>} 
                             id="training-dropdown"
+                            show={trainingDropdownOpen}  // Controlled by state
+                            onMouseEnter={() => setTrainingDropdownOpen(true)} 
+                            onMouseLeave={() => setTrainingDropdownOpen(false)}
                         >
                             <NavDropdown.Item as={Link} to="/training/katalon-studio-training/">Katalon Studio Training</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/training/manual-testing-training/">Manual Testing Training</NavDropdown.Item>

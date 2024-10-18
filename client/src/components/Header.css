@@ -2,6 +2,10 @@
 .custom-dropdown .dropdown-toggle::after {
     color: rgb(128, 48, 0) !important; 
 }
+.custom-dropdown .dropdown-item:hover {
+    background-color: rgb(148, 74, 29); 
+    color: #fff; 
+}
 
 /* Adjust dropdowns for small screens */
 @media (max-width: 767px) {
@@ -36,3 +40,7 @@
         height: 50px;
     }
 }
+
+
+
+
