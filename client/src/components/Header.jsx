@@ -14,6 +14,7 @@ const Header = () => {
     const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
     const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
     const [trainingDropdownOpen, setTrainingDropdownOpen] = useState(false);
+    const [newsDropdownOpen, setNewsDropdownOpen] = useState(false);
 
     const handleLogout = () => {
         logout(); 
@@ -98,7 +99,18 @@ const Header = () => {
 
                         {/* Additional Pages */}
                         <Nav.Link style={linkStyle} as={Link} to="/blogs">Blogs</Nav.Link>
-                        <Nav.Link style={linkStyle} as={Link} to="/news">News</Nav.Link>
+                        <NavDropdown 
+                            className="custom-dropdown"
+                            title={<span style={linkStyle}>News</span>} 
+                            id="news-dropdown"
+                            show={newsDropdownOpen}  // Controlled by state
+                            onMouseEnter={() => setNewsDropdownOpen(true)} 
+                            onMouseLeave={() => setNewsDropdownOpen(false)}
+                        >
+                            <NavDropdown.Item as={Link} to="/news/thoughtcoders-and-lambdatest/">ThoughtCoders and LambdaTest <br />Partnership</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/news/partnership-of-thoughtcoders-and-katalon-studio/">ThoughtCoders and Katalon <br /> Studio Partnership</NavDropdown.Item>
+
+                        </NavDropdown>
                         <Nav.Link style={linkStyle} as={Link} to="/contact-us">Contact Us</Nav.Link>
                         
                         {/* Conditionally render based on user authentication */}

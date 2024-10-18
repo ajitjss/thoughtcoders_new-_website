@@ -28,7 +28,8 @@ import CreateBlog from './pages/blog/createBlog/CreateBlog';
 import EditBlog from './pages/blog/editBlog/EditBlog';
 import Home from './pages/home/Home';
 import JsonToJson from './components/json-to json-comparator/JsonComparator';
-import News from './pages/news/News';
+import ThoughtCodersLambdaTest from './pages/news/ThoughtCodersLambdaTest';
+import ThoughtCodersKatalon from './pages/news/ThoughtCodersKatalon';
 
 function App() {
     return (
@@ -65,7 +66,8 @@ function App() {
                         <Route path='/training/selenium-training/' element={ <Selenium /> } />
                         <Route path='/training/core-java-training/' element={ <Java /> } />
                         {/* News */}
-                        <Route path='/news' element={ <News /> } />
+                        <Route path='/news/thoughtcoders-and-lambdatest/' element={ <ThoughtCodersLambdaTest /> } />
+                        <Route path='/news/partnership-of-thoughtcoders-and-katalon-studio/' element={ <ThoughtCodersKatalon /> } />
                     </Route>
                     <Route path="login" element={<Login />} />
                     <Route path="register" element={<Register />} />

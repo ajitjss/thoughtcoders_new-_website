@@ -1,6 +1,6 @@
 import React from 'react'
 
-const News = () => {
+const ThoughtCodersLambdaTest = () => {
   return (
     <div className='container'>
       <h1>“Strategic Partnership: Katalon and ThoughtCoders Unite for Cutting-Edge Solutions”</h1>
@@ -11,4 +11,4 @@ const News = () => {
   )
 }
 
-export default News
+export default ThoughtCodersLambdaTest
