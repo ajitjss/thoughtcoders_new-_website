@@ -3,7 +3,7 @@ import React from 'react'
 const ThoughtCodersKatalon = () => {
   return (
     <div>
-      <h1>ThoughtCodersKatalon</h1>
+      <h1 style={{color:'red'}}>It will Added Soon</h1>
     </div>
   )
 }
