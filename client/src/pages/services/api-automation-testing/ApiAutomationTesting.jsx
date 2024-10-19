@@ -8,7 +8,7 @@ const ApiAutomationTesting = () => {
       <div className='d-flex flex-column justify-content-center align-items-center'>
         <img 
             style={{width:'100%',height:'350px',borderRadius:'10px', marginTop:"20px"}} 
-            src="/assets/homeimages/api-automation-testing-2.png" 
+            src="/assets/homeimages/api-automation-testing.webp" 
             alt="" 
         />
         <h2 style={{fontFamily:'georgia,sans-serif',fontWeight:900, marginTop:'30px'}}>

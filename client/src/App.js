@@ -30,6 +30,11 @@ import Home from './pages/home/Home';
 import JsonToJson from './components/json-to json-comparator/JsonComparator';
 import ThoughtCodersLambdaTest from './pages/news/ThoughtCodersLambdaTest';
 import ThoughtCodersKatalon from './pages/news/ThoughtCodersKatalon';
+import Career from './pages/about/career/Career';
+import CorporateSocialResponsibility from './pages/about/corporate-social-responsibility/CorporateSocialResponsibility';
+import GDPRCommitment from './pages/about/gdpr-commitments/GDPRCommitment';
+import Intership from './pages/about/internship/Intership';
+import CaseStudies from './pages/about/case-studies/CaseStudies';
 
 function App() {
     return (
@@ -53,7 +58,12 @@ function App() {
                         </Route>
                         {/*About Routes */}
                         <Route path='/about-us/' element={ <AboutUs /> } />
-                        <Route path='/our-team/' element={ <OurTeam /> } />
+                        <Route path='/about/our-team' element={ <OurTeam /> } />
+                        <Route path='/about/career' element={ <Career /> } />
+                        <Route path='/about/case-studies' element={ <CaseStudies /> } />
+                        <Route path='/about/internship' element={ <Intership /> } />
+                        <Route path='/about/gdpr-commitments' element={ <GDPRCommitment /> } />
+                        <Route path='/about/corporate-social-responsibility' element={ <CorporateSocialResponsibility /> } />
                         {/*Services Routes */}
                         <Route path='/api-automation-testing-services/' element={ <ApiAutomationTesting /> } />
                         <Route path='/quality-assurance-services/' element={ <QualityAssuranceServeice /> } />

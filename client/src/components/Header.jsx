@@ -55,7 +55,7 @@ const Header = () => {
                             onMouseLeave={() => setAboutDropdownOpen(false)}
                         >
                             <NavDropdown.Item as={Link} to="/about-us/">About Us</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/our-team/">Our Team</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/about/our-team">Our Team</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/about/career">Career</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/about/case-studies">Case Studies</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/about/internship">Internship</NavDropdown.Item>
@@ -103,7 +103,7 @@ const Header = () => {
                             className="custom-dropdown"
                             title={<span style={linkStyle}>News</span>} 
                             id="news-dropdown"
-                            show={newsDropdownOpen}  // Controlled by state
+                            show={newsDropdownOpen}  
                             onMouseEnter={() => setNewsDropdownOpen(true)} 
                             onMouseLeave={() => setNewsDropdownOpen(false)}
                         >
