@@ -11,6 +11,16 @@ const ThoughtCodersLambdaTest = () => {
   return (
     <div className='container'>
       <h2 style={mainHeadingStyle}>ThoughtCoders and LambdaTest partnership for flawless automation</h2>
+      <div className='d-flex flex-column justify-content-center align-items-center'>
+        <img 
+            style={{width:'100%',height:'600px',borderRadius:'10px', marginTop:"20px"}} 
+            src="/assets/homeimages/tc-lambdatest.webp" 
+            alt="" 
+        />
+        <h2 style={{fontFamily:'georgia,sans-serif',fontWeight:900, marginTop:'30px'}}>
+          ThoughtCoders and Lambdatest Partnership
+        </h2>
+      </div>
       <h4 style={mainHeadingStyle}>Empowering Business with Efficient and Reliable Cloud Testing Solutions</h4>
       <p>
         We have joined hands with LamdaTest to ensure the flawless performance of websites and web  applications 

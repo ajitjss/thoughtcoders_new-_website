@@ -10,6 +10,16 @@ const ThoughtCodersKatalon = () => {
   return (
     <div className='container'>
       <h2 style={myHeadingStyle}>“Strategic Partnership: Katalon and ThoughtCoders Unite for Cutting-Edge Solutions”</h2>
+      <div className='d-flex flex-column justify-content-center align-items-center'>
+        <img 
+            style={{width:'100%',height:'600px',borderRadius:'10px', marginTop:"20px"}} 
+            src="/assets/homeimages/tc-katalon.webp" 
+            alt="" 
+        />
+        <h2 style={{fontFamily:'georgia,sans-serif',fontWeight:900, marginTop:'30px'}}>
+        ThoughtCoders and Katalon Partnership
+        </h2>
+      </div>
       <h4 style={myHeadingStyle}>Simplify the Challenges of Test Automation Barriers</h4>
       <p>Implementing an AI-augmented platform for automated  test planning, scripting, execution, analysis, and creates remarkable digital experiences.</p>
       <h3 style={myHeadingStyle}>Common Challenges Faced by the Enterprises in Test Automation</h3>
