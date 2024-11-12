@@ -35,11 +35,7 @@ import CorporateSocialResponsibility from './pages/about/corporate-social-respon
 import GDPRCommitment from './pages/about/gdpr-commitments/GDPRCommitment';
 import Intership from './pages/about/internship/Intership';
 import CaseStudies from './pages/about/case-studies/CaseStudies';
-const cors = require('cors');
-const express = require('express');
-let app = express();
-app.use(cors());
-app.options('*', cors());
+
 function App() {
     return (
             <HelmetProvider>
