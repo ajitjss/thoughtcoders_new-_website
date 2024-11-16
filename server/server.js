@@ -35,6 +35,7 @@ const connectDB = async () => {
     }
 };
 connectDB();
+console.log(connectDB)
 
 // Multer Configuration for Image Uploads
 const storage = multer.diskStorage({
@@ -85,6 +86,7 @@ blogSchema.pre('save', function (next) {
 
 // Create a model for the Blog schema
 const Blog = mongoose.model('Blog', blogSchema);
+
 
 
 
@@ -290,7 +292,10 @@ app.post('/api/create-blog', authenticateToken, checkAdmin, async (req, res) => 
 // Public route to get all blogs
 app.get('/api/all-blogs', async (req, res) => {
     try {
+        
+        // res.status(200).json([3,4,2,4,2,4,2,3])
         const blogs = await Blog.find().populate('author', 'name email');
+         
         res.status(200).json(blogs); 
     } catch (error) {
         console.error('Error fetching blogs:', error);
