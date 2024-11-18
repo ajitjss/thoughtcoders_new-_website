@@ -406,5 +406,5 @@ app.post('/create-order', async (req, res) => {
 app.use('/uploads', express.static('uploads'));
 
 // Start the server on the specified port (default is 8000)
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`.bgCyan.white));
+const PORT = process.env.PORT || 443;
+app.listen(PORT, () => console.log(`Server running at https://thoughtcoders.tech/:${PORT}`.bgCyan.white));
