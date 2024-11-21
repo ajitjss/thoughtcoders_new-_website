@@ -53,6 +53,25 @@ const Career = () => {
         </ul>
 
         <h3 style={careerHeadingStyle}>To all our interns we offer following benefits:</h3>
+        <ul>
+          <li>Stipend and attractive rewards.</li>
+          <li>Dedicate mentor assigned for your training and guidance.</li>
+          <li>Opportunity to work on advanced technologies and various domains (E-Commerce, Investment, and Banking Applications).</li>
+          <li>Opportunity to work on industrial projects and tools.</li>
+          <li>Opportunity to connect with various business and technologies leads.</li>
+          <li>Helps to build professional networking.</li>
+          <li>Internship completion Certificate.</li>
+          <li>Due to COVID – Remote work facility.</li>
+          <li>Sponsored trainings on new technologies if required.</li>
+          <li>Awards and Appreciations.</li>
+          <li>Good work culture and professional environment.</li>
+        </ul>
+        <p>
+          ThoughtCoders gives a very open work culture and helps the colleagues to boost their productivity. 
+          We ensure for stringent implementation of Thought Coders values, integrity and ethics so people with 
+          different diversity can work together.To apply for internship, share your resume on <strong>info@thoughtcoders.com.</strong>
+          Our Team will analyze your resume and get back to you. Feel free to Contact Us on <strong>+919555902032</strong> if you need more information.
+        </p>
       </div>
     </div>
   )

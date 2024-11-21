@@ -246,10 +246,14 @@ app.post('/api/create-blog', authenticateToken, checkAdmin, async (req, res) => 
 });
 
 // Public route to get all blogs
+
 app.get('/api/all-blogs', async (req, res) => {
+    
     try {
         // Fetch all blogs from MongoDB and populate author details
+        console.log("blog api response")
         const blogs = await Blog.find().populate('author', 'name email');
+        
         res.status(200).json(blogs); // Send the blogs as response
     } catch (error) {
         console.error('Error fetching blogs:', error);

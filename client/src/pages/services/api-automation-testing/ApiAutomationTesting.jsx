@@ -9,7 +9,7 @@ const ApiAutomationTesting = () => {
         <img 
             style={{width:'100%',height:'350px',borderRadius:'10px', marginTop:"20px"}} 
             src="/assets/homeimages/api-automation-testing.webp" 
-            alt="" 
+            alt="api-automation-testing" 
         />
         <h2 style={{fontFamily:'georgia,sans-serif',fontWeight:900, marginTop:'30px'}}>
         API Automation Testing
