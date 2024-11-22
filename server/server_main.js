@@ -19,7 +19,7 @@ const app = express();
 
 // Use CORS middleware to allow requests from different origins
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://thoughtcoders-new-website.onrender.com'],
+    origin: ['http://localhost:3000', 'https://thoughtcoders-new-website-yxzv.onrender.com'],
     credentials: true, // If using cookies or authentication
 }));
 

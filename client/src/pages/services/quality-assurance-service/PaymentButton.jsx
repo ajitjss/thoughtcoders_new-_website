@@ -26,7 +26,7 @@ const PaymentButton = ({amountLabel,amount, currency, receipt, background, btnbg
 
     try {
       // Create order from backend
-      const orderResponse = await fetch(`https://thoughtcoders-new-website.onrender.com/create-order`, {
+      const orderResponse = await fetch(`https://thoughtcoders-new-website-yxzv.onrender.com/create-order`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ const PaymentButton = ({amountLabel,amount, currency, receipt, background, btnbg
         order_id: orderData.id, // Order ID generated in the backend
         handler: async (response) => {
           // Verify payment in backend
-          const verifyResponse = await fetch(`https://thoughtcoders-new-website.onrender.com/verify-payment`, {
+          const verifyResponse = await fetch(`https://thoughtcoders-new-website-yxzv.onrender.com/verify-payment`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
