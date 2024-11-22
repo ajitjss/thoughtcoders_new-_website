@@ -17,7 +17,7 @@ dotenv.config();
 const app = express();
 // CORS middleware
 app.use(cors({
-    origin: ['http://localhost:3000','https://thoughtcoders.tech', 'https://thoughtcoders-new-website.onrender.com'],
+    origin: ['http://localhost:3000','https://thoughtcoders.netlify.app', 'https://thoughtcoders-new-website.onrender.com'],
     credentials: true, 
 }));
 
@@ -35,7 +35,6 @@ const connectDB = async () => {
     }
 };
 connectDB();
-console.log(connectDB)
 
 // Multer Configuration for Image Uploads
 const storage = multer.diskStorage({
@@ -86,7 +85,6 @@ blogSchema.pre('save', function (next) {
 
 // Create a model for the Blog schema
 const Blog = mongoose.model('Blog', blogSchema);
-
 
 
 
@@ -292,10 +290,7 @@ app.post('/api/create-blog', authenticateToken, checkAdmin, async (req, res) => 
 // Public route to get all blogs
 app.get('/api/all-blogs', async (req, res) => {
     try {
-        
-        // res.status(200).json([3,4,2,4,2,4,2,3])
         const blogs = await Blog.find().populate('author', 'name email');
-         
         res.status(200).json(blogs); 
     } catch (error) {
         console.error('Error fetching blogs:', error);
@@ -406,12 +401,5 @@ app.post('/create-order', async (req, res) => {
 app.use('/uploads', express.static('uploads'));
 
 // Start the server on the specified port (default is 8000)
-//const PORT = process.env.PORT || 443;
-//app.listen(PORT, () => console.log(`Server running at https://thoughtcoders.tech/:${PORT}`.bgCyan.white));
 const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => console.log(`Server running at https://thoughtcoders.tech:${PORT}`.bgCyan.white));
-
-//const port = process.env.PORT || 8000; // Default to 8000 if no PORT is set
-//app.listen(port, () => {
-  //console.log(`Server running on port ${port}`);
-//});
+app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`.bgCyan.white));

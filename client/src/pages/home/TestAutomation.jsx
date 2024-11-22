@@ -11,7 +11,7 @@ const TestAutomation = () => {
         <img 
         style={{width:'800px'}}
           className="responsive-img" 
-          src="/assets/homeimages/test-automation.webp" 
+          src="/assets/homeimages/test-automation.png" 
           alt="Test Automation Overview" 
           loading="lazy" 
         />

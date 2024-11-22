@@ -29,9 +29,9 @@ const Contact = () => {
         }
 
         // Set a new timeout to save after a delay (e.g., 5 seconds)
-      //  timeoutRef.current = setTimeout(() => {
-      //      handleAutoSave();
-      //  }, 5000);
+        timeoutRef.current = setTimeout(() => {
+            handleAutoSave();
+        }, 5000);
     };
 
     const handleAutoSave = async () => {
@@ -64,7 +64,7 @@ const Contact = () => {
             );
 
             // Optionally auto-save again after sending the email
-           // await handleAutoSave();
+            await handleAutoSave();
 
         } catch (error) {
             toast.error('Error sending email: ' + error.message);
